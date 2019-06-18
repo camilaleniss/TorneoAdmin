@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
+
     class Escuela
     {
         //El nombre de la escuela
