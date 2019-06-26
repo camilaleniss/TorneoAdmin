@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace TorneoApp.Model
 {
 
-    class Escuela
+    public class Escuela
     {
         //El nombre de la escuela
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         //Puntuación acumulada en formas
-        private int PFormas { get; set; }
+        public int PFormas { get; set; }
 
         //Puntuación acumulada en sanda
-        private int PSanda { get; set; }
+        public int PSanda { get; set; }
 
         public Escuela (string Name)
         {

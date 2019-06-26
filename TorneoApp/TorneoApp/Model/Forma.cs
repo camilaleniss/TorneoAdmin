@@ -6,38 +6,14 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Forma
+    public class Forma
     {
         //Tipo de forma: con arma, sin arma, arma larga 
-        private string CategoriaForma { get; }
+        public string CategoriaForma { get; }
 
-        //Con arma = true, sin arma = false
-        private bool ConArma { get; }
-
-        public Forma(bool ConArma)
+        public Forma(string CategoriaForma)
         {
-            this.ConArma = ConArma;
-            if (ConArma)
-            {
-                CategoriaForma = "Forma con arma";
-            }
-            else
-            {
-                CategoriaForma = "Forma sin arma";
-            }
-        }
-
-        public Forma(string Nombre, bool ConArma)
-        {
-            this.ConArma = ConArma;
-            if (ConArma)
-            {
-                CategoriaForma = "Forma "+Nombre+" con arma";
-            }
-            else
-            {
-                CategoriaForma = "Forma " + Nombre + " con arma";
-            }
+            this.CategoriaForma = CategoriaForma;
         }
 
 
