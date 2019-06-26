@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class CatFormas : Categoria
+    public class CatFormas : Categoria
     {
         private List<Presentacion> Presentaciones;
     }

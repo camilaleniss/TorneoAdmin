@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class CatSanda : Categoria
+    public class CatSanda : Categoria
     {
         //Aqui deberia ir el arbol de combates
 

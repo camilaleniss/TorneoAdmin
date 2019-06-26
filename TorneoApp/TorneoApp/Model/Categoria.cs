@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Categoria
+    public class Categoria
     {
         //Nombre de la categoria
         private string Nombre { get; set; }

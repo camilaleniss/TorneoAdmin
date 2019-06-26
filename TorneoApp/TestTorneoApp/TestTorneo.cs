@@ -15,40 +15,39 @@ namespace TestTorneoApp
             Torneo = new Torneo();
         }
 
+        public void SetUpStage1()
+        {
+            Torneo = new Torneo();
+            string URL = "..\\..\\..\\RegistroTest1.csv";
+            List<string[]> lectura = Torneo.leerCSV(URL);
+            Torneo.LeerCompetidores(lectura);
+        }
+
+        public void SetUpStage2()
+        {
+            Torneo = new Torneo();
+            string URL = "..\\..\\..\\RegistroTest2.csv";
+            List<string[]> lectura = Torneo.leerCSV(URL);
+            Torneo.LeerCompetidores(lectura);
+        }
+
         [TestMethod]
         public void TestLeerCSV()
         {
-            string URL = "..\\..\\..\\Registro.csv";
+            string URL = "..\\..\\..\\RegistroTest1.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             string[][] datos = lectura.ToArray();
             Assert.IsTrue(datos[0][2].Equals("María Lenis"));
-
-            /*
-            Torneo.LeerXLS(URL);
-            Competidor[] competidores = Torneo.Competidores.ToArray();
-            Assert.IsTrue(competidores[1].Name.Equals("María Lenis"));
-            Assert.IsFalse(competidores[1].IsMan);
-            Assert.IsTrue(competidores[1].Escuela.Name.Equals("Zhang Fei"));
-            Assert.IsTrue(competidores[1].Edad == 18);
-            Assert.IsTrue(competidores[1].Peso == 50);
-            Assert.IsTrue(competidores[1].TiempoEntrenando == Competidor.INTERMEDIO);
-            Assert.Equals(competidores[1].Eps, "Comfenalco");
-            Assert.IsTrue(competidores[1].Sanda);
-            Assert.IsTrue(competidores[1].Formas);
-            Assert.IsFalse(competidores[1].IsBlackBelt);
-            Assert.Equals(competidores[1].ContactName, "Constanza Restrepo");
-            Assert.Equals(competidores[1].Telefono ,"3173694663");
-            */
         }
 
         [TestMethod]
         public void TestLeerCompetidores()
         {
-            string URL = "..\\..\\..\\Registro.csv";
-            List<string[]> lectura = Torneo.leerCSV(URL);
-            Torneo.LeerCompetidores(lectura);
-
-            Competidor[] competidores = Torneo.Competidores.ToArray();
+            Competidor[] competidores;
+           
+            //Test 1
+            SetUpStage1();
+            competidores = Torneo.Competidores.ToArray();
             Assert.IsTrue(competidores[0].Name.Equals("María Lenis"));
             Assert.IsFalse(competidores[0].IsMan);
             Assert.IsTrue(competidores[0].Escuela.Name.Equals("Zhang Fei"));
@@ -61,6 +60,22 @@ namespace TestTorneoApp
             Assert.IsFalse(competidores[0].IsBlackBelt);
             Assert.IsTrue(competidores[0].ContactName.Equals("Constanza Restrepo"));
             Assert.IsTrue(competidores[0].Telefono.Equals("3173694663"));
+
+            //Test 2
+            SetUpStage2();
+            competidores = Torneo.Competidores.ToArray();
+            Assert.AreEqual(competidores.Length, 4);
+            Assert.AreEqual(Torneo.Escuelas.Count, 3);
+            Assert.AreEqual(Torneo.Formas.Count, 4);
+            Assert.IsTrue(competidores[0].Sanda);
+            Assert.IsTrue(competidores[0].Formas);
+            Assert.AreEqual(competidores[0].ListaFormas.Count, 2);
+            Assert.IsTrue(competidores[1].Sanda);
+            Assert.AreEqual(competidores[1].ListaFormas.Count, 0);
+            Assert.IsTrue(competidores[2].Formas);
+            Assert.AreEqual(competidores[2].ListaFormas.Count, 4);
+            Assert.IsTrue(competidores[3].Formas);
+            Assert.AreEqual(competidores[3].ListaFormas.Count, 1);
         }
     }
 }

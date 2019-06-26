@@ -15,19 +15,19 @@ namespace TorneoApp.Model
         public const string XLS_ROUTE = "..\\..\\Registro.csv";
 
         //Lista de las categorias abiertas para formas
-        private List<CatFormas> CategoriasFormas { get; set; }
+        public List<CatFormas> CategoriasFormas { get; set; }
 
         //Lista de las categorias abiertas para sanda
-        private List<CatSanda> CategoriasSanda { get; set; }
+        public List<CatSanda> CategoriasSanda { get; set; }
 
         //Lista de las escuelas
-        private List<Escuela> Escuelas { get; set; }
+        public List<Escuela> Escuelas { get; set; }
 
         //Lista de competidores
         public List<Competidor> Competidores { get; set; }
 
         //Lista de formas permitidas en el torneo
-        private List<Forma> Formas { get; set; }
+        public List<Forma> Formas { get; set; }
 
         public Torneo()
         {
