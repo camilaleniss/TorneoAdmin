@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Round
+    public class Round
     {
-        private int[] Puntajes { get; set; }
+        public int[] Puntajes { get; set; }
 
-        private int Ganador { get; set;}
+        public int Ganador { get; set;}
 
         public Round()
         {

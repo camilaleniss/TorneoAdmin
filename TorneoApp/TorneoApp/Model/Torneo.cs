@@ -97,52 +97,6 @@ namespace TorneoApp.Model
             }
         }
 
-
-        public void LeerXLS(string URL)
-        {
-            using (FileStream stream = File.Open(URL, FileMode.Open, FileAccess.Read))
-            {
-                using (var reader = ExcelReaderFactory.CreateReader(stream))
-                {
-                    reader.Read();
-                    do
-                    {
-                        while (reader.Read())
-                        {
-                            //Lee los datos del XLS
-                            string Email = reader.GetString(1);
-                            string Name = reader.GetString(2);
-                            bool IsMan = (reader.GetString(3).Equals("Masculino") ? true : false);
-                            string NombreEscuela = reader.GetString(4);
-                            int Edad = reader.GetInt32(5);
-                            int Peso = reader.GetInt32(6);
-                            string Tiempo = reader.GetString(7);
-                            string Eps = reader.GetString(8);
-                            string [] Inscripcion = reader.GetString(9).Split(',');
-                            string[] Formas = reader.GetString(10).Split(',');
-                            bool IsBlackBelt = (reader.GetString(11).Equals("No") ? false : true);
-                            string NombreAcudiente = reader.GetString(12);
-                            string Telefono = reader.GetString(13);
-
-                            //Realiza las verificaciones para crear el Competidor
-                            Escuela EscuelaCompetidor = AddEscuela(NombreEscuela);
-                            int TiempoEntrenando = GetTiempoEntrenando(Tiempo, IsBlackBelt);
-
-                            Competidor NuevoCompetidor = new Competidor(Name, IsMan, Edad, Peso, IsBlackBelt,
-                                TiempoEntrenando, Eps, NombreAcudiente, Telefono, Email, EscuelaCompetidor);
-
-                            Inscripcion = QuitarEspacios(Inscripcion);
-                            Formas = QuitarEspacios(Formas);
-
-                            InscribirCompetidor(NuevoCompetidor, Inscripcion, Formas);
-
-                        }
-                    } while (reader.NextResult());
-
-                }
-            }
-        }
-
         public Escuela AddEscuela(string NombreEscuela)
         {
            
@@ -249,5 +203,7 @@ namespace TorneoApp.Model
             }
             return null;
         }
+
+
     }
 }

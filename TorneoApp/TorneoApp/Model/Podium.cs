@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Podium
+    public class Podium
     {
 
         //Primer lugar
-        private Competidor FirstPlace { get; set;}
-
+        public Competidor FirstPlace { get; set;}
 
         //Segundo lugar
-        private Competidor SecondPlace { get; set; }
+        public Competidor SecondPlace { get; set; }
 
         //Tercer lugar
-        private Competidor ThirdPlace { get; set; }
+        public Competidor ThirdPlace { get; set; }
 
         public Podium()
         {

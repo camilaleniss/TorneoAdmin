@@ -9,13 +9,22 @@ namespace TorneoApp.Model
     public class Categoria
     {
         //Nombre de la categoria
-        private string Nombre { get; set; }
+        public string Nombre { get; set; }
 
         //Participantes de la categoria
-        private List<Competidor> Participantes { get; set; }
+        public List<Competidor> Participantes { get; set; }
 
         //Podium de la categoria
-        private Podium Podium { get; set; }
+        public Podium Podium { get; set; }
+
+        public bool Opened { get; set; }
+
+        public Categoria()
+        {
+            Participantes = new List<Competidor>();
+            Podium = new Podium();
+            Opened = false;
+        }
 
     }
 }

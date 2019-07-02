@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Presentacion
+    public class Presentacion
     {
 
-        private Competidor Competidor{get; set;}
-        private double Calificacion { get; set; }
+        public Competidor Competidor{get; set;}
+        public double Calificacion { get; set; }
 
         public Presentacion(Competidor competidor)
         {

@@ -8,6 +8,11 @@ namespace TorneoApp.Model
 {
     public class CatFormas : Categoria
     {
-        private List<Presentacion> Presentaciones;
+        public List<Presentacion> Presentaciones { get; set; }
+
+        public CatFormas()
+        { 
+            Presentaciones = new List<Presentacion>(); 
+        }
     }
 }
