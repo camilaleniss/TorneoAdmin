@@ -85,7 +85,41 @@ namespace TorneoApp.Model
         {
             List<CatFormas> CategoriasSegmentadas = new List<CatFormas>();
 
+            var Participantes = Categoria.Participantes.ToArray();
 
+            List<Competidor>[] Grupos = new List<Competidor>[4]; 
+            for(int i =0; i<Grupos.Length; i++)
+                Grupos[i] = new List<Competidor>();
+            
+
+            foreach(Competidor comp in Participantes)
+            {
+                //Verificar a qué  grupo pertenece
+                int Edad = comp.Edad;
+
+                if (Edad>6 && Edad <= 8)
+                {
+                    Grupos[0].Add(comp);
+                }else if(Edad>8 && Edad<=11)
+                {
+                    Grupos[1].Add(comp);
+                }
+                else if (Edad>11 && Edad <= 14)
+                {
+                    Grupos[2].Add(comp);
+                }
+                else
+                {
+                    Grupos[3].Add(comp);
+                }
+            }
+
+            for (int i = 0; i < Grupos.Length; i++)
+            {
+                CatFormas NuevaCategoria = new CatFormas();
+                NuevaCategoria.Participantes = Grupos[i];
+                CategoriasSegmentadas.Add(NuevaCategoria);
+            }
 
             return CategoriasSegmentadas;
         }
