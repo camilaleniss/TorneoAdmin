@@ -8,7 +8,7 @@ namespace TorneoApp.Model
 {
     public class MatchFormas
     {
-        public IDictionary<Forma, List<CatFormas>> CategoriasFormas;
+        public Dictionary<Forma, List<CatFormas>> CategoriasFormas;
 
         public List<Competidor> Competidores;
 
@@ -18,7 +18,7 @@ namespace TorneoApp.Model
 
             foreach(Forma formaabierta in FormasAbiertas)
             {
-                CategoriasFormas.Add(formaabierta, null);
+                CategoriasFormas.Add(formaabierta, new List<CatFormas>());
             }
 
             this.Competidores = Competidores;
@@ -36,24 +36,58 @@ namespace TorneoApp.Model
              * */
         }
         
+        /**
+         *Separa en el diccionario los competidores en cada una de las formas existentes para 
+         * proceder a los demas filtros
+         */
         public void SepararFormas()
         {
-
+            var Formas = CategoriasFormas.Keys;
+            foreach(Forma forma in Formas)
+            {
+                CatFormas NuevaCategoria = new CatFormas();
+                NuevaCategoria.Participantes = SepararForma(forma);
+                CategoriasFormas[forma].Add(NuevaCategoria);
+            }
         }
 
+        /**
+         * Realiza una consulta para saber cuales son los competidores en una lista de competidores que
+         * en su lista de formas inscritas tienen la forma pasada como parámetro
+         */
         public List<Competidor> SepararForma(Forma Forma)
         {
-            return null;
+            List<Competidor> CompetidoresForma = Competidores.FindAll(
+                competidores => competidores.ListaFormas.Exists(forma => forma.Equals(Forma)));
+            return CompetidoresForma;
         }
 
-        public void SepararEdades()
+        public List<CatFormas> SepararEdades(CatFormas Categoria)
         {
+            List<Competidor> Participantes = Categoria.Participantes;
 
+            var MenoresEdad = Participantes.FindAll( comp => comp.Edad < 18);
+            CatFormas CatMenores = new CatFormas();
+            CatMenores.Participantes = MenoresEdad;
+
+            var MayoresEdad = Participantes.FindAll(comp => comp.Edad >= 18);
+            CatFormas CatMayores = new CatFormas();
+            CatMayores.Participantes = MayoresEdad;
+
+            List<CatFormas> CategoriasEdades = new List<CatFormas>();
+            CategoriasEdades.Add(CatMenores);
+            CategoriasEdades.Add(CatMayores);
+
+            return CategoriasEdades;
         }
 
-        public void SegmentarEdades()
+        public List<CatFormas> SegmentarEdades(CatFormas Categoria)
         {
+            List<CatFormas> CategoriasSegmentadas = new List<CatFormas>();
 
+
+
+            return CategoriasSegmentadas;
         }
 
         public void SegmentarNivel()

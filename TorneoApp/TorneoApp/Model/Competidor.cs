@@ -95,6 +95,7 @@ namespace TorneoApp.Model
             return false;
         }
 
+
         public string ToString => Name + " / " + IsMan + " / " + Edad + " / " + Peso + " / " + IsBlackBelt + " / " + TiempoEntrenando + " / " +
                 Eps + " / " + ContactName + " / " + Telefono + " / " + Email + " / " + Escuela;
     }
