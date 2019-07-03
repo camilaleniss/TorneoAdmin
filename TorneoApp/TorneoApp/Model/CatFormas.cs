@@ -14,5 +14,8 @@ namespace TorneoApp.Model
         { 
             Presentaciones = new List<Presentacion>(); 
         }
+
+        
+
     }
 }

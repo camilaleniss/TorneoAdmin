@@ -124,18 +124,74 @@ namespace TorneoApp.Model
             return CategoriasSegmentadas;
         }
 
-        public void SegmentarNivel()
+        public List<CatFormas> SegmentarNivel(CatFormas Categoria)
         {
+            List<CatFormas> CategoriasSegmentadas = new List<CatFormas>();
 
+            List<Competidor> Participantes = Categoria.Participantes;
+
+            for (int i=0; i<Competidor.CINTANEGRA; i++)
+            {
+                if (Participantes.Exists(comp => comp.TiempoEntrenando == i))
+                {
+                    var Temp = Participantes.FindAll(participante => participante.TiempoEntrenando == i);
+                    CatFormas TempCat = new CatFormas();
+                    TempCat.Participantes = Temp;
+                    CategoriasSegmentadas.Add(TempCat);
+                }
+            }
+
+            return CategoriasSegmentadas;
         }
 
-        public void VerificarSizeCategorias()
+        public List<CatFormas> VerificarSizeCategorias(List<CatFormas> Categorias)
         {
+            var CategoriasExistentes = Categorias.ToArray();
+            var PorArreglar = Categorias.FindAll(categorias => categorias.Participantes.Count < 3).ToArray();
 
+            for (int i = 0; i < CategoriasExistentes.Length; i++)
+                CategoriasExistentes[i].CalcularMean();
+
+            List<Competidor> Restantes = new List<Competidor>();
+
+            for (int i =0; i<PorArreglar.Length; i++)
+            {
+                Restantes.AddRange(PorArreglar[i].Participantes);
+            }
+
+            List<CatFormas> CategoriasDefinitivas = AnadirParticipantes(Restantes, GetCategoriasHabilitadas(CategoriasExistentes));
+
+            return CategoriasDefinitivas;
         }
 
-        public List<Categoria> RetornarCategorias()
+        public List<CatFormas> GetCategoriasHabilitadas(CatFormas[] CategoriasPorVer) 
         {
+            List<CatFormas> CategoriasHabilitadas = new List<CatFormas>();
+            for (int i = 0; i<CategoriasPorVer.Length; i++)
+            {
+                if (CategoriasPorVer[i].Participantes.Count >= 3)
+                    CategoriasHabilitadas.Add(CategoriasPorVer[i]);
+            }
+            return CategoriasHabilitadas;
+        }
+
+        public List<CatFormas> AnadirParticipantes (List<Competidor> Participantes, List<CatFormas> Categorias)
+        {
+            
+            foreach(Competidor p in Participantes)
+            {
+                CatFormas InsertHere = Categorias.Find(cat => cat.CalcularDesviacion(p) < cat.Mean/2);
+                InsertHere.AddCompetidor(p);
+                Categorias.Insert(Categorias.IndexOf(InsertHere), InsertHere);
+            }
+
+            return Categorias;
+        }
+
+        public List<CatFormas> RetornarCategorias()
+        {
+            //Este método debe preparar cada categoria abierta por su nombre forma y caracteristica 
+            //añadirlas en una lista y retornarlas 
             return null;
         }
 

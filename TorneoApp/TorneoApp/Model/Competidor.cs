@@ -95,6 +95,10 @@ namespace TorneoApp.Model
             return false;
         }
 
+        public int GetMatchValue()
+        {
+            return TiempoEntrenando + Edad;
+        }
 
         public string ToString => Name + " / " + IsMan + " / " + Edad + " / " + Peso + " / " + IsBlackBelt + " / " + TiempoEntrenando + " / " +
                 Eps + " / " + ContactName + " / " + Telefono + " / " + Email + " / " + Escuela;
