@@ -31,6 +31,14 @@ namespace TestTorneoApp
             Torneo.LeerCompetidores(lectura);
         }
 
+        public void SetUpStage3()
+        {
+            Torneo = new Torneo();
+            string URL = "..\\..\\..\\RegistroTest3.csv";
+            List<string[]> lectura = Torneo.leerCSV(URL);
+            Torneo.LeerCompetidores(lectura);
+        }
+
         [TestMethod]
         public void TestLeerCSV()
         {
@@ -77,5 +85,6 @@ namespace TestTorneoApp
             Assert.IsTrue(competidores[3].Formas);
             Assert.AreEqual(competidores[3].ListaFormas.Count, 1);
         }
+
     }
 }

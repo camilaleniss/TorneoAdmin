@@ -10,6 +10,8 @@ namespace TorneoApp.Model
     {
         public List<Presentacion> Presentaciones { get; set; }
 
+        public Forma Forma { get; set; }
+
         public CatFormas()
         { 
             Presentaciones = new List<Presentacion>(); 

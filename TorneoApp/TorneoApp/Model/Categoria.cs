@@ -53,8 +53,8 @@ namespace TorneoApp.Model
 
         public void GenerarNombre(string NombreForma)
         {
-            int MinEdad = Participantes.Select(par => par.Edad).Min();
-            int MaxEdad = Participantes.Select(par => par.Edad).Max();
+            int MinEdad = GetMinEdad();
+            int MaxEdad = GetMaxEdad();
             int Nivel = Participantes.Select(par => par.TiempoEntrenando).Max();
 
             string NivelCat = "";
@@ -82,7 +82,15 @@ namespace TorneoApp.Model
             return Participantes.Exists(p => p.Edad >= 18);
         }
 
+        public int GetMinEdad()
+        {
+            return Participantes.Select(par => par.Edad).Min();
+        }
 
+        public int GetMaxEdad()
+        {
+            return Participantes.Select(par => par.Edad).Max();
+        }
 
     }
 }

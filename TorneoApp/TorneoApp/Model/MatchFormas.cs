@@ -43,6 +43,7 @@ namespace TorneoApp.Model
             for (int i = 0; i<Keys.Length; i++)
             {
                 var EdadesSeparadas = SepararEdades(CategoriasFormas[Keys[i]].First()).ToArray();
+                CategoriasFormas[Keys[i]].Clear();
 
                 for (int c=0; c<EdadesSeparadas.Length; c++)
                 {
@@ -126,7 +127,7 @@ namespace TorneoApp.Model
                 //Verificar a qué  grupo pertenece
                 int Edad = comp.Edad;
 
-                if (Edad>6 && Edad <= 8)
+                if (Edad>=6 && Edad <= 8)
                 {
                     Grupos[0].Add(comp);
                 }else if(Edad>8 && Edad<=11)
@@ -161,9 +162,9 @@ namespace TorneoApp.Model
 
             for (int i=0; i<Competidor.CINTANEGRA; i++)
             {
-                if (Participantes.Exists(comp => comp.TiempoEntrenando == i))
+                if (Participantes.Exists(comp => comp.TiempoEntrenando == i+1))
                 {
-                    var Temp = Participantes.FindAll(participante => participante.TiempoEntrenando == i);
+                    var Temp = Participantes.FindAll(participante => participante.TiempoEntrenando == i+1);
                     CatFormas TempCat = new CatFormas();
                     TempCat.Participantes = Temp;
                     CategoriasSegmentadas.Add(TempCat);
@@ -231,6 +232,7 @@ namespace TorneoApp.Model
                 for (int w = 0; w < Categorias.Length; w++)
                 {
                     Categorias[w].GenerarNombre(Keys[i].Nombre);
+                    Categorias[w].Forma = Keys[i];
                     CategoriasTorneo.Add(Categorias[w]);
                 }
             }

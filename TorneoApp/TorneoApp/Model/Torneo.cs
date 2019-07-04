@@ -190,7 +190,7 @@ namespace TorneoApp.Model
 
         public bool ExisteForma(string FormaAgregar)
         {
-            bool Existe = Formas.Any(formaactual => formaactual.CategoriaForma.Equals(FormaAgregar));
+            bool Existe = Formas.Any(formaactual => formaactual.Nombre.Equals(FormaAgregar));
             return Existe;
         }
 
@@ -198,7 +198,7 @@ namespace TorneoApp.Model
         {
             if (ExisteForma(NombreForma))
             {
-                Forma Encontrada = Formas.Find(forma => forma.CategoriaForma.Equals(NombreForma));
+                Forma Encontrada = Formas.Find(forma => forma.Nombre.Equals(NombreForma));
                 return Encontrada;
             }
             return null;
