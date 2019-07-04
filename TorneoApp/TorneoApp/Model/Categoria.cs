@@ -51,5 +51,38 @@ namespace TorneoApp.Model
             CalcularMean();
         }
 
+        public void GenerarNombre(string NombreForma)
+        {
+            int MinEdad = Participantes.Select(par => par.Edad).Min();
+            int MaxEdad = Participantes.Select(par => par.Edad).Max();
+            int Nivel = Participantes.Select(par => par.TiempoEntrenando).Max();
+
+            string NivelCat = "";
+            
+            switch (Nivel){
+                case Competidor.PRINCIPIANTE:
+                    NivelCat = "Principiante";
+                    break;
+                case Competidor.INTERMEDIO:
+                    NivelCat = "Intermedio";
+                    break;
+                case Competidor.AVANZADO:
+                    NivelCat = "Avanzado";
+                    break;
+                case Competidor.CINTANEGRA:
+                    NivelCat = "Cinta Negra";
+                    break;
+            }
+
+            Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+"años";
+        }
+
+        public bool IsMayorEdadCategory()
+        {
+            return Participantes.Exists(p => p.Edad >= 18);
+        }
+
+
+
     }
 }

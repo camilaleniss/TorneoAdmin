@@ -35,6 +35,35 @@ namespace TorneoApp.Model
              * resultaron del match. 
              * */
         }
+
+        public List<CatFormas> DoMatch()
+        {
+            SepararFormas();
+            var Keys = CategoriasFormas.Keys.ToArray();
+            for (int i = 0; i<Keys.Length; i++)
+            {
+                var EdadesSeparadas = SepararEdades(CategoriasFormas[Keys[i]].First()).ToArray();
+
+                for (int c=0; c<EdadesSeparadas.Length; c++)
+                {
+                    List<CatFormas> Segmentacion;
+                    if (EdadesSeparadas[c].IsMayorEdadCategory())
+                    {
+                        Segmentacion = SegmentarNivel(EdadesSeparadas[c]);
+                    }
+                    else
+                    {
+                        Segmentacion = SegmentarEdades(EdadesSeparadas[c]);
+                    }
+                    CategoriasFormas[Keys[i]].AddRange(Segmentacion);
+                }
+
+                var CategoriasDefinitivas = VerificarSizeCategorias(CategoriasFormas[Keys[i]]);
+                CategoriasFormas[Keys[i]] = CategoriasDefinitivas;
+            }
+
+            return RetornarCategorias();
+        }
         
         /**
          *Separa en el diccionario los competidores en cada una de las formas existentes para 
@@ -190,9 +219,23 @@ namespace TorneoApp.Model
 
         public List<CatFormas> RetornarCategorias()
         {
+            List<CatFormas> CategoriasTorneo = new List<CatFormas>();
             //Este método debe preparar cada categoria abierta por su nombre forma y caracteristica 
             //añadirlas en una lista y retornarlas 
-            return null;
+            var Keys = CategoriasFormas.Keys.ToArray();
+
+            for (int i = 0; i < Keys.Length; i++)
+            {
+                var Categorias = CategoriasFormas[Keys[i]].ToArray();
+
+                for (int w = 0; w < Categorias.Length; w++)
+                {
+                    Categorias[w].GenerarNombre(Keys[i].Nombre);
+                    CategoriasTorneo.Add(Categorias[w]);
+                }
+            }
+
+            return CategoriasTorneo ;
         }
 
     }

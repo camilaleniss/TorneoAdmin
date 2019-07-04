@@ -9,11 +9,11 @@ namespace TorneoApp.Model
     public class Forma
     {
         //Tipo de forma: con arma, sin arma, arma larga 
-        public string CategoriaForma { get; }
+        public string Nombre { get; }
 
         public Forma(string CategoriaForma)
         {
-            this.CategoriaForma = CategoriaForma;
+            this.Nombre = CategoriaForma;
         }
 
 
