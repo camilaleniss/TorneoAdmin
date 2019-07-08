@@ -231,7 +231,8 @@ namespace TorneoApp.Model
                 for (int i=0; i<CategoriasArray.Length; i++)
                 {
                     double TempDesv=CategoriasArray[i].CalcularDesviacion(p);
-                    if (TempDesv <= MinDesv)
+                    bool MismoRangoEdad = CategoriasArray[i].IsMayorEdadCategory() == (p.Edad >= 18);
+                    if (TempDesv <= MinDesv && MismoRangoEdad)
                     {
                         MinDesv = TempDesv;
                         index = i;

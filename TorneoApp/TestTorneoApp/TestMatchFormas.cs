@@ -117,6 +117,41 @@ namespace TestTorneoApp
             Assert.IsTrue(MenoresEdad.Count == 3);
             Assert.IsTrue(MayoresEdad.Count == 4);
 
+            List<CatFormas> TempCat = Categorias.FindAll(cat => cat.Forma.Nombre.Equals("Forma sin arma"));
+            Assert.IsTrue(TempCat.Count == 4);
+
+            var TempSubCat = TempCat.FindAll(cat => cat.IsMayorEdadCategory() == false).ToArray();
+            Assert.IsTrue(TempSubCat.Length == 2);
+            Assert.IsTrue(TempSubCat[0].Participantes.Count == 5);
+            Assert.IsTrue(TempSubCat[0].GetMinEdad() == 6);
+            Assert.IsTrue(TempSubCat[0].GetMaxEdad() == 10);
+            Assert.IsTrue(TempSubCat[1].Participantes.Count == 3);
+            Assert.IsTrue(TempSubCat[1].GetMinEdad() == 12);
+            Assert.IsTrue(TempSubCat[1].GetMaxEdad() == 14);
+
+            TempSubCat = TempCat.FindAll(cat => cat.IsMayorEdadCategory()).ToArray();
+            Assert.IsTrue(TempSubCat.Length == 2);
+            Assert.IsTrue(TempSubCat[0].Participantes.Count == 5);
+            Assert.IsTrue(TempSubCat[0].GetCategoriaMayoria() == 1);
+            Assert.IsTrue(TempSubCat[1].Participantes.Count == 5);
+            Assert.IsTrue(TempSubCat[1].GetCategoriaMayoria() == 3);
+
+            TempCat = Categorias.FindAll(cat => cat.Forma.Nombre.Equals("Forma con arma"));
+            Assert.IsTrue(TempCat.Count == 3);
+
+            TempSubCat = TempCat.FindAll(cat => cat.IsMayorEdadCategory() == false).ToArray();
+            Assert.IsTrue(TempSubCat.Length == 1);
+            Assert.IsTrue(TempSubCat[0].Participantes.Count == 5);
+            Assert.IsTrue(TempSubCat[0].GetMinEdad() == 7);
+            Assert.IsTrue(TempSubCat[0].GetMaxEdad() == 12);
+
+            TempSubCat = TempCat.FindAll(cat => cat.IsMayorEdadCategory()).ToArray();
+            Assert.IsTrue(TempSubCat.Length == 2);
+            Assert.IsTrue(TempSubCat[0].Participantes.Count == 4);
+            Assert.IsTrue(TempSubCat[0].GetCategoriaMayoria() == 2);
+            Assert.IsTrue(TempSubCat[1].Participantes.Count == 5);
+            Assert.IsTrue(TempSubCat[1].GetCategoriaMayoria() == 4);
+
 
         }
     }

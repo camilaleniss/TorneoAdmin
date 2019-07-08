@@ -97,7 +97,7 @@ namespace TorneoApp.Model
 
         public int GetMatchValue()
         {
-            if (Edad >= 18) return TiempoEntrenando;
+            if (Edad >= 18) return (TiempoEntrenando>2) ? TiempoEntrenando*2 : TiempoEntrenando;
 
             return TiempoEntrenando + Edad;
         }

@@ -56,7 +56,7 @@ namespace TorneoApp.Model
         {
             int MinEdad = GetMinEdad();
             int MaxEdad = GetMaxEdad();
-            int Nivel = Participantes.Select(par => par.TiempoEntrenando).Max();
+            int Nivel = GetCategoriaMayoria();
 
             string NivelCat = "";
             
@@ -95,13 +95,20 @@ namespace TorneoApp.Model
 
         public int GetCategoriaMayoria()
         {
-            int Nivel=0;
+            int Nivel=0, cant=0;
             int[] Niveles = new int[4];
 
             for (int i = 0; i < Niveles.Length; i++)
                 Niveles[0] = Participantes.FindAll(p => p.TiempoEntrenando == (i + 1)).Count;
 
-            Nivel = Niveles.ToList().Max();
+            for (int i =0; i<Niveles.Length; i++)
+            {
+                if (Niveles[i] >= cant)
+                {
+                    Nivel = Participantes.First().TiempoEntrenando;
+                    cant = Niveles[i];
+                }
+            }
 
             return Nivel;
         }
