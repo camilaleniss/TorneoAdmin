@@ -35,7 +35,8 @@ namespace TorneoApp.Model
             var Competidores = Participantes.ToArray();
             double mean=0;
             for (int i = 0; i < Competidores.Length; i++)
-                mean += (Competidores[i].Edad + Competidores[i].TiempoEntrenando);
+                mean += (Competidores[i].GetMatchValue());
+                //mean += (Competidores[i].Edad + Competidores[i].TiempoEntrenando);
 
             Mean = mean / Competidores.Length;
         }
@@ -74,7 +75,7 @@ namespace TorneoApp.Model
                     break;
             }
 
-            Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+"años";
+            Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años";
         }
 
         public bool IsMayorEdadCategory()
@@ -90,6 +91,19 @@ namespace TorneoApp.Model
         public int GetMaxEdad()
         {
             return Participantes.Select(par => par.Edad).Max();
+        }
+
+        public int GetCategoriaMayoria()
+        {
+            int Nivel=0;
+            int[] Niveles = new int[4];
+
+            for (int i = 0; i < Niveles.Length; i++)
+                Niveles[0] = Participantes.FindAll(p => p.TiempoEntrenando == (i + 1)).Count;
+
+            Nivel = Niveles.ToList().Max();
+
+            return Nivel;
         }
 
     }

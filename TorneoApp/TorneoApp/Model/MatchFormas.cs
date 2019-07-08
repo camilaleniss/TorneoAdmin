@@ -146,9 +146,12 @@ namespace TorneoApp.Model
 
             for (int i = 0; i < Grupos.Length; i++)
             {
-                CatFormas NuevaCategoria = new CatFormas();
-                NuevaCategoria.Participantes = Grupos[i];
-                CategoriasSegmentadas.Add(NuevaCategoria);
+                if (Grupos[i].Count !=0)
+                {
+                    CatFormas NuevaCategoria = new CatFormas();
+                    NuevaCategoria.Participantes = Grupos[i];
+                    CategoriasSegmentadas.Add(NuevaCategoria);
+                }             
             }
 
             return CategoriasSegmentadas;
@@ -174,9 +177,19 @@ namespace TorneoApp.Model
             return CategoriasSegmentadas;
         }
 
+        /**
+         *Toma como parametro las categorias que se tengan de una forma en específico
+         * Ejemplo, toma todas las categorias de Forma sin arma para verificar si el tamaño es correcto y
+         * hacer los debidos arreglos 
+         * 
+         * Para reubicar los participantes que quedaron en categorias incompletas, hace una lista con ellos
+         * y luego verifica en cual categoria puede caber
+         */
         public List<CatFormas> VerificarSizeCategorias(List<CatFormas> Categorias)
         {
             var CategoriasExistentes = Categorias.ToArray();
+
+            //Toma todas las categorias que estan incompletos
             var PorArreglar = Categorias.FindAll(categorias => categorias.Participantes.Count < 3).ToArray();
 
             for (int i = 0; i < CategoriasExistentes.Length; i++)
@@ -185,15 +198,17 @@ namespace TorneoApp.Model
             List<Competidor> Restantes = new List<Competidor>();
 
             for (int i =0; i<PorArreglar.Length; i++)
-            {
                 Restantes.AddRange(PorArreglar[i].Participantes);
-            }
 
-            List<CatFormas> CategoriasDefinitivas = AnadirParticipantes(Restantes, GetCategoriasHabilitadas(CategoriasExistentes));
+            //Toma las categorias que quedaron habilitadas para meter participantes 
+            List<CatFormas> CategoriasHabilitadas = Categorias.FindAll(categorias => categorias.Participantes.Count >= 3);
+
+            List<CatFormas> CategoriasDefinitivas = AnadirParticipantes(Restantes, CategoriasHabilitadas);
 
             return CategoriasDefinitivas;
         }
 
+        /*
         public List<CatFormas> GetCategoriasHabilitadas(CatFormas[] CategoriasPorVer) 
         {
             List<CatFormas> CategoriasHabilitadas = new List<CatFormas>();
@@ -204,15 +219,28 @@ namespace TorneoApp.Model
             }
             return CategoriasHabilitadas;
         }
+        */
 
         public List<CatFormas> AnadirParticipantes (List<Competidor> Participantes, List<CatFormas> Categorias)
         {
-            
+            var CategoriasArray = Categorias.ToArray();       
             foreach(Competidor p in Participantes)
             {
-                CatFormas InsertHere = Categorias.Find(cat => cat.CalcularDesviacion(p) < cat.Mean/2);
+                int index=0;
+                double MinDesv=1000000;
+                for (int i=0; i<CategoriasArray.Length; i++)
+                {
+                    double TempDesv=CategoriasArray[i].CalcularDesviacion(p);
+                    if (TempDesv <= MinDesv)
+                    {
+                        MinDesv = TempDesv;
+                        index = i;
+                    }
+                }
+
+                CatFormas InsertHere = CategoriasArray[index];
                 InsertHere.AddCompetidor(p);
-                Categorias.Insert(Categorias.IndexOf(InsertHere), InsertHere);
+                //Categorias.Insert(index, InsertHere);
             }
 
             return Categorias;

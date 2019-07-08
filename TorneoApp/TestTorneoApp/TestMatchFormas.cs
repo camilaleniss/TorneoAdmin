@@ -116,6 +116,8 @@ namespace TestTorneoApp
             Assert.IsTrue(Categorias.Count == 7);
             Assert.IsTrue(MenoresEdad.Count == 3);
             Assert.IsTrue(MayoresEdad.Count == 4);
+
+
         }
     }
 }
