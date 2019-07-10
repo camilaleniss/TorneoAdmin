@@ -102,6 +102,12 @@ namespace TorneoApp.Model
             return TiempoEntrenando + Edad;
         }
 
+        //Para Sanda se hace una ponderación de la edad y el peso
+        //entre el nivel 
+        public double GetMatchValueSanda(){
+            return (Edad+Peso)/TiempoEntrenando;
+        }
+
         public string ToString => Name + " / " + IsMan + " / " + Edad + " / " + Peso + " / " + IsBlackBelt + " / " + TiempoEntrenando + " / " +
                 Eps + " / " + ContactName + " / " + Telefono + " / " + Email + " / " + Escuela;
     }
