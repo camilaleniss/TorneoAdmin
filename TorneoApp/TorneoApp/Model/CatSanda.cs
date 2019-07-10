@@ -9,6 +9,8 @@ namespace TorneoApp.Model
     public class CatSanda : Categoria
     {
         //Aqui deberia ir el arbol de combates
-        public bool Genere { get; set; }
+        public bool IsMan { get; set; }
+
+
     }
 }

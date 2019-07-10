@@ -64,6 +64,7 @@
     <Compile Include="Model\Escuela.cs" />
     <Compile Include="Model\Forma.cs" />
     <Compile Include="Model\MatchFormas.cs" />
+    <Compile Include="Model\MatchSanda.cs" />
     <Compile Include="Model\Podium.cs" />
     <Compile Include="Model\Presentacion.cs" />
     <Compile Include="Model\Round.cs" />
