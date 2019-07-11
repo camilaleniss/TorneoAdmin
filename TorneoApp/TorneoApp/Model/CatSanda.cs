@@ -26,15 +26,46 @@ namespace TorneoApp.Model
         }
 
         public override void GenerarNombre(string Nombre){
+            int MinEdad = GetMinEdad();
+            int MaxEdad = GetMaxEdad();
+            int MinPeso = GetMinPeso();
+            int MaxPeso = GetMaxPeso();
+            int Nivel = GetCategoriaMayoria();
+
+            string NivelCat = "";
             
+            switch (Nivel){
+                case Competidor.PRINCIPIANTE:
+                    NivelCat = "Principiante";
+                    break;
+                case Competidor.INTERMEDIO:
+                    NivelCat = "Intermedio";
+                    break;
+                case Competidor.AVANZADO:
+                    NivelCat = "Avanzado";
+                    break;
+                case Competidor.CINTANEGRA:
+                    NivelCat = "Cinta Negra";
+                    break;
+            }
+
+            Nombre =  NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años de "+MinPeso+"-"+MaxPeso+"kg";
             
         } 
 
         public void CalcularAtipico(){
-
+            double Desv, DesvAtyp;
+            var Competidores = Participantes.ToArray();
+            int contador = 0;
+            Atipico = Competidores[contador]; 
+            DesvAtyp= CalcularDesviacion(Atipico);
+            do{                 
+                Desv = CalcularDesviacion(Competidores[contador]);
+                if(Desv >= DesvAtyp){
+                    Atipico = Competidores[contador];
+                }
+                contador++;
+            }while(contador < Participantes.Count);
         }
-
-
-
     }
 }

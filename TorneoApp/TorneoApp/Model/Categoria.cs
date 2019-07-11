@@ -67,6 +67,16 @@ namespace TorneoApp.Model
             return Participantes.Select(par => par.Edad).Max();
         }
 
+        public int GetMinPeso()
+        {
+            return Participantes.Select(par => par.Peso).Min();
+        }
+
+        public int GetMaxPeso()
+        {
+            return Participantes.Select(par => par.Peso).Max();
+        }
+
         public int GetCategoriaMayoria()
         {
             int Nivel=0, cant=0;

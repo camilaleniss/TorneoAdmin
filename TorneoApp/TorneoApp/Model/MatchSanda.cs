@@ -30,9 +30,6 @@ namespace TorneoApp.Model
             *restantes
             *Se retornan las categorias.
              */
-
-        
-
         }
 
         public void SepararGeneros(){
@@ -111,6 +108,65 @@ namespace TorneoApp.Model
             }
             return CategoriasAbiertas;
         }
+
+        public void PrepararVerifacion(List<CatSanda> habilitadas){
+            foreach(CatSanda categoria in habilitadas){
+                categoria.CalcularMean();
+                categoria.CalcularAtipico();
+            }
+        }
+
+        public List<CatSanda> GetCategoriasHabilitadas(){
+            return CategoriasSanda.FindAll(categoria => categoria.Participantes.Count>=2);
+        }
+
+        public List<Competidor> GetRestantes(List<CatSanda> habilitadas){
+            List<CatSanda> CatRestantes = CategoriasSanda.FindAll(Categoria => Categoria.Participantes.Count <2);
+            List<Competidor> Restantes = new List<Competidor>();
+            
+            foreach (CatSanda cat in CatRestantes)
+                Restantes.AddRange(cat.Participantes);
+            
+            foreach(CatSanda cat in habilitadas){
+                Competidor Atyp = cat.Atipico;
+                cat.Participantes.Remove(Atyp);
+                Restantes.Add(Atyp);
+            }
+
+            return Restantes;
+        }
+
+        public List<CatSanda> AnadirParticipantes(List<Competidor> Participantes, List<CatSanda> Habilitadas){
+            var CategoriasArray = Habilitadas.ToArray();       
+            foreach(Competidor p in Participantes)
+            {
+                int index=0;
+                double MinDesv=1000000;
+                for (int i=0; i<CategoriasArray.Length; i++)
+                {
+                    double TempDesv=CategoriasArray[i].CalcularDesviacion(p);
+                    bool MismoRangoEdad = CategoriasArray[i].IsMayorEdadCategory() == (p.Edad >= 18);
+                    if (TempDesv <= MinDesv && MismoRangoEdad)
+                    {
+                        MinDesv = TempDesv;
+                        index = i;
+                    }
+                }
+
+                CatSanda InsertHere = CategoriasArray[index];
+                InsertHere.AddCompetidor(p);
+            }
+            return Habilitadas;
+        }
+
+        public List<CatSanda> RetornarCategorias()
+        {
+            foreach(CatSanda categoria in CategoriasSanda){
+                categoria.GenerarNombre("Combate");
+            }
+            return CategoriasSanda;
+        }
+
     }
 
 }
