@@ -34,12 +34,17 @@ namespace TorneoApp.Model
         }
 
         public List<CatSanda> DoMatch(){
+            //Primero se hace la separación de hombres y mujeres
             SepararGeneros();
-            
+            //Se formaron dos grupos entonces cada uno a su vez se va a separar por nivel
             foreach (CatSanda categoria in CategoriasSanda){
+
                 List<CatSanda> CatDefinitivas = SepararNiveles(categoria);
+
                 foreach(CatSanda separada in CatDefinitivas){
+
                     List<CatSanda> Segmentacion = SepararEdad(separada);
+
                     CatDefinitivas.Remove(separada);
                     CatDefinitivas.AddRange(Segmentacion);
                 }
@@ -47,6 +52,10 @@ namespace TorneoApp.Model
                 CategoriasSanda.Remove(categoria);
                 CategoriasSanda.AddRange(CatDefinitivas);
             }
+
+            List<CatSanda> CategoriasFinales = VerificarSizeCategorias();
+            CategoriasSanda.Clear();
+            CategoriasSanda.AddRange(CategoriasFinales);
 
             return RetornarCategorias();
         }
@@ -126,6 +135,14 @@ namespace TorneoApp.Model
                 CategoriasAbiertas.Add(TempCat);
             }
             return CategoriasAbiertas;
+        }
+
+        public List<CatSanda> VerificarSizeCategorias(){
+            List<CatSanda> Habilitadas = GetCategoriasHabilitadas();
+            PrepararVerifacion(Habilitadas);
+            List<Competidor> CompetidoresRestantes = GetRestantes(Habilitadas);
+            Habilitadas = AnadirParticipantes(CompetidoresRestantes, Habilitadas);
+            return Habilitadas;
         }
 
         public void PrepararVerifacion(List<CatSanda> habilitadas){
