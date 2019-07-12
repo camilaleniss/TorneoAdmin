@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    class Combate
+    public class Combate
     {
         //Participantes del combate (2 participantes)
         private Competidor[] Participantes { get; set; }
