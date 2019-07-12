@@ -9,6 +9,7 @@ namespace TorneoApp.Model
     public class MatchSanda
     {
         public const int NUMSEGEDAD = 11;
+
         public List<Competidor> Competidores;
 
         public List<CatSanda> CategoriasSanda;
@@ -30,6 +31,24 @@ namespace TorneoApp.Model
             *restantes
             *Se retornan las categorias.
              */
+        }
+
+        public List<CatSanda> DoMatch(){
+            SepararGeneros();
+            
+            foreach (CatSanda categoria in CategoriasSanda){
+                List<CatSanda> CatDefinitivas = SepararNiveles(categoria);
+                foreach(CatSanda separada in CatDefinitivas){
+                    List<CatSanda> Segmentacion = SepararEdad(separada);
+                    CatDefinitivas.Remove(separada);
+                    CatDefinitivas.AddRange(Segmentacion);
+                }
+                
+                CategoriasSanda.Remove(categoria);
+                CategoriasSanda.AddRange(CatDefinitivas);
+            }
+
+            return RetornarCategorias();
         }
 
         public void SepararGeneros(){
