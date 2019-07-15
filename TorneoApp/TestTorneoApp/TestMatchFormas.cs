@@ -152,7 +152,6 @@ namespace TestTorneoApp
             Assert.IsTrue(TempSubCat[1].Participantes.Count == 5);
             Assert.IsTrue(TempSubCat[1].GetCategoriaMayoria() == 4);
 
-
         }
     }
 }

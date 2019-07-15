@@ -30,20 +30,15 @@ namespace TorneoApp.Model
             Mean = 0;
         }
 
-        public void CalcularMean()
+        public virtual void CalcularMean()
         {
-            var Competidores = Participantes.ToArray();
-            double mean=0;
-            for (int i = 0; i < Competidores.Length; i++)
-                mean += (Competidores[i].GetMatchValue());
-                //mean += (Competidores[i].Edad + Competidores[i].TiempoEntrenando);
-
-            Mean = mean / Competidores.Length;
+            //Este método tiene su propia implementación en CatFormas y CatSanda
         }
 
-        public double CalcularDesviacion(Competidor participante)
+        public virtual double CalcularDesviacion(Competidor participante)
         {
-            return Math.Abs(participante.GetMatchValue() - Mean);
+            return -1;
+            //Este método tiene su propia implementación en CatFormas y CatSanda
         }
 
         public void AddCompetidor (Competidor competidor)
@@ -52,30 +47,9 @@ namespace TorneoApp.Model
             CalcularMean();
         }
 
-        public void GenerarNombre(string NombreForma)
+        public virtual void GenerarNombre(string Nombre)
         {
-            int MinEdad = GetMinEdad();
-            int MaxEdad = GetMaxEdad();
-            int Nivel = GetCategoriaMayoria();
-
-            string NivelCat = "";
-            
-            switch (Nivel){
-                case Competidor.PRINCIPIANTE:
-                    NivelCat = "Principiante";
-                    break;
-                case Competidor.INTERMEDIO:
-                    NivelCat = "Intermedio";
-                    break;
-                case Competidor.AVANZADO:
-                    NivelCat = "Avanzado";
-                    break;
-                case Competidor.CINTANEGRA:
-                    NivelCat = "Cinta Negra";
-                    break;
-            }
-
-            Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años";
+            this.Nombre = Nombre;
         }
 
         public bool IsMayorEdadCategory()
@@ -91,6 +65,16 @@ namespace TorneoApp.Model
         public int GetMaxEdad()
         {
             return Participantes.Select(par => par.Edad).Max();
+        }
+
+        public int GetMinPeso()
+        {
+            return Participantes.Select(par => par.Peso).Min();
+        }
+
+        public int GetMaxPeso()
+        {
+            return Participantes.Select(par => par.Peso).Max();
         }
 
         public int GetCategoriaMayoria()
