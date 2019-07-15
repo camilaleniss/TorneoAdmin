@@ -17,6 +17,7 @@ namespace TorneoApp.Model
         public MatchSanda(List<Competidor> Competidores)
         {
             this.Competidores = Competidores;
+            CategoriasSanda = new List<CatSanda>();
             /*
             *Estrategia a utilizar
             *Primero se separa por género
@@ -36,20 +37,22 @@ namespace TorneoApp.Model
         public List<CatSanda> DoMatch(){
             //Primero se hace la separación de hombres y mujeres
             SepararGeneros();
+            var Generos = CategoriasSanda.ToArray();
             //Se formaron dos grupos entonces cada uno a su vez se va a separar por nivel
-            foreach (CatSanda categoria in CategoriasSanda){
+           for(int i=0; i<Generos.Length; i++){
 
-                List<CatSanda> CatDefinitivas = SepararNiveles(categoria);
+                List<CatSanda> CatDefinitivas = SepararNiveles(Generos[i]);
+                var ArrDefinitivas = CatDefinitivas.ToArray();
 
-                foreach(CatSanda separada in CatDefinitivas){
+               for(int w=0; w<ArrDefinitivas.Length; w++){
 
-                    List<CatSanda> Segmentacion = SepararEdad(separada);
+                    List<CatSanda> Segmentacion = SepararEdad(ArrDefinitivas[w]);
 
-                    CatDefinitivas.Remove(separada);
+                    CatDefinitivas.Remove(ArrDefinitivas[w]);
                     CatDefinitivas.AddRange(Segmentacion);
                 }
                 
-                CategoriasSanda.Remove(categoria);
+                CategoriasSanda.Remove(Generos[i]);
                 CategoriasSanda.AddRange(CatDefinitivas);
             }
 
@@ -69,7 +72,7 @@ namespace TorneoApp.Model
                 Categoria.Participantes = TempComp;
                 CategoriasSanda.Add(Categoria);
                 IsMan= true;
-            }            
+            }
         }
 
         public List<CatSanda> SepararNiveles(CatSanda Categoria){
@@ -96,7 +99,7 @@ namespace TorneoApp.Model
             Dictionary<int, List<Competidor>> Segmentacion = new Dictionary<int, List<Competidor>>();
 
             for(int i=0; i<NUMSEGEDAD; i++)
-                Segmentacion.Add(i+1, new List<Competidor>());
+                Segmentacion.Add(i, new List<Competidor>());
 
 
             for (int i =0; i<CompetidoresCategoria.Length; i++){
@@ -106,6 +109,8 @@ namespace TorneoApp.Model
             } 
             
              List<CatSanda> CategoriasSegmentadas = ConvertDictionary(Segmentacion);
+
+
             
             return CategoriasSegmentadas;
         }
@@ -132,16 +137,20 @@ namespace TorneoApp.Model
             for (int i =0; i<NUMSEGEDAD; i++){
                 CatSanda TempCat = new CatSanda();
                 TempCat.Participantes =Abiertas[i];
-                CategoriasAbiertas.Add(TempCat);
+                if (TempCat.Participantes.Count!=0)
+                    CategoriasAbiertas.Add(TempCat);
             }
             return CategoriasAbiertas;
         }
 
         public List<CatSanda> VerificarSizeCategorias(){
             List<CatSanda> Habilitadas = GetCategoriasHabilitadas();
-            PrepararVerifacion(Habilitadas);
-            List<Competidor> CompetidoresRestantes = GetRestantes(Habilitadas);
-            Habilitadas = AnadirParticipantes(CompetidoresRestantes, Habilitadas);
+            if (Habilitadas.Count != CategoriasSanda.Count)
+            {
+                PrepararVerifacion(Habilitadas);
+                List<Competidor> CompetidoresRestantes = GetRestantes(Habilitadas);
+                Habilitadas = AnadirParticipantes(CompetidoresRestantes, Habilitadas);
+            }
             return Habilitadas;
         }
 
@@ -198,6 +207,7 @@ namespace TorneoApp.Model
         public List<CatSanda> RetornarCategorias()
         {
             foreach(CatSanda categoria in CategoriasSanda){
+                categoria.IsManCategory();
                 categoria.GenerarNombre("Combate");
             }
             return CategoriasSanda;

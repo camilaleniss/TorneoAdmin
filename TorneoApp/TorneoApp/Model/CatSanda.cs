@@ -67,5 +67,10 @@ namespace TorneoApp.Model
                 contador++;
             }while(contador < Participantes.Count);
         }
+
+        public void IsManCategory()
+        {
+            IsMan = Participantes.FindAll(p => p.IsMan).Count > 0 ? true : false;
+        }
     }
 }

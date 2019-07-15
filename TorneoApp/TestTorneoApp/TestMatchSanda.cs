@@ -36,6 +36,7 @@ namespace TestTorneoApp
         [TestMethod]
         public void TestMatchCategorias()
         {
+            SetUpStage1();
             List<Competidor> Competidores = Torneo.Competidores;
             Matchmaking = new MatchSanda(Competidores);
 
@@ -44,6 +45,14 @@ namespace TestTorneoApp
             Assert.IsTrue( Categorias.Count==20);
 
             List<CatSanda> TempCat = Categorias.FindAll(categoria => categoria.IsMan == false);
+
+            Assert.IsTrue(TempCat.Count == 10);
+            Assert.IsTrue(TempCat.FindAll(categoria => categoria.IsMayorEdadCategory()).Count == 5);
+
+            TempCat = Categorias.FindAll(categoria => categoria.IsMan);
+
+            Assert.IsTrue(TempCat.Count == 10);
+            Assert.IsTrue(TempCat.FindAll(categoria => categoria.IsMayorEdadCategory()).Count == 5);
 
         }
 
