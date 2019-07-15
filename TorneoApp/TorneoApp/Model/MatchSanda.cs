@@ -47,7 +47,6 @@ namespace TorneoApp.Model
                for(int w=0; w<ArrDefinitivas.Length; w++){
 
                     List<CatSanda> Segmentacion = SepararEdad(ArrDefinitivas[w]);
-
                     CatDefinitivas.Remove(ArrDefinitivas[w]);
                     CatDefinitivas.AddRange(Segmentacion);
                 }
@@ -57,6 +56,19 @@ namespace TorneoApp.Model
             }
 
             List<CatSanda> CategoriasFinales = VerificarSizeCategorias();
+            var ArrFinalVer = CategoriasFinales.ToArray();
+
+            for (int c = 0; c < ArrFinalVer.Length; c++)
+            {
+                List<CatSanda> SegPeso = ArrFinalVer[c].GetSubCatPeso();
+
+                if (SegPeso != null)
+                {
+                    CategoriasFinales.Remove(ArrFinalVer[c]);
+                    CategoriasFinales.AddRange(SegPeso);
+                }
+            }
+
             CategoriasSanda.Clear();
             CategoriasSanda.AddRange(CategoriasFinales);
 
@@ -109,11 +121,31 @@ namespace TorneoApp.Model
             } 
             
              List<CatSanda> CategoriasSegmentadas = ConvertDictionary(Segmentacion);
-
-
             
             return CategoriasSegmentadas;
         }
+
+        /*
+        public List<CatSanda> SepararPeso(CatSanda Categoria, bool isMan)
+        {
+            var CompetidoresCategoria = Categoria.Participantes.ToArray();
+            Dictionary<int, List<Competidor>> Segmentacion = new Dictionary<int, List<Competidor>>();
+
+            for (int i = 0; i < NUMSEGEDAD; i++)
+                Segmentacion.Add(i, new List<Competidor>());
+
+
+            for (int i = 0; i < CompetidoresCategoria.Length; i++)
+            {
+                int MatchValue = GetMatchPeso(CompetidoresCategoria[i], isMan);
+                Segmentacion[MatchValue].Add(CompetidoresCategoria[i]);
+            }
+
+            List<CatSanda> CategoriasSegmentadas = ConvertDictionary(Segmentacion);
+
+            return CategoriasSegmentadas;
+        }
+        */
 
         public int GetMatchEdad(Competidor c){
             int Edad = c.Edad;
