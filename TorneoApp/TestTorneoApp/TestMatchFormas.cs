@@ -20,7 +20,7 @@ namespace TestTorneoApp
         public void SetUpStage1()
         {
             Torneo = new Torneo();
-            string URL = "..\\..\\..\\RegistroTest3.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest3.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             Torneo.LeerCompetidores(lectura);
         }
@@ -28,7 +28,7 @@ namespace TestTorneoApp
         public void SetUpStage2()
         {
             Torneo = new Torneo();
-            string URL = "..\\..\\..\\RegistroTest4.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest4.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             Torneo.LeerCompetidores(lectura);
         }

@@ -79,15 +79,17 @@ namespace TorneoApp.Model
                 string[] Inscripcion = CompetidoresTorneo[i][9].Split(',');
                 string[] Formas = CompetidoresTorneo[i][10].Split(',');
                 bool IsBlackBelt = CompetidoresTorneo[i][11].Equals("Sí");
-                string NombreAcudiente = CompetidoresTorneo[i][12].Trim();
-                string Telefono = CompetidoresTorneo[i][13].Trim();
+                string TelefonoPersonal = CompetidoresTorneo[i][12].Trim();
+                string NombreAcudiente = CompetidoresTorneo[i][13].Trim();
+                string TelefonoAcudiente = CompetidoresTorneo[i][14].Trim();
 
                 //Realiza las verificaciones para crear el Competidor
                 Escuela EscuelaCompetidor = AddEscuela(NombreEscuela);
                 int TiempoEntrenando = GetTiempoEntrenando(Tiempo, IsBlackBelt);
 
                 Competidor NuevoCompetidor = new Competidor(Name, IsMan, Edad, Peso, IsBlackBelt,
-                    TiempoEntrenando, Eps, NombreAcudiente, Telefono, Email, EscuelaCompetidor);
+                    TiempoEntrenando, Eps, TelefonoPersonal, NombreAcudiente, TelefonoAcudiente,
+                    Email, EscuelaCompetidor);
 
                 Inscripcion = QuitarEspacios(Inscripcion);
                 Formas = QuitarEspacios(Formas);
