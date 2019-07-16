@@ -50,11 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ControlUsers\Banner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\Banner.Designer.cs">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\MainView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\MenuLateral.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\MenuLateral.Designer.cs">
+      <DependentUpon>MenuLateral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\CatSanda.cs" />
     <Compile Include="Model\Categoria.cs" />
@@ -63,6 +81,12 @@
     <Compile Include="Model\Competidor.cs" />
     <Compile Include="Model\Escuela.cs" />
     <Compile Include="Model\Forma.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\MatchFormas.cs" />
     <Compile Include="Model\MatchSanda.cs" />
     <Compile Include="Model\Podium.cs" />
@@ -70,8 +94,20 @@
     <Compile Include="Model\Round.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ControlUsers\Banner.resx">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\MenuLateral.resx">
+      <DependentUpon>MenuLateral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
