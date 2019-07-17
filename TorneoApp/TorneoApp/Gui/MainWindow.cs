@@ -7,20 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TorneoApp.Model;
 
-namespace TorneoApp
+namespace TorneoApp.Model
 {
-    public partial class Inicio : Form
+    public partial class MainWindow : Form
     {
-        public Inicio()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void ButNew_Click(object sender, EventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
-            Application.Run(new MainWindow());
+
+        }
+
+        private void Banner1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

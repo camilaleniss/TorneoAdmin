@@ -56,6 +56,24 @@
     <Compile Include="ControlUsers\Banner.Designer.cs">
       <DependentUpon>Banner.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlUsers\CategoriasLists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CategoriasLists.Designer.cs">
+      <DependentUpon>CategoriasLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\CategoriasView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CategoriasView.Designer.cs">
+      <DependentUpon>CategoriasView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\ControlButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\ControlButtons.Designer.cs">
+      <DependentUpon>ControlButtons.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlUsers\MainView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,10 +99,10 @@
     <Compile Include="Model\Competidor.cs" />
     <Compile Include="Model\Escuela.cs" />
     <Compile Include="Model\Forma.cs" />
-    <Compile Include="MainWindow.cs">
+    <Compile Include="Gui\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="Gui\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\MatchFormas.cs" />
@@ -97,6 +115,15 @@
     <EmbeddedResource Include="ControlUsers\Banner.resx">
       <DependentUpon>Banner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CategoriasLists.resx">
+      <DependentUpon>CategoriasLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CategoriasView.resx">
+      <DependentUpon>CategoriasView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\ControlButtons.resx">
+      <DependentUpon>ControlButtons.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,7 +133,7 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
+    <EmbeddedResource Include="Gui\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

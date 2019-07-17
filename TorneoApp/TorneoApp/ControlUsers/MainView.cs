@@ -21,5 +21,20 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabCategorias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabNumCategorias_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

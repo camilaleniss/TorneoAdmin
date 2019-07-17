@@ -123,6 +123,7 @@
             this.Controls.Add(this.labInicio);
             this.Name = "Banner";
             this.Size = new System.Drawing.Size(706, 56);
+            this.Load += new System.EventHandler(this.Banner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,34 +10,14 @@ using System.Windows.Forms;
 
 namespace TorneoApp.ControlUsers
 {
-    public partial class Banner : UserControl
+    public partial class CategoriasView : UserControl
     {
-        public Banner()
+        public CategoriasView()
         {
             InitializeComponent();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Banner_Load(object sender, EventArgs e)
         {
 
         }

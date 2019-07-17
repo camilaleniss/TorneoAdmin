@@ -57,6 +57,7 @@
             this.butNew.TabIndex = 1;
             this.butNew.Text = "Nuevo Torneo";
             this.butNew.UseVisualStyleBackColor = false;
+            this.butNew.Click += new System.EventHandler(this.ButNew_Click);
             // 
             // butLast
             // 
@@ -72,7 +73,7 @@
             this.butLast.Text = "Torneo Guardado";
             this.butLast.UseVisualStyleBackColor = false;
             // 
-            // MenuPrincipal
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +83,7 @@
             this.Controls.Add(this.butNew);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MenuPrincipal";
+            this.Name = "Inicio";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

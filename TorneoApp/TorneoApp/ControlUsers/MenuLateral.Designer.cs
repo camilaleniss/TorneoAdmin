@@ -41,7 +41,6 @@
             this.butCompetencia = new System.Windows.Forms.Button();
             this.butSanda = new System.Windows.Forms.Button();
             this.butFormas = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonTitle
@@ -92,6 +91,7 @@
             this.butCatSanda.Text = "Sanda";
             this.butCatSanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butCatSanda.UseVisualStyleBackColor = true;
+            this.butCatSanda.Click += new System.EventHandler(this.ButCatSanda_Click);
             // 
             // butCatFormas
             // 
@@ -254,29 +254,11 @@
             this.butFormas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butFormas.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 536);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 40);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Salir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
-            // 
             // MenuLateral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.butFormas);
             this.Controls.Add(this.butSanda);
             this.Controls.Add(this.butCompetencia);
@@ -311,6 +293,5 @@
         private System.Windows.Forms.Button butCompetencia;
         private System.Windows.Forms.Button butSanda;
         private System.Windows.Forms.Button butFormas;
-        private System.Windows.Forms.Button button1;
     }
 }

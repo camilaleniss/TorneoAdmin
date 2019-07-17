@@ -37,5 +37,10 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void ButCatSanda_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
