@@ -68,6 +68,12 @@
     <Compile Include="ControlUsers\CategoriasView.Designer.cs">
       <DependentUpon>CategoriasView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlUsers\CompetidoresView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CompetidoresView.Designer.cs">
+      <DependentUpon>CompetidoresView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlUsers\ControlButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\CategoriasView.resx">
       <DependentUpon>CategoriasView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CompetidoresView.resx">
+      <DependentUpon>CompetidoresView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\ControlButtons.resx">
       <DependentUpon>ControlButtons.cs</DependentUpon>

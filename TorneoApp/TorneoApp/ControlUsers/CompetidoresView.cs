@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace TorneoApp.ControlUsers
 {
-    public partial class CategoriasLists : UserControl
+    public partial class CompetidoresView : UserControl
     {
-        public CategoriasLists()
+        public CompetidoresView()
         {
             InitializeComponent();
         }
 
-        private void Label4_Click(object sender, EventArgs e)
+        private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
