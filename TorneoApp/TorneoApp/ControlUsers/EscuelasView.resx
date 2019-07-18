@@ -117,33 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="butVerSanda.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA37AAAN+wELdzWbAAAAB3RJ
-        TUUH4wcSFy0jjxAe4AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFsSURBVFhH
-        7Za5SsRQFIaDg0s3wzyBoo0WYmknirhMl30BF3B5A63zPlYOomJl5YAaLCx9BxcsBBH0O+NVFFJ6TxDy
-        w0fITeD/c889udepVesv5XleOwzDThAEU67rDplhPWEuOoUDWIJh80hHGM7DBTxAF1ZgxDy2L8yasA3X
-        cA+H0EmSRD3EDlyChOhGUaQeogW7JoSU44gQy1WEkJmQcjzCMSEWCaG3MDGVcmzBDTzBGSHmCKHXoibE
-        BtzCM5wTYpYQg/0X8jx3siwbsAmGUo41uIMX6DE2k6ZpQ8xbpBmN43jMMtMY74HMwisUjI3LFBXwBu/K
-        iGchAa7MTdlLNvkMQAmaGiWg5lKCffguAUyoLEJ2R1mE6/BrEXJt9DvBpnzflzbchPI2tCnM5cur+REZ
-        c9kP9H/FP8ylw3Q3oxJzve2Ydvs6kEiL6R9I+NIFDHsgNa/kSCY6gcoOpW1mYZXrZCXH8lr/UI7zAW1w
-        uyraMp9DAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA37AAAN+wELdzWbAAAAB3RJ
-        TUUH4wcSFy0jjxAe4AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFsSURBVFhH
-        7Za5SsRQFIaDg0s3wzyBoo0WYmknirhMl30BF3B5A63zPlYOomJl5YAaLCx9BxcsBBH0O+NVFFJ6TxDy
-        w0fITeD/c889udepVesv5XleOwzDThAEU67rDplhPWEuOoUDWIJh80hHGM7DBTxAF1ZgxDy2L8yasA3X
-        cA+H0EmSRD3EDlyChOhGUaQeogW7JoSU44gQy1WEkJmQcjzCMSEWCaG3MDGVcmzBDTzBGSHmCKHXoibE
-        BtzCM5wTYpYQg/0X8jx3siwbsAmGUo41uIMX6DE2k6ZpQ8xbpBmN43jMMtMY74HMwisUjI3LFBXwBu/K
-        iGchAa7MTdlLNvkMQAmaGiWg5lKCffguAUyoLEJ2R1mE6/BrEXJt9DvBpnzflzbchPI2tCnM5cur+REZ
-        c9kP9H/FP8ylw3Q3oxJzve2Ydvs6kEiL6R9I+NIFDHsgNa/kSCY6gcoOpW1mYZXrZCXH8lr/UI7zAW1w
-        uyraMp9DAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

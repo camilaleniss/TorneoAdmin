@@ -109,6 +109,7 @@
             this.butLogOut.Size = new System.Drawing.Size(40, 50);
             this.butLogOut.TabIndex = 5;
             this.butLogOut.UseVisualStyleBackColor = true;
+            this.butLogOut.Click += new System.EventHandler(this.ButLogOut_Click);
             // 
             // Banner
             // 

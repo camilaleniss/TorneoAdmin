@@ -74,11 +74,35 @@
     <Compile Include="ControlUsers\CompetidoresView.Designer.cs">
       <DependentUpon>CompetidoresView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlUsers\CompFormas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CompFormas.Designer.cs">
+      <DependentUpon>CompFormas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\CompSanda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CompSanda.Designer.cs">
+      <DependentUpon>CompSanda.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlUsers\ControlButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlUsers\ControlButtons.Designer.cs">
       <DependentUpon>ControlButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\EscuelasView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\EscuelasView.Designer.cs">
+      <DependentUpon>EscuelasView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\ImportarView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\ImportarView.Designer.cs">
+      <DependentUpon>ImportarView.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUsers\MainView.cs">
       <SubType>UserControl</SubType>
@@ -91,6 +115,12 @@
     </Compile>
     <Compile Include="ControlUsers\MenuLateral.Designer.cs">
       <DependentUpon>MenuLateral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\Ranking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\Ranking.Designer.cs">
+      <DependentUpon>Ranking.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -130,14 +160,29 @@
     <EmbeddedResource Include="ControlUsers\CompetidoresView.resx">
       <DependentUpon>CompetidoresView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CompFormas.resx">
+      <DependentUpon>CompFormas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CompSanda.resx">
+      <DependentUpon>CompSanda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\ControlButtons.resx">
       <DependentUpon>ControlButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\EscuelasView.resx">
+      <DependentUpon>EscuelasView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\ImportarView.resx">
+      <DependentUpon>ImportarView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\MenuLateral.resx">
       <DependentUpon>MenuLateral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\Ranking.resx">
+      <DependentUpon>Ranking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
