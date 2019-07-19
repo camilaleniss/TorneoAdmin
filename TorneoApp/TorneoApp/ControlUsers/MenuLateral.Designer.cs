@@ -74,7 +74,7 @@
             this.butCategorias.Text = "Categorias";
             this.butCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butCategorias.UseVisualStyleBackColor = true;
-            this.butCategorias.Click += new System.EventHandler(this.Button1_Click);
+            this.butCategorias.Click += new System.EventHandler(this.ButCategorias_Click);
             // 
             // butCatSanda
             // 
@@ -108,6 +108,7 @@
             this.butCatFormas.Text = "Formas";
             this.butCatFormas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butCatFormas.UseVisualStyleBackColor = true;
+            this.butCatFormas.Click += new System.EventHandler(this.ButCatFormas_Click);
             // 
             // butCompetidores
             // 
@@ -124,6 +125,7 @@
             this.butCompetidores.Text = "Competidores";
             this.butCompetidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butCompetidores.UseVisualStyleBackColor = true;
+            this.butCompetidores.Click += new System.EventHandler(this.ButCompetidores_Click);
             // 
             // butListaCompetidores
             // 
@@ -140,6 +142,7 @@
             this.butListaCompetidores.Text = "Listado";
             this.butListaCompetidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butListaCompetidores.UseVisualStyleBackColor = true;
+            this.butListaCompetidores.Click += new System.EventHandler(this.ButListaCompetidores_Click);
             // 
             // butImportar
             // 
@@ -156,6 +159,7 @@
             this.butImportar.Text = "Importar";
             this.butImportar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butImportar.UseVisualStyleBackColor = true;
+            this.butImportar.Click += new System.EventHandler(this.ButImportar_Click);
             // 
             // butEscuelas
             // 
@@ -172,6 +176,7 @@
             this.butEscuelas.Text = "Escuelas";
             this.butEscuelas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butEscuelas.UseVisualStyleBackColor = true;
+            this.butEscuelas.Click += new System.EventHandler(this.ButEscuelas_Click);
             // 
             // butListaEscuelas
             // 
@@ -188,6 +193,7 @@
             this.butListaEscuelas.Text = "Listado";
             this.butListaEscuelas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butListaEscuelas.UseVisualStyleBackColor = true;
+            this.butListaEscuelas.Click += new System.EventHandler(this.ButListaEscuelas_Click);
             // 
             // butRankingEscuelas
             // 
@@ -204,6 +210,7 @@
             this.butRankingEscuelas.Text = "Ranking";
             this.butRankingEscuelas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butRankingEscuelas.UseVisualStyleBackColor = true;
+            this.butRankingEscuelas.Click += new System.EventHandler(this.ButRankingEscuelas_Click);
             // 
             // butCompetencia
             // 
@@ -220,7 +227,7 @@
             this.butCompetencia.Text = "Competencia";
             this.butCompetencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butCompetencia.UseVisualStyleBackColor = true;
-            this.butCompetencia.Click += new System.EventHandler(this.Button10_Click);
+            this.butCompetencia.Click += new System.EventHandler(this.ButCompetencia_Click);
             // 
             // butSanda
             // 
@@ -237,6 +244,7 @@
             this.butSanda.Text = "Sanda";
             this.butSanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butSanda.UseVisualStyleBackColor = true;
+            this.butSanda.Click += new System.EventHandler(this.ButSanda_Click);
             // 
             // butFormas
             // 
@@ -253,6 +261,7 @@
             this.butFormas.Text = "Formas";
             this.butFormas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butFormas.UseVisualStyleBackColor = true;
+            this.butFormas.Click += new System.EventHandler(this.ButFormas_Click);
             // 
             // MenuLateral
             // 

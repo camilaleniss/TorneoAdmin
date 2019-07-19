@@ -40,6 +40,7 @@
             this.labSanda = new System.Windows.Forms.Label();
             this.butVerSanda = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.labFinishedFormas = new System.Windows.Forms.Label();
             this.labNumOpenedFormas = new System.Windows.Forms.Label();
             this.labNumExistsFormas = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.controlButtons1.Name = "controlButtons1";
             this.controlButtons1.Size = new System.Drawing.Size(234, 120);
             this.controlButtons1.TabIndex = 0;
+            this.controlButtons1.Load += new System.EventHandler(this.ControlButtons1_Load);
             // 
             // panel1
             // 
@@ -191,6 +192,18 @@
             this.panel2.Size = new System.Drawing.Size(395, 184);
             this.panel2.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(324, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 44);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // labFinishedFormas
             // 
             this.labFinishedFormas.AutoSize = true;
@@ -296,18 +309,6 @@
             this.label1.Size = new System.Drawing.Size(297, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Nombre del Torneo aquí";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(324, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 44);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // CategoriasView
             // 

@@ -34,16 +34,16 @@
             this.labCompetidores = new System.Windows.Forms.Label();
             this.controlButtons1 = new TorneoApp.ControlUsers.ControlButtons();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listEscuelas = new System.Windows.Forms.ListView();
+            this.labNumEscuelas = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labNumComp = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.listFormas = new System.Windows.Forms.ListView();
-            this.labNumEscuelas = new System.Windows.Forms.Label();
             this.labNumFormas = new System.Windows.Forms.Label();
-            this.listEscuelas = new System.Windows.Forms.ListView();
+            this.listFormas = new System.Windows.Forms.ListView();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,6 +104,7 @@
             this.controlButtons1.Name = "controlButtons1";
             this.controlButtons1.Size = new System.Drawing.Size(234, 120);
             this.controlButtons1.TabIndex = 2;
+            this.controlButtons1.Load += new System.EventHandler(this.ControlButtons1_Load);
             // 
             // panel2
             // 
@@ -115,6 +116,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(263, 198);
             this.panel2.TabIndex = 2;
+            // 
+            // listEscuelas
+            // 
+            this.listEscuelas.Location = new System.Drawing.Point(24, 53);
+            this.listEscuelas.Name = "listEscuelas";
+            this.listEscuelas.Size = new System.Drawing.Size(219, 130);
+            this.listEscuelas.TabIndex = 3;
+            this.listEscuelas.UseCompatibleStateImageBehavior = false;
+            // 
+            // labNumEscuelas
+            // 
+            this.labNumEscuelas.AutoSize = true;
+            this.labNumEscuelas.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNumEscuelas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labNumEscuelas.Location = new System.Drawing.Point(207, 26);
+            this.labNumEscuelas.Name = "labNumEscuelas";
+            this.labNumEscuelas.Size = new System.Drawing.Size(23, 24);
+            this.labNumEscuelas.TabIndex = 1;
+            this.labNumEscuelas.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label4.Location = new System.Drawing.Point(20, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Escuelas";
             // 
             // label2
             // 
@@ -148,17 +179,6 @@
             this.labNumComp.TabIndex = 1;
             this.labNumComp.Text = "0";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(20, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Escuelas";
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(172)))), ((int)(((byte)(162)))));
@@ -169,36 +189,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(263, 198);
             this.panel4.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label6.Location = new System.Drawing.Point(20, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(175, 24);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Formas abiertas";
-            // 
-            // listFormas
-            // 
-            this.listFormas.Location = new System.Drawing.Point(24, 53);
-            this.listFormas.Name = "listFormas";
-            this.listFormas.Size = new System.Drawing.Size(219, 130);
-            this.listFormas.TabIndex = 1;
-            this.listFormas.UseCompatibleStateImageBehavior = false;
-            // 
-            // labNumEscuelas
-            // 
-            this.labNumEscuelas.AutoSize = true;
-            this.labNumEscuelas.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNumEscuelas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labNumEscuelas.Location = new System.Drawing.Point(207, 26);
-            this.labNumEscuelas.Name = "labNumEscuelas";
-            this.labNumEscuelas.Size = new System.Drawing.Size(23, 24);
-            this.labNumEscuelas.TabIndex = 1;
-            this.labNumEscuelas.Text = "0";
             // 
             // labNumFormas
             // 
@@ -211,13 +201,24 @@
             this.labNumFormas.TabIndex = 2;
             this.labNumFormas.Text = "0";
             // 
-            // listEscuelas
+            // listFormas
             // 
-            this.listEscuelas.Location = new System.Drawing.Point(24, 53);
-            this.listEscuelas.Name = "listEscuelas";
-            this.listEscuelas.Size = new System.Drawing.Size(219, 130);
-            this.listEscuelas.TabIndex = 3;
-            this.listEscuelas.UseCompatibleStateImageBehavior = false;
+            this.listFormas.Location = new System.Drawing.Point(24, 53);
+            this.listFormas.Name = "listFormas";
+            this.listFormas.Size = new System.Drawing.Size(219, 130);
+            this.listFormas.TabIndex = 1;
+            this.listFormas.UseCompatibleStateImageBehavior = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label6.Location = new System.Drawing.Point(20, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(175, 24);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Formas abiertas";
             // 
             // MainView
             // 

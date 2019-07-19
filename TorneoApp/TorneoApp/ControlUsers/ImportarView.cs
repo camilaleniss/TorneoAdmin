@@ -21,5 +21,10 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void ImportarView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

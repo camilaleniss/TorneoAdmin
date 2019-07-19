@@ -411,6 +411,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "CompetidoresView";
             this.Size = new System.Drawing.Size(706, 519);
+            this.Load += new System.EventHandler(this.CompetidoresView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

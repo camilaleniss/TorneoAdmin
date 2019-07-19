@@ -16,5 +16,10 @@ namespace TorneoApp.ControlUsers
         {
             InitializeComponent();
         }
+
+        private void Ranking_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -111,7 +111,7 @@
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelView;
         private ControlUsers.Banner Banner;
-        private ControlUsers.MainView mainView;
+        private System.Windows.Forms.Control mainView;
 
         /*
         private ControlUsers.CategoriasLists categoriaslist;

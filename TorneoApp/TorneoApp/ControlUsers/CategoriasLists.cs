@@ -21,5 +21,10 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void CategoriasLists_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

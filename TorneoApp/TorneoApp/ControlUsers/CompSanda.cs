@@ -16,5 +16,10 @@ namespace TorneoApp.ControlUsers
         {
             InitializeComponent();
         }
+
+        private void CompSanda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

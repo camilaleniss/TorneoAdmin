@@ -13,7 +13,7 @@ namespace TorneoApp.ControlUsers
 {
     public partial class MenuLateral : UserControl
     {
-
+        public MainWindow Controlador { get; set; }
 
         public MenuLateral()
         {
@@ -22,27 +22,69 @@ namespace TorneoApp.ControlUsers
 
         private void ButtonTitle_Click(object sender, EventArgs e)
         {
-            Main.MenuPrincipal();
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-
+            Controlador.ShowView("Init");
         }
 
         private void ButCatSanda_Click(object sender, EventArgs e)
         {
+            Controlador.ShowView("CatSanda");
+        }
 
+        private void ButImportar_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Importar");
+        }
+
+        private void ButCategorias_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Categorias");
+        }
+
+        private void ButCatFormas_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("CatFormas");
+        }
+
+        private void ButCompetidores_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Competidores");
+
+        }
+
+        private void ButListaCompetidores_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Competidores");
+        }
+
+        private void ButEscuelas_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Escuelas");
+        }
+
+        private void ButListaEscuelas_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Escuelas");
+        }
+
+        private void ButRankingEscuelas_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("Ranking");
+        }
+
+        private void ButCompetencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButSanda_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("CompSanda");
+
+        }
+
+        private void ButFormas_Click(object sender, EventArgs e)
+        {
+            Controlador.ShowView("CompFormas");
         }
     }
 }

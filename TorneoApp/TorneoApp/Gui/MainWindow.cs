@@ -15,6 +15,9 @@ namespace TorneoApp.Model
         public MainWindow()
         {          
             InitializeComponent();
+
+            menuLateral.Controlador = this;
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -32,15 +35,42 @@ namespace TorneoApp.Model
 
         }
 
-        public void MenuPrincipal()
+        public void ShowView(string view)
         {
-           
-        }
-
-        public void ImportarViewShow()
-        {
-            this.panelView
-            this.panelView.Controls.Add(this.mainView);
+            switch (view){
+                case "Init":
+                    this.mainView = new ControlUsers.MainView();
+                    break;
+                case "Categorias":
+                    this.mainView = new ControlUsers.CategoriasView();
+                    break;
+                case "CatSanda":
+                    this.mainView = new ControlUsers.CategoriasLists();
+                    break;
+                case "CatFormas":
+                    this.mainView = new ControlUsers.CategoriasLists();
+                    break;
+                case "Competidores":
+                    this.mainView = new ControlUsers.CompetidoresView();
+                    break;
+                case "Importar":
+                    this.mainView = new ControlUsers.ImportarView();
+                    break;
+                case "Escuelas":
+                    this.mainView = new ControlUsers.EscuelasView();
+                    break;
+                case "Ranking":
+                    this.mainView = new ControlUsers.Ranking();
+                    break;
+                case "CompSanda":
+                    this.mainView = new ControlUsers.CompSanda();
+                    break;
+                case "CompFormas":
+                    this.mainView = new ControlUsers.CompFormas();
+                    break;
+            }
+            this.panelView.Controls.Clear();           
+            this.panelView.Controls.Add(mainView);
         }
     }
 }

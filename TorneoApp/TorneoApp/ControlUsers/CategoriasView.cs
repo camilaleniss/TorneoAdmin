@@ -26,5 +26,10 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void ControlButtons1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

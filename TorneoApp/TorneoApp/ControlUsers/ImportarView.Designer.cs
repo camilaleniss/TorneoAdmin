@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ImportarView";
             this.Size = new System.Drawing.Size(706, 519);
+            this.Load += new System.EventHandler(this.ImportarView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

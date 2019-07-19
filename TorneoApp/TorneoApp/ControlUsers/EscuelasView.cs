@@ -21,5 +21,10 @@ namespace TorneoApp.ControlUsers
         {
 
         }
+
+        private void EscuelasView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
