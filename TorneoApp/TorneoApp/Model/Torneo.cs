@@ -12,7 +12,11 @@ namespace TorneoApp.Model
     public class Torneo
     {
         //Ruta del archivo  registro del torneo
-        public const string XLS_ROUTE = "..\\..\\Registro.csv";
+        public const string XLS_ROUTE = "..\\..\\Data\\Registro.csv";
+
+        public const int ORO = 5;
+        public const int PLATA = 3;
+        public const int BRONCE = 1;
 
         //Lista de las categorias abiertas para formas
         public List<CatFormas> CategoriasFormas { get; set; }
@@ -205,6 +209,32 @@ namespace TorneoApp.Model
             }
             return null;
         }
+
+        public Competidor BuscarCompetidor (string NombreCompetidor)
+        {
+            Competidor Competidor = Competidores.Find(c => c.Name.Equals(NombreCompetidor));
+            return Competidor;
+        }
+
+        public void ConfirmarPresente(string NombreCompetidor)
+        {
+            Competidor c = BuscarCompetidor(NombreCompetidor);
+            c.IsHere = true;
+        }
+
+        public double GetPromedio (double [] juez)
+        {
+            double promedio = 0;
+            for (int i = 0; i < juez.Length; i++)
+                promedio += juez[i];
+
+            promedio /= juez.Length;
+
+            return promedio;
+        }
+
+        
+
 
 
     }

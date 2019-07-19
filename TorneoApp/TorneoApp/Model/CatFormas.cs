@@ -29,6 +29,7 @@ namespace TorneoApp.Model
         public override double CalcularDesviacion(Competidor participante){
             return Math.Abs(participante.GetMatchValue() - Mean);
         }
+
         public override void GenerarNombre(string NombreForma){
             int MinEdad = GetMinEdad();
             int MaxEdad = GetMaxEdad();
@@ -52,6 +53,45 @@ namespace TorneoApp.Model
             }
 
             Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años";
+        }
+
+        public Boolean HayEmpate (double Puntos)
+        {
+            return Presentaciones.Exists(p => p.Calificacion == Puntos);
+        }
+
+        public void AsignarCalificacion(Competidor competidor, double calificacion)
+        {
+            Presentacion p = BuscarPresentacion(competidor);
+            p.Calificacion = calificacion;
+        }
+
+        public Presentacion BuscarPresentacion(Competidor competidor)
+        {
+            return Presentaciones.Find(p => p.Competidor == competidor);
+        }
+
+        public void UpdatePodium()
+        {
+            List<Presentacion> Calificadas = PresentacionesCalificadas();
+            Calificadas.Sort();
+            var primeros = Calificadas.Take(3).ToArray();
+
+            Podium.FirstPlace = primeros[0].Competidor;
+            Podium.SecondPlace = primeros[1].Competidor;
+            Podium.ThirdPlace = primeros[2].Competidor;
+        }
+
+        public List<Presentacion> PresentacionesCalificadas()
+        {
+            return Presentaciones.FindAll(p => p.Calificacion != 0);
+        }
+
+        public void DarPuntos()
+        {
+            Podium.FirstPlace.Escuela.AumentarFormas(Torneo.ORO);
+            Podium.SecondPlace.Escuela.AumentarFormas(Torneo.PLATA);
+            Podium.ThirdPlace.Escuela.AumentarFormas(Torneo.BRONCE);
         }
 
     }

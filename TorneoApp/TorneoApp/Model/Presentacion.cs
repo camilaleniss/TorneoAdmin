@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-    public class Presentacion
+    public class Presentacion : IComparable<double>
     {
 
         public Competidor Competidor{get; set;}
@@ -16,6 +16,13 @@ namespace TorneoApp.Model
         {
             this.Competidor = Competidor;
             Calificacion= 0;
+        }
+
+        public int CompareTo(double other)
+        {
+            if (Calificacion > other) return 1;
+            if (Calificacion < other) return -1;
+            return 0;
         }
     }
 }
