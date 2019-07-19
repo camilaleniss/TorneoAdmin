@@ -15,6 +15,36 @@ namespace TorneoApp.ControlUsers
         public Banner()
         {
             InitializeComponent();
+            
+        }
+
+        public void ModifyLocation(string[] location)
+        {          
+            labInicio.Text = location[0];
+
+            if (location[1] != null)
+            {
+                labArrow1.Visible = true;
+                labCategoria.Visible = true;
+                labCategoria.Text = location[1];
+            }
+            else
+            {
+                labArrow1.Visible = false;
+                labCategoria.Visible = false;
+            }
+
+            if (location[2] != null)
+            {
+                labArrow2.Visible = true;
+                labSubCat.Visible = true;
+                labSubCat.Text = location[1];
+            }
+            else
+            {
+                labArrow2.Visible = false;
+                labSubCat.Visible = false;
+            }
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -46,7 +76,7 @@ namespace TorneoApp.ControlUsers
         {
             if (MessageBox.Show("¿Desea Salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Dispose();
+                Application.Exit();
             }
         }
     }

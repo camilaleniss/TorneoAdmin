@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.label1 = new System.Windows.Forms.Label();
             this.butNew = new System.Windows.Forms.Button();
             this.butLast = new System.Windows.Forms.Button();
+            this.butLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,18 +75,34 @@
             this.butLast.Text = "Torneo Guardado";
             this.butLast.UseVisualStyleBackColor = false;
             // 
+            // butLogOut
+            // 
+            this.butLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.butLogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("butLogOut.BackgroundImage")));
+            this.butLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.butLogOut.FlatAppearance.BorderSize = 0;
+            this.butLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butLogOut.Location = new System.Drawing.Point(812, 12);
+            this.butLogOut.Name = "butLogOut";
+            this.butLogOut.Size = new System.Drawing.Size(40, 50);
+            this.butLogOut.TabIndex = 6;
+            this.butLogOut.UseVisualStyleBackColor = true;
+            this.butLogOut.Click += new System.EventHandler(this.ButLogOut_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(883, 575);
+            this.Controls.Add(this.butLogOut);
             this.Controls.Add(this.butLast);
             this.Controls.Add(this.butNew);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inicio";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +113,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button butNew;
         private System.Windows.Forms.Button butLast;
+        private System.Windows.Forms.Button butLogOut;
     }
 }
 

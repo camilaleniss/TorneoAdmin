@@ -20,7 +20,22 @@ namespace TorneoApp
 
         private void ButNew_Click(object sender, EventArgs e)
         {
-            Application.Run(new MainWindow());
+            MainWindow main = new MainWindow();
+            this.Visible = false; 
+            main.Show();
+        }
+
+        private void ButLogOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

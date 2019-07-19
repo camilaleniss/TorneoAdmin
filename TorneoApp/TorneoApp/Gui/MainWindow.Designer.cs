@@ -29,49 +29,60 @@
         private void InitializeComponent()
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.menuLateral1 = new TorneoApp.ControlUsers.MenuLateral();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.banner1 = new TorneoApp.ControlUsers.Banner();
-            this.mainView1 = new TorneoApp.ControlUsers.MainView();
-            this.panel1.SuspendLayout();
+            this.menuLateral = new TorneoApp.ControlUsers.MenuLateral();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.panelView = new System.Windows.Forms.Panel();
+            this.mainView = new TorneoApp.ControlUsers.MainView();
+            this.Banner = new TorneoApp.ControlUsers.Banner();
+            this.panelContent.SuspendLayout();
+            this.panelView.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuLateral1
+            // menuLateral
             // 
-            this.menuLateral1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
-            this.menuLateral1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuLateral1.Location = new System.Drawing.Point(0, 0);
-            this.menuLateral1.Name = "menuLateral1";
-            this.menuLateral1.Size = new System.Drawing.Size(177, 575);
-            this.menuLateral1.TabIndex = 1;
+            this.menuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
+            this.menuLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuLateral.Location = new System.Drawing.Point(0, 0);
+            this.menuLateral.Name = "menuLateral";
+            this.menuLateral.Size = new System.Drawing.Size(177, 575);
+            this.menuLateral.TabIndex = 0;
             // 
-            // panel1
+            // panelContent
             // 
-            this.panel1.Controls.Add(this.mainView1);
-            this.panel1.Controls.Add(this.banner1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(177, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 575);
-            this.panel1.TabIndex = 2;
+            this.panelContent.Controls.Add(this.panelView);
+            this.panelContent.Controls.Add(this.Banner);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(177, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(706, 575);
+            this.panelContent.TabIndex = 1;
             // 
-            // banner1
+            // panelView
             // 
-            this.banner1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(221)))));
-            this.banner1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.banner1.Location = new System.Drawing.Point(0, 0);
-            this.banner1.Name = "banner1";
-            this.banner1.Size = new System.Drawing.Size(706, 56);
-            this.banner1.TabIndex = 0;
+            this.panelView.Controls.Add(this.mainView);
+            this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelView.Location = new System.Drawing.Point(0, 56);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(706, 519);
+            this.panelView.TabIndex = 1;
             // 
-            // mainView1
+            // mainView
             // 
-            this.mainView1.BackColor = System.Drawing.Color.White;
-            this.mainView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainView1.Location = new System.Drawing.Point(0, 56);
-            this.mainView1.Name = "mainView1";
-            this.mainView1.Size = new System.Drawing.Size(706, 519);
-            this.mainView1.TabIndex = 1;
+            this.mainView.BackColor = System.Drawing.Color.White;
+            this.mainView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainView.Location = new System.Drawing.Point(0, 0);
+            this.mainView.Name = "mainView";
+            this.mainView.Size = new System.Drawing.Size(706, 519);
+            this.mainView.TabIndex = 0;
+            // 
+            // Banner
+            // 
+            this.Banner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(221)))));
+            this.Banner.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Banner.Location = new System.Drawing.Point(0, 0);
+            this.Banner.Name = "Banner";
+            this.Banner.Size = new System.Drawing.Size(706, 56);
+            this.Banner.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -80,13 +91,14 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(883, 575);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuLateral1);
+            this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.menuLateral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.panel1.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
+            this.panelView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -94,9 +106,22 @@
         #endregion
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private ControlUsers.MenuLateral menuLateral1;
-        private System.Windows.Forms.Panel panel1;
-        private ControlUsers.MainView mainView1;
-        private ControlUsers.Banner banner1;
+
+        private ControlUsers.MenuLateral menuLateral;
+        private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Panel panelView;
+        private ControlUsers.Banner Banner;
+        private ControlUsers.MainView mainView;
+
+        /*
+        private ControlUsers.CategoriasLists categoriaslist;
+        private ControlUsers.CategoriasView categoriasview;
+        private ControlUsers.CompFormas compformas;
+        private ControlUsers.CompSanda compsanda;
+        private ControlUsers.EscuelasView escuelasview;
+        private ControlUsers.ImportarView importarview;
+        private ControlUsers.Ranking rankingview;
+        private ControlUsers.CompetidoresView competidoresview;
+        */
     }
 }

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TorneoApp.Model;
 
 namespace TorneoApp.ControlUsers
 {
     public partial class MenuLateral : UserControl
     {
+
 
         public MenuLateral()
         {
@@ -20,7 +22,7 @@ namespace TorneoApp.ControlUsers
 
         private void ButtonTitle_Click(object sender, EventArgs e)
         {
-
+            Main.MenuPrincipal();
         }
 
         private void Button1_Click(object sender, EventArgs e)
