@@ -12,12 +12,15 @@ namespace TorneoApp.Model
 {
     public partial class MainWindow : Form
     {
+
+        private Torneo Torneo;
         public MainWindow()
         {          
             InitializeComponent();
 
             menuLateral.Controlador = this;
 
+            Torneo = new Torneo();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -72,5 +75,20 @@ namespace TorneoApp.Model
             this.panelView.Controls.Clear();           
             this.panelView.Controls.Add(mainView);
         }
+
+        public void InitializeListCategorias(bool IsFormas)
+        {
+
+        }
+
+        public void InitializeListCatFormas(ControlUsers.CategoriasLists view)
+        {
+            List<CatFormas> categorias = Torneo.CategoriasFormas;
+            foreach(CatFormas c in categorias)
+            {
+                
+            }
+        }
+
     }
 }

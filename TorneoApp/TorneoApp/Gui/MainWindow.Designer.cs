@@ -41,6 +41,7 @@
             // menuLateral
             // 
             this.menuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
+            this.menuLateral.Controlador = null;
             this.menuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuLateral.Location = new System.Drawing.Point(0, 0);
             this.menuLateral.Name = "menuLateral";

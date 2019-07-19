@@ -209,6 +209,7 @@
             this.controlButtons1.Name = "controlButtons1";
             this.controlButtons1.Size = new System.Drawing.Size(234, 120);
             this.controlButtons1.TabIndex = 4;
+            this.controlButtons1.Load += new System.EventHandler(this.ControlButtons1_Load);
             // 
             // CategoriasLists
             // 

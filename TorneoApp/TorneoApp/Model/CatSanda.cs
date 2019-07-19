@@ -13,6 +13,11 @@ namespace TorneoApp.Model
 
         public Competidor Atipico { get; set; }
 
+        public CatSanda()
+        {
+            Opened = true;
+        }
+
         public override void CalcularMean(){
             var Competidores = Participantes.ToArray();
             double mean=0;

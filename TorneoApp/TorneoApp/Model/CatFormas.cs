@@ -92,7 +92,12 @@ namespace TorneoApp.Model
             Podium.FirstPlace.Escuela.AumentarFormas(Torneo.ORO);
             Podium.SecondPlace.Escuela.AumentarFormas(Torneo.PLATA);
             Podium.ThirdPlace.Escuela.AumentarFormas(Torneo.BRONCE);
+            Opened = false;
         }
+
+
+
+
 
     }
 }

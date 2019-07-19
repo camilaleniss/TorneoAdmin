@@ -26,7 +26,7 @@ namespace TorneoApp.Model
         {
             Participantes = new List<Competidor>();
             Podium = new Podium();
-            Opened = false;
+            Opened = true;
             Mean = 0;
         }
 

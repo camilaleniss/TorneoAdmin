@@ -12,10 +12,15 @@ namespace TorneoApp.ControlUsers
 {
     public partial class CategoriasLists : UserControl
     {
+        public bool IsFormas { get; set; }
+
         public CategoriasLists()
         {
             InitializeComponent();
+            
         }
+
+       
 
         private void Label4_Click(object sender, EventArgs e)
         {
@@ -23,6 +28,11 @@ namespace TorneoApp.ControlUsers
         }
 
         private void CategoriasLists_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlButtons1_Load(object sender, EventArgs e)
         {
 
         }
