@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TorneoApp.Model;
+using TorneoApp.Gui;
 
 namespace TorneoApp.ControlUsers
 {
@@ -22,10 +23,10 @@ namespace TorneoApp.ControlUsers
         public CategoriasLists()
         {
             InitializeComponent();
-            
+            labCategoria.Text = IsFormas ? "Formas" : "Sanda";
         }
 
-       
+
 
         private void Label4_Click(object sender, EventArgs e)
         {
@@ -76,7 +77,7 @@ namespace TorneoApp.ControlUsers
             if (listCompetidores.SelectedIndices.Count > 0)
             {
                 int index = listCompetidores.SelectedIndices[0];
-                IndexComp = index;               
+                IndexComp = index;
                 this.Window.SelectCompetidor(IndexCat, IsFormas, index);
             }
         }
@@ -86,7 +87,23 @@ namespace TorneoApp.ControlUsers
             labNombre.Text = comp.Name;
             labEdad.Text = comp.Edad + " años";
             labPeso.Text = comp.Peso + "kg";
+            labNivel.Text = comp.getNivel();
             labEscuela.Text = comp.Escuela.Name;
+        }
+
+        private void ButCambiar_Click(object sender, EventArgs e)
+        {
+            CambiarCategoria cambiar = new CambiarCategoria();
+            cambiar.categorias = this;   
+
+            cambiar.InitializeCategorias(Window.ToStringCategorias(IsFormas));
+
+            cambiar.Visible = true;
+        }
+
+        public void MoverA(int index)
+        {
+            this.Window.MoverA(IndexCat, index, IndexComp, IsFormas);
         }
     }
 }

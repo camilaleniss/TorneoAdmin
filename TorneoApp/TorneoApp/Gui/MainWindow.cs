@@ -139,5 +139,16 @@ namespace TorneoApp.Model
             Competidor comp = Torneo.SelectCompetidor(index, indexcomp, IsFormas);
             categoriaslist.LoadData(comp);
         }
+
+        public void MoverA(int categoriaactual, int categorianueva, int indexcomp, bool IsFormas)
+        {
+            Torneo.MoverCompetidor(categoriaactual, categorianueva, indexcomp, IsFormas);
+            categoriaslist.Refresh();
+        }
+
+        public List<String> ToStringCategorias(bool isformas)
+        {
+            return Torneo.ToStringCategorias(isformas);
+        }
     }
 }

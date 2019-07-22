@@ -122,6 +122,12 @@
     <Compile Include="ControlUsers\Ranking.Designer.cs">
       <DependentUpon>Ranking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\CambiarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\CambiarCategoria.Designer.cs">
+      <DependentUpon>CambiarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\Ranking.resx">
       <DependentUpon>Ranking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\CambiarCategoria.resx">
+      <DependentUpon>CambiarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

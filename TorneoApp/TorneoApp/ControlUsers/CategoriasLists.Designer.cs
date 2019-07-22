@@ -144,6 +144,7 @@
             this.butCambiar.TabIndex = 8;
             this.butCambiar.Text = "Cambiar categoria";
             this.butCambiar.UseVisualStyleBackColor = false;
+            this.butCambiar.Click += new System.EventHandler(this.ButCambiar_Click);
             // 
             // labEdad
             // 

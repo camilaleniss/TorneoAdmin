@@ -265,7 +265,31 @@ namespace TorneoApp.Model
             return cat.Participantes.ToArray()[indexcomp];
         }
 
+        public void MoverCompetidor(int categoriaactual, int categorianueva, int indexcomp, bool IsFormas)
+        {
+            Categoria catantigua = SelectCategoria(categoriaactual, IsFormas);
+            Competidor comp = SelectCompetidor(categoriaactual, indexcomp, IsFormas);
+            catantigua.EliminarCompetidor(comp);
+            Categoria catnuevo = SelectCategoria(categorianueva, IsFormas);
+            catnuevo.AddCompetidor(comp);
 
+        }
+
+        public List<String> ToStringCategorias(bool isformas)
+        {
+            List<String> descrip = new List<String>();
+            if (isformas)
+            {
+                foreach (CatFormas cat in CategoriasFormas)
+                    descrip.Add(cat.ToString());
+            }
+            else
+            {
+                foreach (CatSanda cat in CategoriasSanda)
+                    descrip.Add(cat.ToString());
+            }
+            return descrip;
+        }
 
     }
 }

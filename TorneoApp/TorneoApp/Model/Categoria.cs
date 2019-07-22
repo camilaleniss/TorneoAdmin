@@ -97,5 +97,10 @@ namespace TorneoApp.Model
             return Nivel;
         }
 
+        public void EliminarCompetidor(Competidor comp)
+        {
+            Participantes.Remove(comp);
+        }
+
     }
 }
