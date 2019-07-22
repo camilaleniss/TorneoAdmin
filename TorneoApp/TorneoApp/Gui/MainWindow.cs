@@ -14,6 +14,9 @@ namespace TorneoApp.Model
     {
 
         private Torneo Torneo;
+
+        
+
         public MainWindow()
         {          
             InitializeComponent();
@@ -21,6 +24,7 @@ namespace TorneoApp.Model
             menuLateral.Controlador = this;
 
             Torneo = new Torneo();
+            Torneo.InicializarTorneo();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -40,55 +44,100 @@ namespace TorneoApp.Model
 
         public void ShowView(string view)
         {
+            this.panelView.Controls.Clear();
+
             switch (view){
                 case "Init":
                     this.mainView = new ControlUsers.MainView();
+                    this.panelView.Controls.Add(mainView);
                     break;
                 case "Categorias":
-                    this.mainView = new ControlUsers.CategoriasView();
-                    break;
-                case "CatSanda":
-                    this.mainView = new ControlUsers.CategoriasLists();
-                    break;
-                case "CatFormas":
-                    this.mainView = new ControlUsers.CategoriasLists();
-                    break;
+                    this.categoriasview = new ControlUsers.CategoriasView();
+                    this.panelView.Controls.Add(categoriasview);
+                    break;              
                 case "Competidores":
-                    this.mainView = new ControlUsers.CompetidoresView();
+                    this.competidoresview = new ControlUsers.CompetidoresView();
+                    this.panelView.Controls.Add(competidoresview);
                     break;
                 case "Importar":
-                    this.mainView = new ControlUsers.ImportarView();
+                    this.importarview = new ControlUsers.ImportarView();
+                    this.panelView.Controls.Add(importarview);
                     break;
                 case "Escuelas":
-                    this.mainView = new ControlUsers.EscuelasView();
+                    this.escuelasview = new ControlUsers.EscuelasView();
+                    this.panelView.Controls.Add(escuelasview);
                     break;
                 case "Ranking":
-                    this.mainView = new ControlUsers.Ranking();
+                    this.rankingview = new ControlUsers.Ranking();
+                    this.panelView.Controls.Add(rankingview);
                     break;
                 case "CompSanda":
-                    this.mainView = new ControlUsers.CompSanda();
+                    this.compsanda = new ControlUsers.CompSanda();
+                    this.panelView.Controls.Add(compsanda);
                     break;
                 case "CompFormas":
-                    this.mainView = new ControlUsers.CompFormas();
+                    this.compformas = new ControlUsers.CompFormas();
+                    this.panelView.Controls.Add(compformas);
                     break;
             }
-            this.panelView.Controls.Clear();           
-            this.panelView.Controls.Add(mainView);
+            
+            if(view.Equals("CatSanda") || view.Equals("CatFormas"))
+            {
+                this.categoriaslist = new ControlUsers.CategoriasLists();
+                categoriaslist.IsFormas =view.Equals("CatFormas") ? true : false;
+                categoriaslist.Window = this;
+                InitializeListCategorias();
+                this.panelView.Controls.Add(categoriaslist);
+            }
         }
 
-        public void InitializeListCategorias(bool IsFormas)
+        public void InitializeListCategorias()
         {
-
+            bool IsFormas = categoriaslist.IsFormas;
+            if (IsFormas)
+            {
+                InitializeListCatFormas();
+            }
+            else
+            {
+                InitializeListCatSanda();
+            }
         }
 
-        public void InitializeListCatFormas(ControlUsers.CategoriasLists view)
+        public void InitializeListCatFormas()
         {
             List<CatFormas> categorias = Torneo.CategoriasFormas;
             foreach(CatFormas c in categorias)
             {
-                
+                categoriaslist.getListCategorias().Items.Add(c.Nombre);
             }
         }
 
+        public void InitializeListCatSanda()
+        {
+            List<CatSanda> categorias = Torneo.CategoriasSanda;
+            foreach (CatSanda c in categorias)
+            {
+                categoriaslist.getListCategorias().Items.Add(c.Nombre);
+            }
+        }
+
+
+        private void Banner_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void SelectCategory(int index, bool IsFormas)
+        {
+            Categoria categoria = Torneo.SelectCategoria(index, IsFormas);
+            categoriaslist.LoadCompetidores(categoria.Participantes);
+        }
+
+        public void SelectCompetidor(int index, bool IsFormas, int indexcomp)
+        {
+            Competidor comp = Torneo.SelectCompetidor(index, indexcomp, IsFormas);
+            categoriaslist.LoadData(comp);
+        }
     }
 }

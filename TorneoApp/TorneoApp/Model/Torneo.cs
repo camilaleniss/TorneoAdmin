@@ -12,7 +12,7 @@ namespace TorneoApp.Model
     public class Torneo
     {
         //Ruta del archivo  registro del torneo
-        public const string XLS_ROUTE = "..\\..\\Data\\Registro.csv";
+        public const string CSV_ROUTE = "..\\..\\Data\\Registro.csv";
 
         public const int ORO = 5;
         public const int PLATA = 3;
@@ -44,6 +44,23 @@ namespace TorneoApp.Model
             Competidores = new List<Competidor>();
 
             Formas = new List<Forma>();
+        }
+
+        public void InicializarTorneo()
+        {
+            var Lectura = leerCSV(CSV_ROUTE);
+            LeerCompetidores(Lectura);
+            DoMatches();
+        }
+
+        public void DoMatches()
+        {
+            var tempComp = Competidores.FindAll(comp => comp.Formas);
+            MatchFormas matchformas = new MatchFormas(Formas, tempComp);
+            tempComp = Competidores.FindAll(comp => comp.Sanda);
+            MatchSanda matchsanda = new MatchSanda(tempComp);
+            CategoriasFormas = matchformas.DoMatch();
+            CategoriasSanda = matchsanda.DoMatch();
         }
 
         /*
@@ -233,7 +250,20 @@ namespace TorneoApp.Model
             return promedio;
         }
 
+        public Categoria SelectCategoria(int index, bool IsFormas)
+        {
+            if (IsFormas)
+            {
+                return CategoriasFormas.ToArray()[index];
+            }
+            return CategoriasSanda.ToArray()[index];
+        }
         
+        public Competidor SelectCompetidor(int indexcat, int indexcomp, bool IsFormas)
+        {
+            Categoria cat = SelectCategoria(indexcat, IsFormas);
+            return cat.Participantes.ToArray()[indexcomp];
+        }
 
 
 

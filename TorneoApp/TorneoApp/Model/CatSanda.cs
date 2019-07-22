@@ -54,7 +54,7 @@ namespace TorneoApp.Model
                     break;
             }
 
-            Nombre =  NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años de "+MinPeso+"-"+MaxPeso+"kg";
+            this.Nombre =  NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años de "+MinPeso+"-"+MaxPeso+"kg";
             
         } 
 

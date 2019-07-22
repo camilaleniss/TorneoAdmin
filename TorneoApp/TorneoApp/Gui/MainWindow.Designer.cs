@@ -29,24 +29,14 @@
         private void InitializeComponent()
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.menuLateral = new TorneoApp.ControlUsers.MenuLateral();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelView = new System.Windows.Forms.Panel();
             this.mainView = new TorneoApp.ControlUsers.MainView();
             this.Banner = new TorneoApp.ControlUsers.Banner();
+            this.menuLateral = new TorneoApp.ControlUsers.MenuLateral();
             this.panelContent.SuspendLayout();
             this.panelView.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuLateral
-            // 
-            this.menuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
-            this.menuLateral.Controlador = null;
-            this.menuLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuLateral.Location = new System.Drawing.Point(0, 0);
-            this.menuLateral.Name = "menuLateral";
-            this.menuLateral.Size = new System.Drawing.Size(177, 575);
-            this.menuLateral.TabIndex = 0;
             // 
             // panelContent
             // 
@@ -75,6 +65,7 @@
             this.mainView.Name = "mainView";
             this.mainView.Size = new System.Drawing.Size(706, 519);
             this.mainView.TabIndex = 0;
+            
             // 
             // Banner
             // 
@@ -84,6 +75,17 @@
             this.Banner.Name = "Banner";
             this.Banner.Size = new System.Drawing.Size(706, 56);
             this.Banner.TabIndex = 0;
+            this.Banner.Load += new System.EventHandler(this.Banner_Load);
+            // 
+            // menuLateral
+            // 
+            this.menuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
+            this.menuLateral.Controlador = null;
+            this.menuLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuLateral.Location = new System.Drawing.Point(0, 0);
+            this.menuLateral.Name = "menuLateral";
+            this.menuLateral.Size = new System.Drawing.Size(177, 575);
+            this.menuLateral.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -112,9 +114,9 @@
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelView;
         private ControlUsers.Banner Banner;
-        private System.Windows.Forms.Control mainView;
+        private ControlUsers.MainView mainView;
 
-        /*
+        
         private ControlUsers.CategoriasLists categoriaslist;
         private ControlUsers.CategoriasView categoriasview;
         private ControlUsers.CompFormas compformas;
@@ -123,6 +125,6 @@
         private ControlUsers.ImportarView importarview;
         private ControlUsers.Ranking rankingview;
         private ControlUsers.CompetidoresView competidoresview;
-        */
+        
     }
 }

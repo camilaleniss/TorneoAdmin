@@ -111,7 +111,23 @@ namespace TorneoApp.Model
             return (Edad+Peso)/TiempoEntrenando;
         }
 
-        public string ToString => Name + " / " + IsMan + " / " + Edad + " / " + Peso + " / " + IsBlackBelt + " / " + TiempoEntrenando + " / " +
-                Eps + " / "+TelefonoPersonal+" / " + ContactName + " / " + TelefonoAcudiente + " / " + Email + " / " + Escuela;
+        public string getNivel()
+        {
+            switch(TiempoEntrenando){
+                case Competidor.PRINCIPIANTE:
+                    return  "Principiante";
+                case Competidor.INTERMEDIO:
+                    return "Intermedio";
+                case Competidor.AVANZADO:
+                    return "Avanzado";               
+            }
+            return "Cinta Negra";
+        }
+        
+        public String ToString()
+        {
+            return Name + " / " + getNivel() + " / " + Peso + "kg / " + Edad + " años ";
+        }
+
     }
 }
