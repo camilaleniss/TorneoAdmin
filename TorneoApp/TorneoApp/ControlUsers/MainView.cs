@@ -16,6 +16,8 @@ namespace TorneoApp.ControlUsers
         public MainView()
         {
             InitializeComponent();
+            labBienvenida.Text = "Bienvenido al dashboard del \n" + Torneo.NOMBRE_TORNEO;
+
         }
 
         private void Label1_Click(object sender, EventArgs e)

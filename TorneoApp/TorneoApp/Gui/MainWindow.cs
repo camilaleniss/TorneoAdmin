@@ -55,6 +55,8 @@ namespace TorneoApp.Model
                     break;
                 case "Categorias":
                     this.categoriasview = new ControlUsers.CategoriasView();
+                    this.categoriasview.Main = this;
+                    InitializeCategorias();
                     this.panelView.Controls.Add(categoriasview);
                     break;              
                 case "Competidores":
@@ -87,6 +89,7 @@ namespace TorneoApp.Model
             {
                 this.categoriaslist = new ControlUsers.CategoriasLists();
                 categoriaslist.IsFormas =view.Equals("CatFormas") ? true : false;
+                categoriaslist.SetNameCategorias();
                 categoriaslist.Window = this;
                 InitializeListCategorias();
                 this.panelView.Controls.Add(categoriaslist);
@@ -169,5 +172,34 @@ namespace TorneoApp.Model
             mainView.InitializeListEscuelas(escuelas);
             mainView.InitializeListFormas(formas);
         }
+
+        public void InitializeCategorias()
+        {
+            InitializeLabsCategoriasView();
+            InitializeaListAllCategories();
+        }
+
+        public void InitializeLabsCategoriasView()
+        {
+            //Initialize Sanda
+            int numcat = Torneo.CategoriasSanda.Count;
+            int numopened = Torneo.GetNumOpenedCategoria(false);
+            int numfinished = numcat - numopened;
+
+            categoriasview.InitializeLabs(numcat, numopened, numfinished, false);
+
+            numcat = Torneo.CategoriasFormas.Count;
+            numopened = Torneo.GetNumOpenedCategoria(true);
+            numfinished = numcat - numopened;
+
+            categoriasview.InitializeLabs(numcat, numopened, numfinished, true);
+        }
+
+        public void InitializeaListAllCategories()
+        {
+            List<String> AllCategories = Torneo.GetAllCategoriesNames();
+            categoriasview.InitializeListCategorias(AllCategories);
+        }
+
     }
 }

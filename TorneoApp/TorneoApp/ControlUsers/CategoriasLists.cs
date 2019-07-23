@@ -23,10 +23,13 @@ namespace TorneoApp.ControlUsers
         public CategoriasLists()
         {
             InitializeComponent();
-            labCategoria.Text = IsFormas ? "Formas" : "Sanda";
+            
         }
 
-
+        public void SetNameCategorias()
+        {
+            labCategoria.Text = IsFormas ? "Formas" : "Sanda";
+        }
 
         private void Label4_Click(object sender, EventArgs e)
         {
