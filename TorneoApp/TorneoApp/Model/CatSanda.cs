@@ -8,20 +8,23 @@ namespace TorneoApp.Model
 {
     public class CatSanda : Categoria
     {
+
+
         //Aqui deberia ir el arbol de combates
         public bool Genere { get; set; }
+
 
         public List<Combate> RondaDeCombates(List<Competidor> participantes)
         {
             List<Combate> combates = new List<Combate>();
             Random rand = new Random();
-            List<int> possible = Enumerable.Range(1, participantes.Count).ToList();
+            List<int> possible = Enumerable.Range(0, participantes.Count).ToList();
             for (int i = 0; i < participantes.Count() / 2; i++)
             {
                 int index = rand.Next(0, possible.Count);
                 possible.RemoveAt(index);
                 int index2 = rand.Next(0, possible.Count);
-                possible.RemoveAt(index);
+                possible.RemoveAt(index2);
                 Combate c = new Combate(participantes[index], participantes[index2]);
                 combates.Add(c);
             }
