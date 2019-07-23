@@ -143,7 +143,8 @@ namespace TorneoApp.Model
         public void MoverA(int categoriaactual, int categorianueva, int indexcomp, bool IsFormas)
         {
             Torneo.MoverCompetidor(categoriaactual, categorianueva, indexcomp, IsFormas);
-            categoriaslist.Refresh();
+            string view = IsFormas ? "CatFormas" : "CatSanda";
+            ShowView(view);
         }
 
         public List<String> ToStringCategorias(bool isformas)

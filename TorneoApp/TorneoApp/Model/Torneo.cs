@@ -281,12 +281,12 @@ namespace TorneoApp.Model
             if (isformas)
             {
                 foreach (CatFormas cat in CategoriasFormas)
-                    descrip.Add(cat.ToString());
+                    descrip.Add(cat.Nombre);
             }
             else
             {
                 foreach (CatSanda cat in CategoriasSanda)
-                    descrip.Add(cat.ToString());
+                    descrip.Add(cat.Nombre);
             }
             return descrip;
         }

@@ -40,8 +40,8 @@ namespace TorneoApp.Gui
         {
             if (listCategorias.SelectedIndices.Count > 0)
             {
-                index = listCategorias.SelectedIndices[0];
-                categorias.MoverA(index);
+                this.index = listCategorias.SelectedIndices[0];
+                
             }
         }
 

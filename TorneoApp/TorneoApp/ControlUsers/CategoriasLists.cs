@@ -95,9 +95,7 @@ namespace TorneoApp.ControlUsers
         {
             CambiarCategoria cambiar = new CambiarCategoria();
             cambiar.categorias = this;   
-
             cambiar.InitializeCategorias(Window.ToStringCategorias(IsFormas));
-
             cambiar.Visible = true;
         }
 
