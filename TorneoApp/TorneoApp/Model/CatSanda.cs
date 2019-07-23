@@ -15,8 +15,8 @@ namespace TorneoApp.Model
         {
             List<Combate> combates = new List<Combate>();
             Random rand = new Random();
-            List<int> possible = Enumerable.Range(1, participantes.Count).ToList();
-            for (int i = 0; i < participantes.Count()/2; i++)
+            List<int> possible = Enumerable.Range(1, participantes.Count).T oList();
+            for (int i = 0; i < participantes.Count() / 2; i++)
             {
                 int index = rand.Next(0, possible.Count);
                 possible.RemoveAt(index);
@@ -25,15 +25,16 @@ namespace TorneoApp.Model
                 Combate c = new Combate(participantes[index], participantes[index2]);
                 combates.Add(c);
             }
-            if(possible.Count > 0)
-            {   
+            if (possible.Count > 0)
+            {
                 //Solucion temporal a competidores impares 
                 //Se debe crear una variable dummy para estas situaciones
                 Combate c = new Combate(participantes[possible[0]], participantes[possible[0]]);
                 combates.Add(c);
             }
-           
+
             return combates;
+        }
         public bool IsMan { get; set; }
 
         public Competidor Atipico { get; set; }
