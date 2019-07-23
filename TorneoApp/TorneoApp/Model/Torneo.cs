@@ -12,7 +12,11 @@ namespace TorneoApp.Model
     public class Torneo
     {
         //Ruta del archivo  registro del torneo
-        public const string XLS_ROUTE = "..\\..\\Registro.csv";
+        public const string CSV_ROUTE = "..\\..\\Data\\Registro.csv";
+
+        public const int ORO = 5;
+        public const int PLATA = 3;
+        public const int BRONCE = 1;
 
         //Lista de las categorias abiertas para formas
         public List<CatFormas> CategoriasFormas { get; set; }
@@ -40,6 +44,23 @@ namespace TorneoApp.Model
             Competidores = new List<Competidor>();
 
             Formas = new List<Forma>();
+        }
+
+        public void InicializarTorneo()
+        {
+            var Lectura = leerCSV(CSV_ROUTE);
+            LeerCompetidores(Lectura);
+            DoMatches();
+        }
+
+        public void DoMatches()
+        {
+            var tempComp = Competidores.FindAll(comp => comp.Formas);
+            MatchFormas matchformas = new MatchFormas(Formas, tempComp);
+            tempComp = Competidores.FindAll(comp => comp.Sanda);
+            MatchSanda matchsanda = new MatchSanda(tempComp);
+            CategoriasFormas = matchformas.DoMatch();
+            CategoriasSanda = matchsanda.DoMatch();
         }
 
         /*
@@ -206,6 +227,69 @@ namespace TorneoApp.Model
             return null;
         }
 
+        public Competidor BuscarCompetidor (string NombreCompetidor)
+        {
+            Competidor Competidor = Competidores.Find(c => c.Name.Equals(NombreCompetidor));
+            return Competidor;
+        }
+
+        public void ConfirmarPresente(string NombreCompetidor)
+        {
+            Competidor c = BuscarCompetidor(NombreCompetidor);
+            c.IsHere = true;
+        }
+
+        public double GetPromedio (double [] juez)
+        {
+            double promedio = 0;
+            for (int i = 0; i < juez.Length; i++)
+                promedio += juez[i];
+
+            promedio /= juez.Length;
+
+            return promedio;
+        }
+
+        public Categoria SelectCategoria(int index, bool IsFormas)
+        {
+            if (IsFormas)
+            {
+                return CategoriasFormas.ToArray()[index];
+            }
+            return CategoriasSanda.ToArray()[index];
+        }
+        
+        public Competidor SelectCompetidor(int indexcat, int indexcomp, bool IsFormas)
+        {
+            Categoria cat = SelectCategoria(indexcat, IsFormas);
+            return cat.Participantes.ToArray()[indexcomp];
+        }
+
+        public void MoverCompetidor(int categoriaactual, int categorianueva, int indexcomp, bool IsFormas)
+        {
+            Categoria catantigua = SelectCategoria(categoriaactual, IsFormas);
+            Competidor comp = SelectCompetidor(categoriaactual, indexcomp, IsFormas);
+            catantigua.EliminarCompetidor(comp);
+            Categoria catnuevo = SelectCategoria(categorianueva, IsFormas);
+            catnuevo.AddCompetidor(comp);
+
+        }
+
+        public List<String> ToStringCategorias(bool isformas)
+        {
+            List<String> descrip = new List<String>();
+            if (isformas)
+            {
+                foreach (CatFormas cat in CategoriasFormas)
+                    descrip.Add(cat.Nombre);
+            }
+            else
+            {
+                foreach (CatSanda cat in CategoriasSanda)
+                    descrip.Add(cat.Nombre);
+            }
+            return descrip;
+        }
 
     }
 }

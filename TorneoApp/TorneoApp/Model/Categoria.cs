@@ -26,7 +26,7 @@ namespace TorneoApp.Model
         {
             Participantes = new List<Competidor>();
             Podium = new Podium();
-            Opened = false;
+            Opened = true;
             Mean = 0;
         }
 
@@ -95,6 +95,11 @@ namespace TorneoApp.Model
             }
 
             return Nivel;
+        }
+
+        public void EliminarCompetidor(Competidor comp)
+        {
+            Participantes.Remove(comp);
         }
 
     }

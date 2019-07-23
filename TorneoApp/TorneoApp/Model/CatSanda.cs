@@ -39,6 +39,11 @@ namespace TorneoApp.Model
 
         public Competidor Atipico { get; set; }
 
+        public CatSanda()
+        {
+            Opened = true;
+        }
+
         public override void CalcularMean(){
             var Competidores = Participantes.ToArray();
             double mean=0;
@@ -75,7 +80,7 @@ namespace TorneoApp.Model
                     break;
             }
 
-            Nombre =  NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años de "+MinPeso+"-"+MaxPeso+"kg";
+            this.Nombre =  NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años de "+MinPeso+"-"+MaxPeso+"kg";
             
         } 
 

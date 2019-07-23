@@ -24,5 +24,6 @@ namespace TorneoApp.Model
             SecondPlace = null;
             ThirdPlace = null;
         }
+
     }
 }

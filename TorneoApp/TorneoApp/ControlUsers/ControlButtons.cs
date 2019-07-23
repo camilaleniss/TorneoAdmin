@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TorneoApp
+namespace TorneoApp.ControlUsers
 {
-    public partial class Form1 : Form
+    public partial class ControlButtons : UserControl
     {
-        public Form1()
+        public ControlButtons()
         {
             InitializeComponent();
+        }
+
+        private void ControlButtons_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
