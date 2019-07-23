@@ -15,7 +15,7 @@ namespace TorneoApp.Model
         {
             List<Combate> combates = new List<Combate>();
             Random rand = new Random();
-            List<int> possible = Enumerable.Range(1, participantes.Count).T oList();
+            List<int> possible = Enumerable.Range(1, participantes.Count).ToList();
             for (int i = 0; i < participantes.Count() / 2; i++)
             {
                 int index = rand.Next(0, possible.Count);
