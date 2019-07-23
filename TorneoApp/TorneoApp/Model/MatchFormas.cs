@@ -219,7 +219,7 @@ namespace TorneoApp.Model
             }
             return CategoriasHabilitadas;
         }
-        */
+        */      
 
         public List<CatFormas> AnadirParticipantes (List<Competidor> Participantes, List<CatFormas> Categorias)
         {

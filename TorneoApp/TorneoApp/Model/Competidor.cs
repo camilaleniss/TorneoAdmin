@@ -47,11 +47,13 @@ namespace TorneoApp.Model
         //Nombre de la eps
         public string Eps { get; set; }
 
+        public string TelefonoPersonal { get; set; }
+
         //Nombre completo del acudiente
         public string ContactName { get; set; }
 
         //Telefono del acudiente
-        public string Telefono { get; set; }
+        public string TelefonoAcudiente { get; set; }
 
         //Email del competidor
         public string Email { get; set; }
@@ -60,8 +62,8 @@ namespace TorneoApp.Model
         public bool IsHere { get; set; }
 
         public Competidor(string Name, bool IsMan, int Edad, int Peso, bool IsBlackBelt, 
-            int TiempoEntrenando, string Eps, 
-            string ContactName, string Telefono, string Email, Escuela Escuela)
+            int TiempoEntrenando, string Eps, string TelefonoPersonal,
+            string ContactName, string TelefonoAcudiente, string Email, Escuela Escuela)
         {
             this.Name = Name;
             this.IsMan = IsMan;
@@ -70,8 +72,9 @@ namespace TorneoApp.Model
             this.IsBlackBelt = IsBlackBelt;
             this.TiempoEntrenando = TiempoEntrenando;
             this.Eps = Eps;
+            this.TelefonoPersonal = TelefonoPersonal;
             this.ContactName = ContactName;
-            this.Telefono = Telefono;
+            this.TelefonoAcudiente = TelefonoAcudiente;
             this.Email = Email;
             this.Escuela = Escuela;
 
@@ -102,7 +105,13 @@ namespace TorneoApp.Model
             return TiempoEntrenando + Edad;
         }
 
+        //Para Sanda se hace una ponderación de la edad y el peso
+        //entre el nivel 
+        public double GetMatchValueSanda(){
+            return (Edad+Peso)/TiempoEntrenando;
+        }
+
         public string ToString => Name + " / " + IsMan + " / " + Edad + " / " + Peso + " / " + IsBlackBelt + " / " + TiempoEntrenando + " / " +
-                Eps + " / " + ContactName + " / " + Telefono + " / " + Email + " / " + Escuela;
+                Eps + " / "+TelefonoPersonal+" / " + ContactName + " / " + TelefonoAcudiente + " / " + Email + " / " + Escuela;
     }
 }

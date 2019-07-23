@@ -18,7 +18,7 @@ namespace TestTorneoApp
         public void SetUpStage1()
         {
             Torneo = new Torneo();
-            string URL = "..\\..\\..\\RegistroTest1.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest1.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             Torneo.LeerCompetidores(lectura);
         }
@@ -26,7 +26,7 @@ namespace TestTorneoApp
         public void SetUpStage2()
         {
             Torneo = new Torneo();
-            string URL = "..\\..\\..\\RegistroTest2.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest2.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             Torneo.LeerCompetidores(lectura);
         }
@@ -34,7 +34,7 @@ namespace TestTorneoApp
         public void SetUpStage3()
         {
             Torneo = new Torneo();
-            string URL = "..\\..\\..\\RegistroTest3.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest3.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             Torneo.LeerCompetidores(lectura);
         }
@@ -42,7 +42,7 @@ namespace TestTorneoApp
         [TestMethod]
         public void TestLeerCSV()
         {
-            string URL = "..\\..\\..\\RegistroTest1.csv";
+            string URL = "..\\..\\..\\Data\\RegistroTest1.csv";
             List<string[]> lectura = Torneo.leerCSV(URL);
             string[][] datos = lectura.ToArray();
             Assert.IsTrue(datos[0][2].Equals("María Lenis"));
@@ -66,8 +66,9 @@ namespace TestTorneoApp
             Assert.IsTrue(competidores[0].Sanda);
             Assert.IsTrue(competidores[0].Formas);
             Assert.IsFalse(competidores[0].IsBlackBelt);
+            Assert.IsTrue(competidores[0].TelefonoPersonal.Equals("3167527488"));
             Assert.IsTrue(competidores[0].ContactName.Equals("Constanza Restrepo"));
-            Assert.IsTrue(competidores[0].Telefono.Equals("3173694663"));
+            Assert.IsTrue(competidores[0].TelefonoAcudiente.Equals("3173694663"));
 
             //Test 2
             SetUpStage2();
