@@ -7,24 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TorneoApp.Model;
 
 namespace TorneoApp.ControlUsers
 {
-    public partial class CompetidoresView : UserControl
+    public partial class CompetenciaController : UserControl
     {
-        public CompetidoresView()
+        public CompetenciaController()
         {
             InitializeComponent();
-        }
-
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CompetidoresView_Load(object sender, EventArgs e)
-        {
-
+            labNombreTorneo.Text = Torneo.NOMBRE_TORNEO;
         }
     }
 }

@@ -7,22 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TorneoApp.Model;
 
 namespace TorneoApp.ControlUsers
 {
-    public partial class ImportarView : UserControl
+    public partial class CompetidoresList : UserControl
     {
-        public ImportarView()
+
+        public MainWindow Main { get; set; }
+        public CompetidoresList()
         {
             InitializeComponent();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+        private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void ImportarView_Load(object sender, EventArgs e)
+        private void CompetidoresView_Load(object sender, EventArgs e)
         {
 
         }

@@ -12,6 +12,20 @@ namespace TorneoApp.Model
 {
     public partial class MainWindow : Form
     {
+        public const string INIT = "Init";
+        public const string CATEGORIAS = "Categorias";
+        public const string CATSANDA = "CatSanda";
+        public const string CATFORMAS = "CatFormas";
+        public const string COMPETIDORES = "Competidores";
+        public const string LISTCOMPETIDORES = "ListadoCompetidores";
+        public const string VERIFICAR = "Verificar";
+        public const string ESCUELAS = "Escuelas";
+        public const string LISTESCUELAS = "ListadoEscuelas";
+        public const string RANKING = "Ranking";
+        public const string COMPETENCIA = "Competencia";
+        public const string COMPSANDA = "Sanda";
+        public const string COMPFORMAS = "Formas";
+
 
         private Torneo Torneo;
 
@@ -48,47 +62,62 @@ namespace TorneoApp.Model
             this.panelView.Controls.Clear();
 
             switch (view){
-                case "Init":
+                case INIT:
                     this.mainView = new ControlUsers.MainView();
                     this.panelView.Controls.Add(mainView);
                     InitializeMainView();
                     break;
-                case "Categorias":
+                case CATEGORIAS:
                     this.categoriasview = new ControlUsers.CategoriasView();
                     this.categoriasview.Main = this;
                     InitializeCategorias();
                     this.panelView.Controls.Add(categoriasview);
                     break;              
-                case "Competidores":
-                    this.competidoresview = new ControlUsers.CompetidoresView();
+                case COMPETIDORES:
+                    this.competidorescontroller = new ControlUsers.CompetidoresController();
+                    this.competidorescontroller.Main = this;
+                    this.panelView.Controls.Add(competidorescontroller);
+                    break;
+                case LISTCOMPETIDORES:
+                    this.competidoresview = new ControlUsers.CompetidoresList();
+                    this.competidoresview.Main = this;
                     this.panelView.Controls.Add(competidoresview);
                     break;
-                case "Importar":
-                    this.importarview = new ControlUsers.ImportarView();
+                case VERIFICAR:
+                    this.importarview = new ControlUsers.ConfirmarView();
+                    this.importarview.Main = this;
                     this.panelView.Controls.Add(importarview);
                     break;
-                case "Escuelas":
+                case ESCUELAS:
+                    this.escuelascontroller = new ControlUsers.EscuelasController();
+                    this.panelView.Controls.Add(escuelascontroller);
+                    break;
+                case LISTESCUELAS:
                     this.escuelasview = new ControlUsers.EscuelasView();
                     this.panelView.Controls.Add(escuelasview);
                     break;
-                case "Ranking":
+                case RANKING:
                     this.rankingview = new ControlUsers.Ranking();
                     this.panelView.Controls.Add(rankingview);
                     break;
-                case "CompSanda":
+                case COMPETENCIA:
+                    this.competenciaview = new ControlUsers.CompetenciaController();
+                    this.panelView.Controls.Add(competenciaview);
+                    break;
+                case COMPSANDA:
                     this.compsanda = new ControlUsers.CompSanda();
                     this.panelView.Controls.Add(compsanda);
                     break;
-                case "CompFormas":
+                case COMPFORMAS:
                     this.compformas = new ControlUsers.CompFormas();
                     this.panelView.Controls.Add(compformas);
                     break;
             }
             
-            if(view.Equals("CatSanda") || view.Equals("CatFormas"))
+            if(view.Equals(CATSANDA) || view.Equals(CATFORMAS))
             {
                 this.categoriaslist = new ControlUsers.CategoriasLists();
-                categoriaslist.IsFormas =view.Equals("CatFormas") ? true : false;
+                categoriaslist.IsFormas =view.Equals(CATFORMAS) ? true : false;
                 categoriaslist.SetNameCategorias();
                 categoriaslist.Window = this;
                 InitializeListCategorias();
@@ -148,7 +177,7 @@ namespace TorneoApp.Model
         public void MoverA(int categoriaactual, int categorianueva, int indexcomp, bool IsFormas)
         {
             Torneo.MoverCompetidor(categoriaactual, categorianueva, indexcomp, IsFormas);
-            string view = IsFormas ? "CatFormas" : "CatSanda";
+            string view = IsFormas ? CATFORMAS : CATSANDA;
             ShowView(view);
         }
 

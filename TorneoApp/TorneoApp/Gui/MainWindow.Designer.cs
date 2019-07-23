@@ -122,9 +122,12 @@
         private ControlUsers.CompFormas compformas;
         private ControlUsers.CompSanda compsanda;
         private ControlUsers.EscuelasView escuelasview;
-        private ControlUsers.ImportarView importarview;
+        private ControlUsers.ConfirmarView importarview;
         private ControlUsers.Ranking rankingview;
-        private ControlUsers.CompetidoresView competidoresview;
+        private ControlUsers.CompetidoresList competidoresview;
+        private ControlUsers.CompetidoresController competidorescontroller;
+        private ControlUsers.CompetenciaController competenciaview;
+        private ControlUsers.EscuelasController escuelascontroller;
         
     }
 }
