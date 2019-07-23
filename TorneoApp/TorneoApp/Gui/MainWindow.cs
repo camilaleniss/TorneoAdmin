@@ -25,6 +25,7 @@ namespace TorneoApp.Model
 
             Torneo = new Torneo();
             Torneo.InicializarTorneo();
+            ShowView("Init");
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace TorneoApp.Model
                 case "Init":
                     this.mainView = new ControlUsers.MainView();
                     this.panelView.Controls.Add(mainView);
+                    InitializeMainView();
                     break;
                 case "Categorias":
                     this.categoriasview = new ControlUsers.CategoriasView();
@@ -150,6 +152,22 @@ namespace TorneoApp.Model
         public List<String> ToStringCategorias(bool isformas)
         {
             return Torneo.ToStringCategorias(isformas);
+        }
+
+        public void InitializeMainView()
+        {
+            int catsanda = Torneo.CategoriasSanda.Count;
+            int catformas = Torneo.CategoriasFormas.Count;
+            int categorias = catsanda + catformas;
+            int ncompetidores = Torneo.Competidores.Count;          
+            List<Escuela> escuelas = Torneo.Escuelas;
+            int nescuelas = escuelas.Count;
+            List<Forma> formas = Torneo.Formas;
+            int nformas = formas.Count;
+
+            mainView.SetNumberLabs(categorias, catsanda, catformas, ncompetidores, nescuelas, nformas);
+            mainView.InitializeListEscuelas(escuelas);
+            mainView.InitializeListFormas(formas);
         }
     }
 }
