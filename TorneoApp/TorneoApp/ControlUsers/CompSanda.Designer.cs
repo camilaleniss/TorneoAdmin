@@ -509,9 +509,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.label1.Location = new System.Drawing.Point(360, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 24);
+            this.label1.Size = new System.Drawing.Size(228, 24);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre del round";
+            this.label1.Text = "Nombre del combate";
             // 
             // CompSanda
             // 
