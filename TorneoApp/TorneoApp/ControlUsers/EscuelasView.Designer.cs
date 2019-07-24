@@ -56,11 +56,14 @@
             // 
             // listEscuelas
             // 
+            this.listEscuelas.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listEscuelas.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEscuelas.Location = new System.Drawing.Point(20, 57);
             this.listEscuelas.Name = "listEscuelas";
             this.listEscuelas.Size = new System.Drawing.Size(163, 420);
             this.listEscuelas.TabIndex = 1;
             this.listEscuelas.UseCompatibleStateImageBehavior = false;
+            this.listEscuelas.View = System.Windows.Forms.View.List;
             // 
             // label1
             // 
@@ -104,7 +107,7 @@
             this.labPuntosSanda.AutoSize = true;
             this.labPuntosSanda.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPuntosSanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labPuntosSanda.Location = new System.Drawing.Point(211, 325);
+            this.labPuntosSanda.Location = new System.Drawing.Point(211, 300);
             this.labPuntosSanda.Name = "labPuntosSanda";
             this.labPuntosSanda.Size = new System.Drawing.Size(22, 22);
             this.labPuntosSanda.TabIndex = 6;
@@ -145,11 +148,14 @@
             // 
             // listCompetidores
             // 
+            this.listCompetidores.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listCompetidores.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listCompetidores.Location = new System.Drawing.Point(22, 120);
             this.listCompetidores.Name = "listCompetidores";
             this.listCompetidores.Size = new System.Drawing.Size(211, 147);
             this.listCompetidores.TabIndex = 2;
             this.listCompetidores.UseCompatibleStateImageBehavior = false;
+            this.listCompetidores.View = System.Windows.Forms.View.List;
             this.listCompetidores.SelectedIndexChanged += new System.EventHandler(this.ListCompetidores_SelectedIndexChanged);
             // 
             // labNomEscuela

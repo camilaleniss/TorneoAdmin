@@ -49,6 +49,7 @@
             this.butSanda.Text = "Sanda";
             this.butSanda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.butSanda.UseVisualStyleBackColor = true;
+            this.butSanda.Click += new System.EventHandler(this.ButSanda_Click);
             // 
             // labNombreTorneo
             // 
@@ -83,6 +84,7 @@
             this.butFormas.Text = "Formas";
             this.butFormas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.butFormas.UseVisualStyleBackColor = true;
+            this.butFormas.Click += new System.EventHandler(this.ButFormas_Click);
             // 
             // CompetenciaController
             // 

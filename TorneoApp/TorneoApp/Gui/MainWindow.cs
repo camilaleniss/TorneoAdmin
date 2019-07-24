@@ -90,10 +90,12 @@ namespace TorneoApp.Model
                     break;
                 case ESCUELAS:
                     this.escuelascontroller = new ControlUsers.EscuelasController();
+                    this.escuelascontroller.Main = this;
                     this.panelView.Controls.Add(escuelascontroller);
                     break;
                 case LISTESCUELAS:
                     this.escuelasview = new ControlUsers.EscuelasView();
+                    this.escuelasview.Main = this; 
                     this.panelView.Controls.Add(escuelasview);
                     break;
                 case RANKING:
@@ -102,6 +104,7 @@ namespace TorneoApp.Model
                     break;
                 case COMPETENCIA:
                     this.competenciaview = new ControlUsers.CompetenciaController();
+                    this.competenciaview.Main = this;
                     this.panelView.Controls.Add(competenciaview);
                     break;
                 case COMPSANDA:
@@ -229,6 +232,20 @@ namespace TorneoApp.Model
             List<String> AllCategories = Torneo.GetAllCategoriesNames();
             categoriasview.InitializeListCategorias(AllCategories);
         }
+
+        public void InitializeEscuelasView()
+        {
+            List<String> Escuelas = Torneo.ToStringEscuelas();
+            this.escuelasview.InitializeEscuelas(Escuelas);
+
+        }
+
+        public void GetCompetidoresEscuela(int index)
+        {
+            List<Competidor> competidores = Torneo.GetCompetidoresEscuela(index);
+            escuelasview.InitializeCompetidores(competidores);
+        }
+
 
     }
 }

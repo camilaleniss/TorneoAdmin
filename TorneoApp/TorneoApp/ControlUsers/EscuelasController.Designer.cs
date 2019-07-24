@@ -60,6 +60,7 @@
             this.butListado.Text = "Listado";
             this.butListado.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.butListado.UseVisualStyleBackColor = true;
+            this.butListado.Click += new System.EventHandler(this.ButListado_Click);
             // 
             // butRanking
             // 
@@ -75,6 +76,7 @@
             this.butRanking.Text = "Ranking";
             this.butRanking.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.butRanking.UseVisualStyleBackColor = true;
+            this.butRanking.Click += new System.EventHandler(this.ButRanking_Click);
             // 
             // controlButtons1
             // 

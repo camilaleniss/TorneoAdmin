@@ -13,10 +13,22 @@ namespace TorneoApp.ControlUsers
 {
     public partial class EscuelasController : UserControl
     {
+
+        public MainWindow Main { get; set; }
         public EscuelasController()
         {
             InitializeComponent();
             labNombreTorneo.Text = Torneo.NOMBRE_TORNEO;
+        }
+
+        private void ButListado_Click(object sender, EventArgs e)
+        {
+            Main.ShowView(MainWindow.LISTESCUELAS);
+        }
+
+        private void ButRanking_Click(object sender, EventArgs e)
+        {
+            Main.ShowView(MainWindow.RANKING);
         }
     }
 }

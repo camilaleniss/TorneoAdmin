@@ -260,6 +260,12 @@ namespace TorneoApp.Model
             }
             return CategoriasSanda.ToArray()[index];
         }
+
+        public Escuela SelectEscuela(int index)
+        {
+            return Escuelas.ToArray()[index];
+        }
+
         
         public Competidor SelectCompetidor(int indexcat, int indexcomp, bool IsFormas)
         {
@@ -312,6 +318,23 @@ namespace TorneoApp.Model
 
             return Categorias;
         }
+
+        public List<String> ToStringEscuelas()
+        {
+            List<String> escuelas = new List<String>();
+            foreach (Escuela e in Escuelas)
+                escuelas.Add(e.Name);
+
+            return escuelas;
+        }
+
+        public List<Competidor> GetCompetidoresEscuela(int index)
+        {
+            String nombre = Escuelas.ToArray()[index].Name;
+            return Competidores.FindAll(comp => comp.Escuela.Name.Equals(nombre));
+        }
+
+
 
 
     }
