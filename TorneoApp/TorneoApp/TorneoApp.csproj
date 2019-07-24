@@ -68,11 +68,23 @@
     <Compile Include="ControlUsers\CategoriasView.Designer.cs">
       <DependentUpon>CategoriasView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlUsers\CompetidoresView.cs">
+    <Compile Include="ControlUsers\CompetenciaController.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlUsers\CompetidoresView.Designer.cs">
-      <DependentUpon>CompetidoresView.cs</DependentUpon>
+    <Compile Include="ControlUsers\CompetenciaController.Designer.cs">
+      <DependentUpon>CompetenciaController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\CompetidoresController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CompetidoresController.Designer.cs">
+      <DependentUpon>CompetidoresController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsers\CompetidoresList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\CompetidoresList.Designer.cs">
+      <DependentUpon>CompetidoresList.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUsers\CompFormas.cs">
       <SubType>UserControl</SubType>
@@ -92,17 +104,23 @@
     <Compile Include="ControlUsers\ControlButtons.Designer.cs">
       <DependentUpon>ControlButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlUsers\EscuelasController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlUsers\EscuelasController.Designer.cs">
+      <DependentUpon>EscuelasController.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlUsers\EscuelasView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlUsers\EscuelasView.Designer.cs">
       <DependentUpon>EscuelasView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlUsers\ImportarView.cs">
+    <Compile Include="ControlUsers\ConfirmarView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlUsers\ImportarView.Designer.cs">
-      <DependentUpon>ImportarView.cs</DependentUpon>
+    <Compile Include="ControlUsers\ConfirmarView.Designer.cs">
+      <DependentUpon>ConfirmarView.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUsers\MainView.cs">
       <SubType>UserControl</SubType>
@@ -163,8 +181,14 @@
     <EmbeddedResource Include="ControlUsers\CategoriasView.resx">
       <DependentUpon>CategoriasView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlUsers\CompetidoresView.resx">
-      <DependentUpon>CompetidoresView.cs</DependentUpon>
+    <EmbeddedResource Include="ControlUsers\CompetenciaController.resx">
+      <DependentUpon>CompetenciaController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CompetidoresController.resx">
+      <DependentUpon>CompetidoresController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\CompetidoresList.resx">
+      <DependentUpon>CompetidoresList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\CompFormas.resx">
       <DependentUpon>CompFormas.cs</DependentUpon>
@@ -175,11 +199,14 @@
     <EmbeddedResource Include="ControlUsers\ControlButtons.resx">
       <DependentUpon>ControlButtons.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlUsers\EscuelasController.resx">
+      <DependentUpon>EscuelasController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\EscuelasView.resx">
       <DependentUpon>EscuelasView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlUsers\ImportarView.resx">
-      <DependentUpon>ImportarView.cs</DependentUpon>
+    <EmbeddedResource Include="ControlUsers\ConfirmarView.resx">
+      <DependentUpon>ConfirmarView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlUsers\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>

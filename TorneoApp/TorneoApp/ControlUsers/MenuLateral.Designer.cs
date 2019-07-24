@@ -41,6 +41,7 @@
             this.butCompetencia = new System.Windows.Forms.Button();
             this.butSanda = new System.Windows.Forms.Button();
             this.butFormas = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonTitle
@@ -156,7 +157,7 @@
             this.butImportar.Name = "butImportar";
             this.butImportar.Size = new System.Drawing.Size(177, 40);
             this.butImportar.TabIndex = 6;
-            this.butImportar.Text = "Importar";
+            this.butImportar.Text = "Asistencia";
             this.butImportar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butImportar.UseVisualStyleBackColor = true;
             this.butImportar.Click += new System.EventHandler(this.ButImportar_Click);
@@ -263,11 +264,23 @@
             this.butFormas.UseVisualStyleBackColor = true;
             this.butFormas.Click += new System.EventHandler(this.ButFormas_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Sans", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 563);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 12);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Icon made by Freepik from www.flaticon.com ";
+            // 
             // MenuLateral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(78)))), ((int)(((byte)(109)))));
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.butFormas);
             this.Controls.Add(this.butSanda);
             this.Controls.Add(this.butCompetencia);
@@ -284,6 +297,7 @@
             this.Name = "MenuLateral";
             this.Size = new System.Drawing.Size(177, 575);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -302,5 +316,6 @@
         private System.Windows.Forms.Button butCompetencia;
         private System.Windows.Forms.Button butSanda;
         private System.Windows.Forms.Button butFormas;
+        private System.Windows.Forms.Label label1;
     }
 }

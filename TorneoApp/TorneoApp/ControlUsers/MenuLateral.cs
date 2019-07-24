@@ -22,69 +22,69 @@ namespace TorneoApp.ControlUsers
 
         private void ButtonTitle_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Init");
+            Controlador.ShowView(MainWindow.INIT);
         }
 
         private void ButCatSanda_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("CatSanda");
+            Controlador.ShowView(MainWindow.CATSANDA);
         }
 
         private void ButImportar_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Importar");
+            Controlador.ShowView(MainWindow.VERIFICAR);
         }
 
         private void ButCategorias_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Categorias");
+            Controlador.ShowView(MainWindow.CATEGORIAS);
         }
 
         private void ButCatFormas_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("CatFormas");
+            Controlador.ShowView(MainWindow.CATFORMAS);
         }
 
         private void ButCompetidores_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Competidores");
+            Controlador.ShowView(MainWindow.COMPETIDORES);
 
         }
 
         private void ButListaCompetidores_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Competidores");
+            Controlador.ShowView(MainWindow.LISTCOMPETIDORES);
         }
 
         private void ButEscuelas_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Escuelas");
+            Controlador.ShowView(MainWindow.ESCUELAS);
         }
 
         private void ButListaEscuelas_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Escuelas");
+            Controlador.ShowView(MainWindow.LISTESCUELAS);
         }
 
         private void ButRankingEscuelas_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("Ranking");
+            Controlador.ShowView(MainWindow.RANKING);
         }
 
         private void ButCompetencia_Click(object sender, EventArgs e)
         {
-
+            Controlador.ShowView(MainWindow.COMPETENCIA);
         }
 
         private void ButSanda_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("CompSanda");
+            Controlador.ShowView(MainWindow.COMPSANDA);
 
         }
 
         private void ButFormas_Click(object sender, EventArgs e)
         {
-            Controlador.ShowView("CompFormas");
+            Controlador.ShowView(MainWindow.COMPFORMAS);
         }
     }
 }
