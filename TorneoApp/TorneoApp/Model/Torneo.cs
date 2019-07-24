@@ -14,6 +14,8 @@ namespace TorneoApp.Model
         //Ruta del archivo  registro del torneo
         public const string CSV_ROUTE = "..\\..\\Data\\Registro.csv";
 
+        public const string NOMBRE_TORNEO = "V Torneo de Wushu y Sanda";
+
         public const int ORO = 5;
         public const int PLATA = 3;
         public const int BRONCE = 1;
@@ -290,6 +292,27 @@ namespace TorneoApp.Model
             }
             return descrip;
         }
+
+        public int GetNumOpenedCategoria(bool IsFormas)
+        {
+            if (IsFormas)
+                return CategoriasFormas.FindAll(c => c.Opened).Count;
+            return CategoriasSanda.FindAll(c => c.Opened).Count;
+        }
+
+        public List<String> GetAllCategoriesNames()
+        {
+            List<String> Categorias = new List<String>();
+
+            foreach (CatSanda cat in CategoriasSanda)
+                Categorias.Add(cat.Nombre);
+
+            foreach (CatFormas cat in CategoriasFormas)
+                Categorias.Add(cat.Nombre);
+
+            return Categorias;
+        }
+
 
     }
 }

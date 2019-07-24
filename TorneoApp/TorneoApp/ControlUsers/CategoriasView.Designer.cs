@@ -41,15 +41,15 @@
             this.butVerSanda = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.labFinishedFormas = new System.Windows.Forms.Label();
+            this.labNumFinishedFormas = new System.Windows.Forms.Label();
             this.labNumOpenedFormas = new System.Windows.Forms.Label();
             this.labNumExistsFormas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.listCategorias = new System.Windows.Forms.ListView();
+            this.labNombreTorneo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -175,12 +175,13 @@
             this.butVerSanda.Size = new System.Drawing.Size(48, 44);
             this.butVerSanda.TabIndex = 0;
             this.butVerSanda.UseVisualStyleBackColor = false;
+            this.butVerSanda.Click += new System.EventHandler(this.ButVerSanda_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(172)))), ((int)(((byte)(162)))));
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.labFinishedFormas);
+            this.panel2.Controls.Add(this.labNumFinishedFormas);
             this.panel2.Controls.Add(this.labNumOpenedFormas);
             this.panel2.Controls.Add(this.labNumExistsFormas);
             this.panel2.Controls.Add(this.label4);
@@ -203,18 +204,19 @@
             this.button1.Size = new System.Drawing.Size(48, 44);
             this.button1.TabIndex = 8;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // labFinishedFormas
+            // labNumFinishedFormas
             // 
-            this.labFinishedFormas.AutoSize = true;
-            this.labFinishedFormas.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labFinishedFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labFinishedFormas.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.labFinishedFormas.Location = new System.Drawing.Point(350, 134);
-            this.labFinishedFormas.Name = "labFinishedFormas";
-            this.labFinishedFormas.Size = new System.Drawing.Size(22, 22);
-            this.labFinishedFormas.TabIndex = 7;
-            this.labFinishedFormas.Text = "0";
+            this.labNumFinishedFormas.AutoSize = true;
+            this.labNumFinishedFormas.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNumFinishedFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labNumFinishedFormas.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.labNumFinishedFormas.Location = new System.Drawing.Point(350, 134);
+            this.labNumFinishedFormas.Name = "labNumFinishedFormas";
+            this.labNumFinishedFormas.Size = new System.Drawing.Size(22, 22);
+            this.labNumFinishedFormas.TabIndex = 7;
+            this.labNumFinishedFormas.Text = "0";
             // 
             // labNumOpenedFormas
             // 
@@ -289,34 +291,37 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Formas";
             // 
-            // listView1
+            // listCategorias
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Location = new System.Drawing.Point(472, 118);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(209, 381);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listCategorias.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.listCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCategorias.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCategorias.Location = new System.Drawing.Point(472, 118);
+            this.listCategorias.Name = "listCategorias";
+            this.listCategorias.Size = new System.Drawing.Size(213, 381);
+            this.listCategorias.TabIndex = 9;
+            this.listCategorias.UseCompatibleStateImageBehavior = false;
+            this.listCategorias.View = System.Windows.Forms.View.List;
             // 
-            // label1
+            // labNombreTorneo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(34, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 28);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Nombre del Torneo aquí";
+            this.labNombreTorneo.AutoSize = true;
+            this.labNombreTorneo.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNombreTorneo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labNombreTorneo.Location = new System.Drawing.Point(34, 22);
+            this.labNombreTorneo.Name = "labNombreTorneo";
+            this.labNombreTorneo.Size = new System.Drawing.Size(297, 28);
+            this.labNombreTorneo.TabIndex = 10;
+            this.labNombreTorneo.Text = "Nombre del Torneo aquí";
             // 
             // CategoriasView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.labNombreTorneo);
+            this.Controls.Add(this.listCategorias);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.controlButtons1);
@@ -344,15 +349,15 @@
         private System.Windows.Forms.Label labNumFinishedSanda;
         private System.Windows.Forms.Label labNumOpenedSanda;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labFinishedFormas;
+        private System.Windows.Forms.Label labNumFinishedFormas;
         private System.Windows.Forms.Label labNumOpenedFormas;
         private System.Windows.Forms.Label labNumExistsFormas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView listCategorias;
+        private System.Windows.Forms.Label labNombreTorneo;
         private System.Windows.Forms.Button button1;
     }
 }

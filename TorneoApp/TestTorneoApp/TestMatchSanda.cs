@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TorneoApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace TestTorneoApp
 {
@@ -101,6 +102,20 @@ namespace TestTorneoApp
             Assert.IsTrue(Categorias.Count == 2);
             Assert.IsTrue(Categorias.FindAll(cat => cat.Participantes.Count == 2).Count == 2);
             
+        }
+        [TestMethod]
+        public void TestRondaDeCombates()
+        {
+            SetUpStage2();
+            Matchmaking = new MatchSanda(Torneo.Competidores);
+            List<CatSanda> categorias = Matchmaking.DoMatch();
+            List<Competidor> competidores = categorias[0].Participantes;
+            Trace.WriteLine(categorias[0].Participantes.Count);
+            List<Combate> combates = categorias[0].RondaDeCombates(competidores);
+            Assert.IsTrue(combates.Count == 2);
+            
+
+
         }
 
 
