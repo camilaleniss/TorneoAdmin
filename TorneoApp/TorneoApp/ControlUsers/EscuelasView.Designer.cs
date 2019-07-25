@@ -58,12 +58,14 @@
             // 
             this.listEscuelas.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listEscuelas.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listEscuelas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.listEscuelas.Location = new System.Drawing.Point(20, 57);
             this.listEscuelas.Name = "listEscuelas";
             this.listEscuelas.Size = new System.Drawing.Size(163, 420);
             this.listEscuelas.TabIndex = 1;
             this.listEscuelas.UseCompatibleStateImageBehavior = false;
             this.listEscuelas.View = System.Windows.Forms.View.List;
+            this.listEscuelas.SelectedIndexChanged += new System.EventHandler(this.ListEscuelas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -88,7 +90,7 @@
             this.panel2.Controls.Add(this.labNomEscuela);
             this.panel2.Location = new System.Drawing.Point(250, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(254, 495);
+            this.panel2.Size = new System.Drawing.Size(429, 396);
             this.panel2.TabIndex = 2;
             // 
             // labPuntosFormas
@@ -96,7 +98,7 @@
             this.labPuntosFormas.AutoSize = true;
             this.labPuntosFormas.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPuntosFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labPuntosFormas.Location = new System.Drawing.Point(211, 374);
+            this.labPuntosFormas.Location = new System.Drawing.Point(395, 83);
             this.labPuntosFormas.Name = "labPuntosFormas";
             this.labPuntosFormas.Size = new System.Drawing.Size(22, 22);
             this.labPuntosFormas.TabIndex = 7;
@@ -107,7 +109,7 @@
             this.labPuntosSanda.AutoSize = true;
             this.labPuntosSanda.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPuntosSanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labPuntosSanda.Location = new System.Drawing.Point(211, 300);
+            this.labPuntosSanda.Location = new System.Drawing.Point(395, 20);
             this.labPuntosSanda.Name = "labPuntosSanda";
             this.labPuntosSanda.Size = new System.Drawing.Size(22, 22);
             this.labPuntosSanda.TabIndex = 6;
@@ -118,18 +120,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(18, 374);
+            this.label4.Location = new System.Drawing.Point(235, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 22);
             this.label4.TabIndex = 5;
             this.label4.Text = "Puntos formas";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(18, 300);
+            this.label3.Location = new System.Drawing.Point(235, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 22);
             this.label3.TabIndex = 4;
@@ -150,9 +153,10 @@
             // 
             this.listCompetidores.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listCompetidores.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listCompetidores.Location = new System.Drawing.Point(22, 120);
+            this.listCompetidores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.listCompetidores.Location = new System.Drawing.Point(22, 131);
             this.listCompetidores.Name = "listCompetidores";
-            this.listCompetidores.Size = new System.Drawing.Size(211, 147);
+            this.listCompetidores.Size = new System.Drawing.Size(395, 250);
             this.listCompetidores.TabIndex = 2;
             this.listCompetidores.UseCompatibleStateImageBehavior = false;
             this.listCompetidores.View = System.Windows.Forms.View.List;
@@ -172,7 +176,7 @@
             // controlButtons1
             // 
             this.controlButtons1.BackColor = System.Drawing.Color.White;
-            this.controlButtons1.Location = new System.Drawing.Point(489, 399);
+            this.controlButtons1.Location = new System.Drawing.Point(489, 414);
             this.controlButtons1.Name = "controlButtons1";
             this.controlButtons1.Size = new System.Drawing.Size(234, 120);
             this.controlButtons1.TabIndex = 3;

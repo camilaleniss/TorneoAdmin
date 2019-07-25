@@ -21,6 +21,13 @@ namespace TorneoApp.ControlUsers
             labNombreTorneo.Text = Torneo.NOMBRE_TORNEO;
         }
 
+        public void InitializeCompetidores(List<Competidor> competidores)
+        {
+            listCompetidores.Clear();
+            foreach (Competidor c in competidores)
+                listCompetidores.Items.Add(c.Name);
+        }
+
         private void Label1_Click(object sender, EventArgs e)
         {
 
@@ -28,6 +35,23 @@ namespace TorneoApp.ControlUsers
 
         private void ImportarView_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void ListCompetidores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButConfirmar_Click(object sender, EventArgs e)
+        {
+            var indices = listCompetidores.SelectedIndices;
+            List<int> indexpresentes = new List<int>();
+            foreach (var i in indices)
+            {
+                indexpresentes.Add(int.Parse(i.ToString()));
+            }
+            Main.ConfirmarCompetidores(indexpresentes);
 
         }
     }

@@ -123,6 +123,11 @@ namespace TorneoApp.Model
             }
             return "Cinta Negra";
         }
+
+        public string GetStringGenere()
+        {
+            return IsMan ? "Masculino" : "Femenino";
+        }
         
         public String ToString()
         {

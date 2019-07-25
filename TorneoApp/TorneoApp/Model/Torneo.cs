@@ -328,13 +328,42 @@ namespace TorneoApp.Model
             return escuelas;
         }
 
+        public List<String> ToStringCompetidor()
+        {
+            List<String> competidores = new List<String>();
+            foreach (Competidor e in Competidores)
+                competidores.Add(e.Name);
+
+            return competidores;
+        }
+
         public List<Competidor> GetCompetidoresEscuela(int index)
         {
             String nombre = Escuelas.ToArray()[index].Name;
             return Competidores.FindAll(comp => comp.Escuela.Name.Equals(nombre));
         }
 
+        public List<Competidor> CompetidoresAusentes()
+        {
+            return Competidores.FindAll(competidor => competidor.IsHere == false);
+        }
 
+        public void ConfirmarCompetidores(List<int> indexes)
+        {
+            var restantes = CompetidoresAusentes().ToArray();
+
+            foreach(int i in indexes)
+            {
+                Competidor comp = restantes[i];
+                ConfirmarCompetidor(comp.Name);
+            }
+        }
+
+        public void ConfirmarCompetidor(String nombre)
+        {
+            Competidor competidor = BuscarCompetidor(nombre);
+            competidor.IsHere = true;
+        }
 
 
     }

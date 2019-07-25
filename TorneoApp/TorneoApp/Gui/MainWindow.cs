@@ -81,11 +81,13 @@ namespace TorneoApp.Model
                 case LISTCOMPETIDORES:
                     this.competidoresview = new ControlUsers.CompetidoresList();
                     this.competidoresview.Main = this;
+                    InitializeCompetidoresList();
                     this.panelView.Controls.Add(competidoresview);
                     break;
                 case VERIFICAR:
                     this.importarview = new ControlUsers.ConfirmarView();
                     this.importarview.Main = this;
+                    InitializeVerificarView();
                     this.panelView.Controls.Add(importarview);
                     break;
                 case ESCUELAS:
@@ -95,7 +97,8 @@ namespace TorneoApp.Model
                     break;
                 case LISTESCUELAS:
                     this.escuelasview = new ControlUsers.EscuelasView();
-                    this.escuelasview.Main = this; 
+                    this.escuelasview.Main = this;
+                    InitializeEscuelasView();
                     this.panelView.Controls.Add(escuelasview);
                     break;
                 case RANKING:
@@ -243,7 +246,52 @@ namespace TorneoApp.Model
         public void GetCompetidoresEscuela(int index)
         {
             List<Competidor> competidores = Torneo.GetCompetidoresEscuela(index);
-            escuelasview.InitializeCompetidores(competidores);
+            string nombreescuela = Torneo.ToStringEscuelas()[index];
+            int puntossanda = Torneo.Escuelas.ToArray()[index].PSanda;
+            int puntosformas = Torneo.Escuelas.ToArray()[index].PFormas;
+
+            escuelasview.InitializeCompetidores(competidores, nombreescuela, puntossanda, puntosformas);
+        }
+
+        public void InitializeCompetidoresList()
+        {
+            var Competidores = Torneo.ToStringCompetidor();
+            competidoresview.InitializeListCompetidores(Competidores);
+            GetInfoCompetidor(0);
+        }
+
+        public void InitializeVerificarView()
+        {
+            var Competidores = Torneo.CompetidoresAusentes();
+            importarview.InitializeCompetidores(Competidores);
+        }
+
+        public void GetInfoCompetidor(int index)
+        {
+            Competidor c = Torneo.Competidores.ToArray()[index];
+            string nombre = c.Name;
+            string genero = c.GetStringGenere();
+            string edad = c.Edad + "";
+            string peso = c.Peso + "";
+            string nivel = c.getNivel();
+            string sanda = c.Sanda ? "Sí" : "No";
+            string formas = c.Formas ? "Sí" : "No";
+            string cinta = c.IsBlackBelt ? "Sí" : "No";
+            string telefono = c.TelefonoPersonal;
+            string eps = c.Eps;
+            string escuela = c.Escuela.Name;
+            string acudiente = c.ContactName;
+            string telacudiente = c.TelefonoAcudiente;
+            List<Forma> listformas = c.ListaFormas;
+
+            competidoresview.InitializeInfoCompetidor(nombre, genero, edad, peso, nivel, sanda, formas,
+                cinta, telefono, escuela, eps, acudiente, telacudiente, listformas);
+        }
+
+        public void ConfirmarCompetidores(List<int> indices)
+        {
+            Torneo.ConfirmarCompetidores(indices);
+            InitializeVerificarView();
         }
 
 

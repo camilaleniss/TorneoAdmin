@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmarView));
             this.labNombreTorneo = new System.Windows.Forms.Label();
+            this.listCompetidores = new System.Windows.Forms.ListView();
             this.controlButtons1 = new TorneoApp.ControlUsers.ControlButtons();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butConfirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labNombreTorneo
@@ -46,6 +46,19 @@
             this.labNombreTorneo.Text = "Nombre Torneo Aquí\r\n\r\n";
             this.labNombreTorneo.Click += new System.EventHandler(this.Label1_Click);
             // 
+            // listCompetidores
+            // 
+            this.listCompetidores.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listCompetidores.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCompetidores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.listCompetidores.Location = new System.Drawing.Point(29, 80);
+            this.listCompetidores.Name = "listCompetidores";
+            this.listCompetidores.Size = new System.Drawing.Size(422, 421);
+            this.listCompetidores.TabIndex = 2;
+            this.listCompetidores.UseCompatibleStateImageBehavior = false;
+            this.listCompetidores.View = System.Windows.Forms.View.List;
+            this.listCompetidores.SelectedIndexChanged += new System.EventHandler(this.ListCompetidores_SelectedIndexChanged);
+            // 
             // controlButtons1
             // 
             this.controlButtons1.BackColor = System.Drawing.Color.White;
@@ -54,28 +67,28 @@
             this.controlButtons1.Size = new System.Drawing.Size(234, 120);
             this.controlButtons1.TabIndex = 1;
             // 
-            // button1
+            // butConfirmar
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(102, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 92);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Importar";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.butConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(224)))), ((int)(((byte)(146)))));
+            this.butConfirmar.FlatAppearance.BorderSize = 0;
+            this.butConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butConfirmar.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butConfirmar.ForeColor = System.Drawing.Color.White;
+            this.butConfirmar.Location = new System.Drawing.Point(504, 347);
+            this.butConfirmar.Name = "butConfirmar";
+            this.butConfirmar.Size = new System.Drawing.Size(140, 28);
+            this.butConfirmar.TabIndex = 3;
+            this.butConfirmar.Text = "Confirmar";
+            this.butConfirmar.UseVisualStyleBackColor = false;
+            this.butConfirmar.Click += new System.EventHandler(this.ButConfirmar_Click);
             // 
             // ConfirmarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.butConfirmar);
+            this.Controls.Add(this.listCompetidores);
             this.Controls.Add(this.controlButtons1);
             this.Controls.Add(this.labNombreTorneo);
             this.Name = "ConfirmarView";
@@ -90,6 +103,7 @@
 
         private System.Windows.Forms.Label labNombreTorneo;
         private ControlButtons controlButtons1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listCompetidores;
+        private System.Windows.Forms.Button butConfirmar;
     }
 }
