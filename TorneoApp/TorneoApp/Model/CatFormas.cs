@@ -14,7 +14,14 @@ namespace TorneoApp.Model
 
         public CatFormas()
         { 
-            Presentaciones = new List<Presentacion>(); 
+            Presentaciones = new List<Presentacion>();
+            InitializePresentaciones();
+        }
+
+        public void InitializePresentaciones()
+        {
+            foreach (Competidor c in Participantes)
+                Presentaciones.Add(new Presentacion(c));
         }
 
         public override void CalcularMean(){
@@ -55,45 +62,74 @@ namespace TorneoApp.Model
             Nombre =  NombreForma+" "+ NivelCat+" de "+MinEdad+"-"+ MaxEdad+" años";
         }
 
-        public Boolean HayEmpate (double Puntos)
+        public Boolean HayEmpate (double Puntos, List<Presentacion> presentaciones)
         {
-            return Presentaciones.Exists(p => p.Calificacion == Puntos);
+            return presentaciones.Exists(p => p.Calificacion == Puntos);
         }
 
-        public void AsignarCalificacion(Competidor competidor, double calificacion)
+        public List<Presentacion> BuscarPresentaciones(double Puntos, List<Presentacion> presentaciones)
         {
-            Presentacion p = BuscarPresentacion(competidor);
-            p.Calificacion = calificacion;
+            return presentaciones.FindAll(p => p.Calificacion == Puntos);
         }
 
-        public Presentacion BuscarPresentacion(Competidor competidor)
+        public string[] UpdatePodium()
         {
-            return Presentaciones.Find(p => p.Competidor == competidor);
-        }
+            string[] CompetidoresPodium = new string[Torneo.NUM_JUECES];
 
-        public void UpdatePodium()
-        {
             List<Presentacion> Calificadas = PresentacionesCalificadas();
-            Calificadas.Sort();
-            var primeros = Calificadas.Take(3).ToArray();
 
-            Podium.FirstPlace = primeros[0].Competidor;
-            Podium.SecondPlace = primeros[1].Competidor;
-            Podium.ThirdPlace = primeros[2].Competidor;
+            Calificadas.Sort();
+
+            for (int i = 0; i<CompetidoresPodium.Length; i++)
+            {
+                Presentacion p = Calificadas.First();
+                CompetidoresPodium[i] = p.Competidor.Name;
+                Calificadas.Remove(p);
+                if (HayEmpate(p.Calificacion, Calificadas))
+                {
+                    var Iguales = BuscarPresentaciones(p.Calificacion, Calificadas);
+                    
+                    foreach(var comp in Iguales)
+                    {
+                        CompetidoresPodium[i] += " /  " + comp.Competidor.Name;
+                        Calificadas.Remove(comp);
+                    }                  
+                }
+
+                SetVarPodium(i + 1, p.Competidor);
+                
+            }
+
+            return CompetidoresPodium;
+        }
+
+        public void SetVarPodium(int index, Competidor p)
+        {
+            switch (index)
+            {
+                case 1:
+                    Podium.FirstPlace = p;
+                    break;
+                case 2:
+                    Podium.SecondPlace = p;
+                    break;
+                case 3:
+                    Podium.ThirdPlace = p;
+                    break;
+            }
         }
 
         public List<Presentacion> PresentacionesCalificadas()
         {
-            return Presentaciones.FindAll(p => p.Calificacion != 0);
+            return Presentaciones.FindAll(p => p.IsDone());
         }
 
-        public void DarPuntos()
+        public List<Presentacion> PresentacionesRestantes()
         {
-            Podium.FirstPlace.Escuela.AumentarFormas(Torneo.ORO);
-            Podium.SecondPlace.Escuela.AumentarFormas(Torneo.PLATA);
-            Podium.ThirdPlace.Escuela.AumentarFormas(Torneo.BRONCE);
-            Opened = false;
+            return Presentaciones.FindAll(p => p.IsDone()==false);
         }
+
+       
 
 
 

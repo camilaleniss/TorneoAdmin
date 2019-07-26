@@ -24,5 +24,12 @@ namespace TorneoApp.Model
             if (Calificacion < other) return -1;
             return 0;
         }
+
+        public bool IsDone()
+        {
+            return Calificacion == 0 ? false : true;
+        }
+
+        
     }
 }

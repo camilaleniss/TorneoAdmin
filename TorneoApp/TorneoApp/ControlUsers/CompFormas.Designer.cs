@@ -29,28 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompFormas));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboCategory = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listRestantes = new System.Windows.Forms.ListView();
+            this.listHechas = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textResult = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textJuez3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textJuez2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textJuez1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.butFinished = new System.Windows.Forms.Button();
+            this.textThird = new System.Windows.Forms.TextBox();
+            this.textSecond = new System.Windows.Forms.TextBox();
+            this.textFirst = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -60,26 +61,26 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboCategory
             // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(184)))), ((int)(((byte)(179)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(671, 32);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Categoria";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.comboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboCategory.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(184)))), ((int)(((byte)(179)))));
+            this.comboCategory.FormattingEnabled = true;
+            this.comboCategory.Location = new System.Drawing.Point(14, 14);
+            this.comboCategory.Name = "comboCategory";
+            this.comboCategory.Size = new System.Drawing.Size(671, 32);
+            this.comboCategory.TabIndex = 0;
+            this.comboCategory.Text = "Categoria";
+            this.comboCategory.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(208)))), ((int)(((byte)(204)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.listView3);
-            this.panel1.Controls.Add(this.listView1);
+            this.panel1.Controls.Add(this.listRestantes);
+            this.panel1.Controls.Add(this.listHechas);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(14, 72);
             this.panel1.Name = "panel1";
@@ -108,21 +109,28 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Restantes";
             // 
-            // listView3
+            // listRestantes
             // 
-            this.listView3.Location = new System.Drawing.Point(17, 92);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(259, 129);
-            this.listView3.TabIndex = 2;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listRestantes.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listRestantes.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listRestantes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.listRestantes.Location = new System.Drawing.Point(17, 92);
+            this.listRestantes.Name = "listRestantes";
+            this.listRestantes.Size = new System.Drawing.Size(259, 129);
+            this.listRestantes.TabIndex = 2;
+            this.listRestantes.UseCompatibleStateImageBehavior = false;
+            this.listRestantes.View = System.Windows.Forms.View.List;
             // 
-            // listView1
+            // listHechas
             // 
-            this.listView1.Location = new System.Drawing.Point(17, 275);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(259, 129);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listHechas.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listHechas.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listHechas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.listHechas.Location = new System.Drawing.Point(17, 275);
+            this.listHechas.Name = "listHechas";
+            this.listHechas.Size = new System.Drawing.Size(259, 129);
+            this.listHechas.TabIndex = 1;
+            this.listHechas.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -139,14 +147,14 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(233)))), ((int)(((byte)(230)))));
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.textResult);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.textJuez3);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textJuez2);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textJuez1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(333, 72);
             this.panel2.Name = "panel2";
@@ -164,14 +172,14 @@
             this.button1.TabIndex = 9;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // textResult
             // 
-            this.textBox4.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox4.Location = new System.Drawing.Point(108, 153);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(52, 26);
-            this.textBox4.TabIndex = 8;
+            this.textResult.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textResult.Location = new System.Drawing.Point(108, 153);
+            this.textResult.Name = "textResult";
+            this.textResult.Size = new System.Drawing.Size(52, 26);
+            this.textResult.TabIndex = 8;
             // 
             // label8
             // 
@@ -184,14 +192,14 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Total";
             // 
-            // textBox3
+            // textJuez3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox3.Location = new System.Drawing.Point(192, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(52, 26);
-            this.textBox3.TabIndex = 6;
+            this.textJuez3.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textJuez3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textJuez3.Location = new System.Drawing.Point(192, 92);
+            this.textJuez3.Name = "textJuez3";
+            this.textJuez3.Size = new System.Drawing.Size(52, 26);
+            this.textJuez3.TabIndex = 6;
             // 
             // label7
             // 
@@ -204,14 +212,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Juez 3";
             // 
-            // textBox2
+            // textJuez2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox2.Location = new System.Drawing.Point(108, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(52, 26);
-            this.textBox2.TabIndex = 4;
+            this.textJuez2.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textJuez2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textJuez2.Location = new System.Drawing.Point(108, 92);
+            this.textJuez2.Name = "textJuez2";
+            this.textJuez2.Size = new System.Drawing.Size(52, 26);
+            this.textJuez2.TabIndex = 4;
             // 
             // label6
             // 
@@ -235,14 +243,14 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Juez 1";
             // 
-            // textBox1
+            // textJuez1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox1.Location = new System.Drawing.Point(27, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 26);
-            this.textBox1.TabIndex = 1;
+            this.textJuez1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textJuez1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textJuez1.Location = new System.Drawing.Point(27, 92);
+            this.textJuez1.Name = "textJuez1";
+            this.textJuez1.Size = new System.Drawing.Size(52, 26);
+            this.textJuez1.TabIndex = 1;
             // 
             // label2
             // 
@@ -258,9 +266,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(242)))), ((int)(((byte)(240)))));
-            this.panel3.Controls.Add(this.textBox14);
-            this.panel3.Controls.Add(this.textBox13);
-            this.panel3.Controls.Add(this.textBox12);
+            this.panel3.Controls.Add(this.butFinished);
+            this.panel3.Controls.Add(this.textThird);
+            this.panel3.Controls.Add(this.textSecond);
+            this.panel3.Controls.Add(this.textFirst);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label14);
@@ -270,35 +279,47 @@
             this.panel3.Size = new System.Drawing.Size(352, 199);
             this.panel3.TabIndex = 11;
             // 
-            // textBox14
+            // butFinished
             // 
-            this.textBox14.Enabled = false;
-            this.textBox14.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox14.Location = new System.Drawing.Point(157, 149);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(177, 30);
-            this.textBox14.TabIndex = 22;
+            this.butFinished.FlatAppearance.BorderSize = 0;
+            this.butFinished.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butFinished.Image = ((System.Drawing.Image)(resources.GetObject("butFinished.Image")));
+            this.butFinished.Location = new System.Drawing.Point(286, 13);
+            this.butFinished.Name = "butFinished";
+            this.butFinished.Size = new System.Drawing.Size(48, 41);
+            this.butFinished.TabIndex = 10;
+            this.butFinished.UseVisualStyleBackColor = true;
+            this.butFinished.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // textBox13
+            // textThird
             // 
-            this.textBox13.Enabled = false;
-            this.textBox13.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox13.Location = new System.Drawing.Point(157, 109);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(177, 30);
-            this.textBox13.TabIndex = 22;
+            this.textThird.Enabled = false;
+            this.textThird.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textThird.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textThird.Location = new System.Drawing.Point(157, 149);
+            this.textThird.Name = "textThird";
+            this.textThird.Size = new System.Drawing.Size(177, 30);
+            this.textThird.TabIndex = 22;
             // 
-            // textBox12
+            // textSecond
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox12.Location = new System.Drawing.Point(157, 66);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(177, 30);
-            this.textBox12.TabIndex = 22;
+            this.textSecond.Enabled = false;
+            this.textSecond.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSecond.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textSecond.Location = new System.Drawing.Point(157, 109);
+            this.textSecond.Name = "textSecond";
+            this.textSecond.Size = new System.Drawing.Size(177, 30);
+            this.textSecond.TabIndex = 22;
+            // 
+            // textFirst
+            // 
+            this.textFirst.Enabled = false;
+            this.textFirst.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFirst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textFirst.Location = new System.Drawing.Point(157, 66);
+            this.textFirst.Name = "textFirst";
+            this.textFirst.Size = new System.Drawing.Size(177, 30);
+            this.textFirst.TabIndex = 22;
             // 
             // label16
             // 
@@ -352,7 +373,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboCategory);
             this.Name = "CompFormas";
             this.Size = new System.Drawing.Size(706, 519);
             this.Load += new System.EventHandler(this.CompFormas_Load);
@@ -368,31 +389,32 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboCategory;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listRestantes;
+        private System.Windows.Forms.ListView listHechas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textResult;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textJuez3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textJuez2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textJuez1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textThird;
+        private System.Windows.Forms.TextBox textSecond;
+        private System.Windows.Forms.TextBox textFirst;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button butFinished;
     }
 }

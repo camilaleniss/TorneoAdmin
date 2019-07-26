@@ -16,6 +16,8 @@ namespace TorneoApp.Model
 
         public const string NOMBRE_TORNEO = "V Torneo de Wushu y Sanda";
 
+        public const int NUM_JUECES = 3;
+
         public const int ORO = 5;
         public const int PLATA = 3;
         public const int BRONCE = 1;
@@ -235,12 +237,6 @@ namespace TorneoApp.Model
             return Competidor;
         }
 
-        public void ConfirmarPresente(string NombreCompetidor)
-        {
-            Competidor c = BuscarCompetidor(NombreCompetidor);
-            c.IsHere = true;
-        }
-
         public double GetPromedio (double [] juez)
         {
             double promedio = 0;
@@ -260,12 +256,6 @@ namespace TorneoApp.Model
             }
             return CategoriasSanda.ToArray()[index];
         }
-
-        public Escuela SelectEscuela(int index)
-        {
-            return Escuelas.ToArray()[index];
-        }
-
         
         public Competidor SelectCompetidor(int indexcat, int indexcomp, bool IsFormas)
         {
@@ -366,5 +356,19 @@ namespace TorneoApp.Model
         }
 
 
+       public string[] AgregarPuntuacionPresentacion(int indexcat, string nombre, double[] puntajes)
+        {
+            CatFormas categoria = CategoriasFormas.ToArray()[indexcat];
+            Presentacion presentacion = categoria.Presentaciones.Find(p => p.Competidor == BuscarCompetidor(nombre));
+            double puntaje = GetPromedio(puntajes);
+            presentacion.Calificacion = puntaje;
+            return categoria.UpdatePodium();
+        }
+
+        public void FinishCategory(int indexcat, bool IsFormas)
+        {
+            Categoria categoria = SelectCategoria(indexcat, IsFormas);
+            categoria.DarPuntos();
+        }
     }
 }

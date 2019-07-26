@@ -102,5 +102,17 @@ namespace TorneoApp.Model
             Participantes.Remove(comp);
         }
 
+        public void FinishedCategory()
+        {
+            Opened = false;
+        }
+
+        public void DarPuntos()
+        {
+            Podium.FirstPlace.Escuela.AumentarFormas(Torneo.ORO);
+            Podium.SecondPlace.Escuela.AumentarFormas(Torneo.PLATA);
+            Podium.ThirdPlace.Escuela.AumentarFormas(Torneo.BRONCE);
+            FinishedCategory();
+        }
     }
 }

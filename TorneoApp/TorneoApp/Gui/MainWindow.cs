@@ -295,5 +295,34 @@ namespace TorneoApp.Model
         }
 
 
+
+
+        //COMPETENCIA FORMAS
+
+        public void IngresarPresentacion(int indexcategoria, string nombrecompetidor, double juez1, double juez2, double juez3)
+        {
+            double[] puntajes = { juez1, juez2, juez3 };
+            string [] podium = Torneo.AgregarPuntuacionPresentacion(indexcategoria, nombrecompetidor, puntajes);
+            compformas.InitializePodium(podium);
+        }
+
+        public void InitializePresentaciones(int index)
+        {
+            CatFormas categoria = Torneo.CategoriasFormas.ToArray()[index];
+            List<Presentacion> temppresentacion = categoria.PresentacionesCalificadas();
+            List<String> done = new List<String>();
+
+            foreach (Presentacion p in temppresentacion)
+                done.Add(p.Competidor.Name);
+
+            compformas.InitializeCalificadas(done);
+
+            temppresentacion = categoria.PresentacionesRestantes();
+            foreach (Presentacion p in temppresentacion)
+                done.Add(p.Competidor.Name);
+
+            compformas.InitializeRestantes(done);
+        }
+
     }
 }
