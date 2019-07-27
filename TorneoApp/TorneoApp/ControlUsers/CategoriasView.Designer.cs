@@ -296,13 +296,15 @@
             this.listCategorias.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.listCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listCategorias.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCategorias.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.listCategorias.Location = new System.Drawing.Point(472, 118);
             this.listCategorias.Name = "listCategorias";
             this.listCategorias.Size = new System.Drawing.Size(213, 381);
             this.listCategorias.TabIndex = 9;
             this.listCategorias.UseCompatibleStateImageBehavior = false;
             this.listCategorias.View = System.Windows.Forms.View.List;
+            this.listCategorias.SelectedIndexChanged += new System.EventHandler(this.ListCategorias_SelectedIndexChanged);
             // 
             // labNombreTorneo
             // 

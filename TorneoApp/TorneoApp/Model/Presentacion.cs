@@ -12,18 +12,23 @@ namespace TorneoApp.Model
         public Competidor Competidor{get; set;}
         public double Calificacion { get; set; }
 
-        public Presentacion(Competidor competidor)
+        public double[] Jueces { get; set; }
+
+        public Presentacion(Competidor Competidor)
         {
             this.Competidor = Competidor;
-            Calificacion= 0;
+            this.Calificacion= 0;
+            Jueces = new double[Torneo.NUM_JUECES];
         }
 
+        
         public int CompareTo(double other)
         {
             if (Calificacion > other) return 1;
             if (Calificacion < other) return -1;
             return 0;
         }
+        
 
         public bool IsDone()
         {

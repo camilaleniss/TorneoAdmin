@@ -37,21 +37,21 @@
             this.listHechas = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textResult = new System.Windows.Forms.TextBox();
+            this.butSave = new System.Windows.Forms.Button();
+            this.txtResult = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textJuez3 = new System.Windows.Forms.TextBox();
+            this.txtJuez3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textJuez2 = new System.Windows.Forms.TextBox();
+            this.txtJuez2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textJuez1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtJuez1 = new System.Windows.Forms.TextBox();
+            this.labNomCompetidor = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.butFinished = new System.Windows.Forms.Button();
-            this.textThird = new System.Windows.Forms.TextBox();
-            this.textSecond = new System.Windows.Forms.TextBox();
-            this.textFirst = new System.Windows.Forms.TextBox();
+            this.txtThird = new System.Windows.Forms.TextBox();
+            this.txtSecond = new System.Windows.Forms.TextBox();
+            this.txtFirst = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -120,6 +120,7 @@
             this.listRestantes.TabIndex = 2;
             this.listRestantes.UseCompatibleStateImageBehavior = false;
             this.listRestantes.View = System.Windows.Forms.View.List;
+            this.listRestantes.SelectedIndexChanged += new System.EventHandler(this.ListRestantes_SelectedIndexChanged);
             // 
             // listHechas
             // 
@@ -131,6 +132,8 @@
             this.listHechas.Size = new System.Drawing.Size(259, 129);
             this.listHechas.TabIndex = 1;
             this.listHechas.UseCompatibleStateImageBehavior = false;
+            this.listHechas.View = System.Windows.Forms.View.List;
+            this.listHechas.SelectedIndexChanged += new System.EventHandler(this.ListHechas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -146,40 +149,42 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(233)))), ((int)(((byte)(230)))));
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textResult);
+            this.panel2.Controls.Add(this.butSave);
+            this.panel2.Controls.Add(this.txtResult);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textJuez3);
+            this.panel2.Controls.Add(this.txtJuez3);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.textJuez2);
+            this.panel2.Controls.Add(this.txtJuez2);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textJuez1);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtJuez1);
+            this.panel2.Controls.Add(this.labNomCompetidor);
             this.panel2.Location = new System.Drawing.Point(333, 72);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(352, 203);
             this.panel2.TabIndex = 2;
             // 
-            // button1
+            // butSave
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(276, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 41);
-            this.button1.TabIndex = 9;
-            this.button1.UseVisualStyleBackColor = true;
+            this.butSave.FlatAppearance.BorderSize = 0;
+            this.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butSave.Image = ((System.Drawing.Image)(resources.GetObject("butSave.Image")));
+            this.butSave.Location = new System.Drawing.Point(276, 85);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(48, 41);
+            this.butSave.TabIndex = 9;
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.ButSave_Click);
             // 
-            // textResult
+            // txtResult
             // 
-            this.textResult.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textResult.Location = new System.Drawing.Point(108, 153);
-            this.textResult.Name = "textResult";
-            this.textResult.Size = new System.Drawing.Size(52, 26);
-            this.textResult.TabIndex = 8;
+            this.txtResult.Enabled = false;
+            this.txtResult.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtResult.Location = new System.Drawing.Point(108, 153);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(52, 26);
+            this.txtResult.TabIndex = 8;
             // 
             // label8
             // 
@@ -192,14 +197,14 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Total";
             // 
-            // textJuez3
+            // txtJuez3
             // 
-            this.textJuez3.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textJuez3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textJuez3.Location = new System.Drawing.Point(192, 92);
-            this.textJuez3.Name = "textJuez3";
-            this.textJuez3.Size = new System.Drawing.Size(52, 26);
-            this.textJuez3.TabIndex = 6;
+            this.txtJuez3.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJuez3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtJuez3.Location = new System.Drawing.Point(192, 92);
+            this.txtJuez3.Name = "txtJuez3";
+            this.txtJuez3.Size = new System.Drawing.Size(52, 26);
+            this.txtJuez3.TabIndex = 6;
             // 
             // label7
             // 
@@ -212,14 +217,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Juez 3";
             // 
-            // textJuez2
+            // txtJuez2
             // 
-            this.textJuez2.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textJuez2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textJuez2.Location = new System.Drawing.Point(108, 92);
-            this.textJuez2.Name = "textJuez2";
-            this.textJuez2.Size = new System.Drawing.Size(52, 26);
-            this.textJuez2.TabIndex = 4;
+            this.txtJuez2.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJuez2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtJuez2.Location = new System.Drawing.Point(108, 92);
+            this.txtJuez2.Name = "txtJuez2";
+            this.txtJuez2.Size = new System.Drawing.Size(52, 26);
+            this.txtJuez2.TabIndex = 4;
             // 
             // label6
             // 
@@ -243,33 +248,33 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Juez 1";
             // 
-            // textJuez1
+            // txtJuez1
             // 
-            this.textJuez1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textJuez1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textJuez1.Location = new System.Drawing.Point(27, 92);
-            this.textJuez1.Name = "textJuez1";
-            this.textJuez1.Size = new System.Drawing.Size(52, 26);
-            this.textJuez1.TabIndex = 1;
+            this.txtJuez1.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJuez1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtJuez1.Location = new System.Drawing.Point(27, 92);
+            this.txtJuez1.Name = "txtJuez1";
+            this.txtJuez1.Size = new System.Drawing.Size(52, 26);
+            this.txtJuez1.TabIndex = 1;
             // 
-            // label2
+            // labNomCompetidor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(13, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre competidor";
+            this.labNomCompetidor.AutoSize = true;
+            this.labNomCompetidor.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNomCompetidor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labNomCompetidor.Location = new System.Drawing.Point(13, 18);
+            this.labNomCompetidor.Name = "labNomCompetidor";
+            this.labNomCompetidor.Size = new System.Drawing.Size(199, 22);
+            this.labNomCompetidor.TabIndex = 0;
+            this.labNomCompetidor.Text = "Nombre competidor";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(242)))), ((int)(((byte)(240)))));
             this.panel3.Controls.Add(this.butFinished);
-            this.panel3.Controls.Add(this.textThird);
-            this.panel3.Controls.Add(this.textSecond);
-            this.panel3.Controls.Add(this.textFirst);
+            this.panel3.Controls.Add(this.txtThird);
+            this.panel3.Controls.Add(this.txtSecond);
+            this.panel3.Controls.Add(this.txtFirst);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label14);
@@ -291,35 +296,35 @@
             this.butFinished.UseVisualStyleBackColor = true;
             this.butFinished.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // textThird
+            // txtThird
             // 
-            this.textThird.Enabled = false;
-            this.textThird.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textThird.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textThird.Location = new System.Drawing.Point(157, 149);
-            this.textThird.Name = "textThird";
-            this.textThird.Size = new System.Drawing.Size(177, 30);
-            this.textThird.TabIndex = 22;
+            this.txtThird.Enabled = false;
+            this.txtThird.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThird.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtThird.Location = new System.Drawing.Point(157, 149);
+            this.txtThird.Name = "txtThird";
+            this.txtThird.Size = new System.Drawing.Size(177, 30);
+            this.txtThird.TabIndex = 22;
             // 
-            // textSecond
+            // txtSecond
             // 
-            this.textSecond.Enabled = false;
-            this.textSecond.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSecond.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textSecond.Location = new System.Drawing.Point(157, 109);
-            this.textSecond.Name = "textSecond";
-            this.textSecond.Size = new System.Drawing.Size(177, 30);
-            this.textSecond.TabIndex = 22;
+            this.txtSecond.Enabled = false;
+            this.txtSecond.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecond.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtSecond.Location = new System.Drawing.Point(157, 109);
+            this.txtSecond.Name = "txtSecond";
+            this.txtSecond.Size = new System.Drawing.Size(177, 30);
+            this.txtSecond.TabIndex = 22;
             // 
-            // textFirst
+            // txtFirst
             // 
-            this.textFirst.Enabled = false;
-            this.textFirst.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFirst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textFirst.Location = new System.Drawing.Point(157, 66);
-            this.textFirst.Name = "textFirst";
-            this.textFirst.Size = new System.Drawing.Size(177, 30);
-            this.textFirst.TabIndex = 22;
+            this.txtFirst.Enabled = false;
+            this.txtFirst.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.txtFirst.Location = new System.Drawing.Point(157, 66);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(177, 30);
+            this.txtFirst.TabIndex = 22;
             // 
             // label16
             // 
@@ -397,20 +402,20 @@
         private System.Windows.Forms.ListView listHechas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textResult;
+        private System.Windows.Forms.Button butSave;
+        private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textJuez3;
+        private System.Windows.Forms.TextBox txtJuez3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textJuez2;
+        private System.Windows.Forms.TextBox txtJuez2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textJuez1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtJuez1;
+        private System.Windows.Forms.Label labNomCompetidor;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textThird;
-        private System.Windows.Forms.TextBox textSecond;
-        private System.Windows.Forms.TextBox textFirst;
+        private System.Windows.Forms.TextBox txtThird;
+        private System.Windows.Forms.TextBox txtSecond;
+        private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

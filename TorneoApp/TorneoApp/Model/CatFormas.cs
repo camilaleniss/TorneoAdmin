@@ -14,14 +14,16 @@ namespace TorneoApp.Model
 
         public CatFormas()
         { 
-            Presentaciones = new List<Presentacion>();
-            InitializePresentaciones();
+            Presentaciones = new List<Presentacion>();          
         }
 
         public void InitializePresentaciones()
         {
             foreach (Competidor c in Participantes)
-                Presentaciones.Add(new Presentacion(c));
+            {
+                Presentacion p = new Presentacion(c);
+                Presentaciones.Add(p);
+            }
         }
 
         public override void CalcularMean(){
@@ -76,27 +78,34 @@ namespace TorneoApp.Model
         {
             string[] CompetidoresPodium = new string[Torneo.NUM_JUECES];
 
-            List<Presentacion> Calificadas = PresentacionesCalificadas();
+            List<Presentacion> Calificadas = PresentacionesCalificadas().OrderByDescending(c => c.Calificacion).ToList();
 
-            Calificadas.Sort();
+            //Calificadas.Sort();
 
             for (int i = 0; i<CompetidoresPodium.Length; i++)
             {
-                Presentacion p = Calificadas.First();
-                CompetidoresPodium[i] = p.Competidor.Name;
-                Calificadas.Remove(p);
-                if (HayEmpate(p.Calificacion, Calificadas))
+                if (Calificadas.Count != 0)
                 {
-                    var Iguales = BuscarPresentaciones(p.Calificacion, Calificadas);
-                    
-                    foreach(var comp in Iguales)
+                    Presentacion p = Calificadas.First();
+                    CompetidoresPodium[i] = p.Competidor.Name;
+                    Calificadas.Remove(p);
+                    if (HayEmpate(p.Calificacion, Calificadas))
                     {
-                        CompetidoresPodium[i] += " /  " + comp.Competidor.Name;
-                        Calificadas.Remove(comp);
-                    }                  
-                }
+                        var Iguales = BuscarPresentaciones(p.Calificacion, Calificadas);
 
-                SetVarPodium(i + 1, p.Competidor);
+                        foreach (var comp in Iguales)
+                        {
+                            CompetidoresPodium[i] += " /  " + comp.Competidor.Name;
+                            Calificadas.Remove(comp);
+                        }
+                    }
+
+                    SetVarPodium(i + 1, p.Competidor);
+                }
+                else
+                {
+                    CompetidoresPodium[i] = "";
+                }
                 
             }
 
@@ -121,7 +130,7 @@ namespace TorneoApp.Model
 
         public List<Presentacion> PresentacionesCalificadas()
         {
-            return Presentaciones.FindAll(p => p.IsDone());
+            return Presentaciones.FindAll(p => p.IsDone()==true);
         }
 
         public List<Presentacion> PresentacionesRestantes()
@@ -130,7 +139,10 @@ namespace TorneoApp.Model
         }
 
        
-
+        public Presentacion BuscarPresentacion (Competidor c)
+        {
+            return Presentaciones.Find(p => p.Competidor == c);
+        }
 
 
 

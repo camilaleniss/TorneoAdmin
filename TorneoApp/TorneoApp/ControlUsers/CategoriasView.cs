@@ -67,5 +67,10 @@ namespace TorneoApp.ControlUsers
         {
             Main.ShowView("CatFormas");
         }
+
+        private void ListCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

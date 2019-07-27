@@ -116,6 +116,8 @@ namespace TorneoApp.Model
                     break;
                 case COMPFORMAS:
                     this.compformas = new ControlUsers.CompFormas();
+                    this.compformas.Main = this;
+                    InitializeCompetenciaFormas();
                     this.panelView.Controls.Add(compformas);
                     break;
             }
@@ -294,16 +296,17 @@ namespace TorneoApp.Model
             InitializeVerificarView();
         }
 
-
-
-
         //COMPETENCIA FORMAS
 
-        public void IngresarPresentacion(int indexcategoria, string nombrecompetidor, double juez1, double juez2, double juez3)
+        public void InitializeCompetenciaFormas()
         {
-            double[] puntajes = { juez1, juez2, juez3 };
-            string [] podium = Torneo.AgregarPuntuacionPresentacion(indexcategoria, nombrecompetidor, puntajes);
-            compformas.InitializePodium(podium);
+            var Categorias = Torneo.CategoriasFormas;
+            List<String> catstring = new List<String>();
+            foreach (var cat in Categorias)
+                catstring.Add(cat.Nombre);
+
+            compformas.InitCategories(catstring);
+
         }
 
         public void InitializePresentaciones(int index)
@@ -318,11 +321,43 @@ namespace TorneoApp.Model
             compformas.InitializeCalificadas(done);
 
             temppresentacion = categoria.PresentacionesRestantes();
+
+            done.Clear();
+
             foreach (Presentacion p in temppresentacion)
                 done.Add(p.Competidor.Name);
 
             compformas.InitializeRestantes(done);
+
+            if (done.Count == 0) categoria.DarPuntos();
         }
+
+        public void ShowPresentacion(String nombreCompetidor)
+        {
+            Competidor competidor = Torneo.BuscarCompetidor(nombreCompetidor);
+            CatFormas categoria = Torneo.CategoriasFormas.ToArray()[compformas.IndexCategoria];
+            Presentacion presentacion = categoria.BuscarPresentacion(competidor);
+
+            compformas.InitializePresentacion(presentacion.Jueces, presentacion.Calificacion);
+            if (presentacion.IsDone())
+                compformas.SetTextResult(presentacion.Calificacion);
+
+        }
+
+        public double SendCalificacionFormas(double[] jueces)
+        {
+            double Calificacion = Torneo.GetPromedio(jueces);
+
+            Competidor competidor = Torneo.BuscarCompetidor(compformas.NameCompetidor);
+            CatFormas categoria = Torneo.CategoriasFormas.ToArray()[compformas.IndexCategoria];
+
+            string [] podium = Torneo.GuardarPresentacion(categoria, competidor, jueces);
+
+            compformas.InitializePodium(podium);
+            return Calificacion;
+        }
+
+
 
     }
 }

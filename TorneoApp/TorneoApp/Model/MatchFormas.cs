@@ -261,6 +261,7 @@ namespace TorneoApp.Model
                 for (int w = 0; w < Categorias.Length; w++)
                 {
                     Categorias[w].GenerarNombre(Keys[i].Nombre);
+                    Categorias[w].InitializePresentaciones();
                     Categorias[w].Forma = Keys[i];
                     CategoriasTorneo.Add(Categorias[w]);
                 }
