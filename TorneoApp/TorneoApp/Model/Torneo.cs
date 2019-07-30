@@ -3,16 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace TorneoApp.Model
 {
-    public class Torneo
+    public class Torneo 
     {
         //Ruta del archivo  registro del torneo
         public const string CSV_ROUTE = "..\\..\\Data\\Registro.csv";
+
+        public const string TORNEO_ROUTE = "..\\..\\Data\\Torneo.dat";
 
         public const string NOMBRE_TORNEO = "V Torneo de Wushu y Sanda";
 
@@ -371,5 +375,23 @@ namespace TorneoApp.Model
 
             return categoria.UpdatePodium();
         }
+
+        private static void Serializar(Torneo torneo)
+        {
+            FileStream file = new FileStream(TORNEO_ROUTE, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(file, torneo);
+            file.Close();
+        }
+
+        private static Torneo LeerTorneo()
+        {
+            FileStream file = new FileStream(TORNEO_ROUTE, FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+            Torneo torneo = formatter.Deserialize(file) as Torneo;
+            file.Close();
+            return torneo;
+        }
+
     }
 }

@@ -97,7 +97,6 @@
             this.Controls.Add(this.butIniciar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listCategorias);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CambiarCategoria";
             this.Text = "CambiarCategoria";
             this.ResumeLayout(false);
