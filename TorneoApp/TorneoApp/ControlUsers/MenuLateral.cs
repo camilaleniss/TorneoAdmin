@@ -86,5 +86,21 @@ namespace TorneoApp.ControlUsers
         {
             Controlador.ShowView(MainWindow.COMPFORMAS);
         }
+
+        public void ReviewState(bool Iniciado)
+        {
+            if (!Iniciado)
+            {
+                butCompetencia.Enabled = false;
+                butSanda.Enabled = false;
+                butFormas.Enabled = false;
+            }
+            else
+            {
+                butCompetencia.Enabled = true;
+                butSanda.Enabled = true;
+                butFormas.Enabled = true;
+            }
+        }
     }
 }

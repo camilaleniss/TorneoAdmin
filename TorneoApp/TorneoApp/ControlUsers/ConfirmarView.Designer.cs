@@ -102,7 +102,7 @@
         #endregion
 
         private System.Windows.Forms.Label labNombreTorneo;
-        private ControlButtons controlButtons1;
+        public ControlButtons controlButtons1;
         private System.Windows.Forms.ListView listCompetidores;
         private System.Windows.Forms.Button butConfirmar;
     }

@@ -340,7 +340,7 @@
 
         #endregion
 
-        private ControlButtons controlButtons1;
+        public ControlButtons controlButtons1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labNumExistsSanda;
         private System.Windows.Forms.Label labFinishedSanda;

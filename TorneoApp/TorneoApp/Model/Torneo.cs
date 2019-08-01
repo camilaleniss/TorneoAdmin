@@ -42,6 +42,8 @@ namespace TorneoApp.Model
         //Lista de formas permitidas en el torneo
         public List<Forma> Formas { get; set; }
 
+        public bool Iniciado { get; set; }
+
         public Torneo()
         {
             CategoriasFormas = new List<CatFormas>();
@@ -53,6 +55,8 @@ namespace TorneoApp.Model
             Competidores = new List<Competidor>();
 
             Formas = new List<Forma>();
+
+            Iniciado = false;
         }
 
         public void InicializarTorneo()

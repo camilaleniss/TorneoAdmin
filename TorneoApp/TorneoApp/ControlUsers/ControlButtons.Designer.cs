@@ -60,6 +60,7 @@
             this.butIniciar.TabIndex = 1;
             this.butIniciar.Text = "Iniciar";
             this.butIniciar.UseVisualStyleBackColor = false;
+            this.butIniciar.Click += new System.EventHandler(this.ButIniciar_Click);
             // 
             // ControlButtons
             // 

@@ -257,7 +257,7 @@
         private System.Windows.Forms.Label labPeso;
         private System.Windows.Forms.Label labNombre;
         private System.Windows.Forms.Label label3;
-        private ControlButtons controlButtons1;
+        public ControlButtons controlButtons1;
         private System.Windows.Forms.Button butCambiar;
         private System.Windows.Forms.Label labEdad;
         private System.Windows.Forms.Label labNivel;

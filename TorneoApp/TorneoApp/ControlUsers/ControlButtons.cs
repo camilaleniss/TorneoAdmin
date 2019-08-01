@@ -29,5 +29,11 @@ namespace TorneoApp.ControlUsers
         {
             Main.SaveTorneo();
         }
+
+        private void ButIniciar_Click(object sender, EventArgs e)
+        {
+            Main.IniciarTorneo();
+            this.butIniciar.Enabled = false;
+        }
     }
 }

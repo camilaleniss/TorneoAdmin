@@ -107,6 +107,6 @@
         private System.Windows.Forms.Label labNombreTorneo;
         private System.Windows.Forms.Button butListado;
         private System.Windows.Forms.Button butVerificar;
-        private ControlButtons controlButtons1;
+        public ControlButtons controlButtons1;
     }
 }
