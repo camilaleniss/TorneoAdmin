@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
+    [Serializable]
     public class Forma
     {
         //Tipo de forma: con arma, sin arma, arma larga 

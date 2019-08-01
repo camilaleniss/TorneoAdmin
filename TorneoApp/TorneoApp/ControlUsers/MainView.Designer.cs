@@ -30,6 +30,10 @@
         {
             this.labBienvenida = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labFormas = new System.Windows.Forms.Label();
+            this.labSanda = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.labNumCat = new System.Windows.Forms.Label();
             this.labCompetidores = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,11 +47,7 @@
             this.labNumFormas = new System.Windows.Forms.Label();
             this.listFormas = new System.Windows.Forms.ListView();
             this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labSanda = new System.Windows.Forms.Label();
-            this.labFormas = new System.Windows.Forms.Label();
-            this.controlButtons1 = new TorneoApp.ControlUsers.ControlButtons();
+            this.controlButtons = new TorneoApp.ControlUsers.ControlButtons();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,6 +80,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 158);
             this.panel1.TabIndex = 1;
+            // 
+            // labFormas
+            // 
+            this.labFormas.AutoSize = true;
+            this.labFormas.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labFormas.Location = new System.Drawing.Point(207, 103);
+            this.labFormas.Name = "labFormas";
+            this.labFormas.Size = new System.Drawing.Size(22, 22);
+            this.labFormas.TabIndex = 5;
+            this.labFormas.Text = "0";
+            // 
+            // labSanda
+            // 
+            this.labSanda.AutoSize = true;
+            this.labSanda.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labSanda.Location = new System.Drawing.Point(207, 70);
+            this.labSanda.Name = "labSanda";
+            this.labSanda.Size = new System.Drawing.Size(22, 22);
+            this.labSanda.TabIndex = 4;
+            this.labSanda.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label3.Location = new System.Drawing.Point(20, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 22);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Formas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label1.Location = new System.Drawing.Point(20, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 22);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Sanda";
             // 
             // labNumCat
             // 
@@ -225,58 +269,14 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Formas abiertas";
             // 
-            // label1
+            // controlButtons
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(20, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 22);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Sanda";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(20, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 22);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Formas";
-            // 
-            // labSanda
-            // 
-            this.labSanda.AutoSize = true;
-            this.labSanda.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labSanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labSanda.Location = new System.Drawing.Point(207, 70);
-            this.labSanda.Name = "labSanda";
-            this.labSanda.Size = new System.Drawing.Size(22, 22);
-            this.labSanda.TabIndex = 4;
-            this.labSanda.Text = "0";
-            // 
-            // labFormas
-            // 
-            this.labFormas.AutoSize = true;
-            this.labFormas.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labFormas.Location = new System.Drawing.Point(207, 103);
-            this.labFormas.Name = "labFormas";
-            this.labFormas.Size = new System.Drawing.Size(22, 22);
-            this.labFormas.TabIndex = 5;
-            this.labFormas.Text = "0";
-            // 
-            // controlButtons1
-            // 
-            this.controlButtons1.BackColor = System.Drawing.Color.White;
-            this.controlButtons1.Location = new System.Drawing.Point(472, 0);
-            this.controlButtons1.Name = "controlButtons1";
-            this.controlButtons1.Size = new System.Drawing.Size(234, 120);
-            this.controlButtons1.TabIndex = 2;
-            this.controlButtons1.Load += new System.EventHandler(this.ControlButtons1_Load);
+            this.controlButtons.BackColor = System.Drawing.Color.White;
+            this.controlButtons.Location = new System.Drawing.Point(472, 0);
+            this.controlButtons.Name = "controlButtons";
+            this.controlButtons.Size = new System.Drawing.Size(234, 120);
+            this.controlButtons.TabIndex = 2;
+            this.controlButtons.Load += new System.EventHandler(this.ControlButtons1_Load);
             // 
             // MainView
             // 
@@ -286,7 +286,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.controlButtons1);
+            this.Controls.Add(this.controlButtons);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labBienvenida);
             this.Name = "MainView";
@@ -311,7 +311,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labNumCat;
         private System.Windows.Forms.Label labCompetidores;
-        private ControlButtons controlButtons1;
+        public ControlButtons controlButtons;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listEscuelas;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
+    [Serializable]
     public class Round
     {
         public int[] Puntajes { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
+    [Serializable]
     public class Presentacion : IComparable<double>
     {
 

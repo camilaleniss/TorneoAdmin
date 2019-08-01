@@ -23,6 +23,7 @@ namespace TorneoApp
             MainWindow main = new MainWindow();
             this.Visible = false; 
             main.Show();
+            main.NuevoTorneo();
         }
 
         private void ButLogOut_Click(object sender, EventArgs e)
@@ -36,6 +37,14 @@ namespace TorneoApp
         private void Inicio_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButLast_Click(object sender, EventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Visible = false;
+            main.Show();
+            main.RecuperarTorneo();
         }
     }
 }

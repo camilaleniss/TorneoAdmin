@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TorneoApp.Model;
 
 namespace TorneoApp.ControlUsers
 {
     public partial class ControlButtons : UserControl
     {
+
+        public MainWindow Main { get; set; }
         public ControlButtons()
         {
             InitializeComponent();
@@ -20,6 +23,11 @@ namespace TorneoApp.ControlUsers
         private void ControlButtons_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButSaveChanges_Click(object sender, EventArgs e)
+        {
+            Main.SaveTorneo();
         }
     }
 }

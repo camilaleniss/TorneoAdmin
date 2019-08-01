@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TorneoApp.Model
-{
+{       
+    [Serializable]
     public class Categoria
     {
 

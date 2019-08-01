@@ -74,6 +74,7 @@
             this.butLast.TabIndex = 2;
             this.butLast.Text = "Torneo Guardado";
             this.butLast.UseVisualStyleBackColor = false;
+            this.butLast.Click += new System.EventHandler(this.ButLast_Click);
             // 
             // butLogOut
             // 

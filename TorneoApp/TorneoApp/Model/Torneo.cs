@@ -11,6 +11,7 @@ using System.Xml;
 
 namespace TorneoApp.Model
 {
+    [Serializable]
     public class Torneo 
     {
         //Ruta del archivo  registro del torneo
@@ -376,7 +377,7 @@ namespace TorneoApp.Model
             return categoria.UpdatePodium();
         }
 
-        private static void Serializar(Torneo torneo)
+        public  static void Serializar(Torneo torneo)
         {
             FileStream file = new FileStream(TORNEO_ROUTE, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
@@ -384,7 +385,7 @@ namespace TorneoApp.Model
             file.Close();
         }
 
-        private static Torneo LeerTorneo()
+        public static Torneo LeerTorneo()
         {
             FileStream file = new FileStream(TORNEO_ROUTE, FileMode.Open);
             BinaryFormatter formatter = new BinaryFormatter();

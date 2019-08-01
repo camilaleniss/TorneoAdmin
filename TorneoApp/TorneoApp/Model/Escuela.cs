@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
-
+    [Serializable]
     public class Escuela
     {
         //El nombre de la escuela

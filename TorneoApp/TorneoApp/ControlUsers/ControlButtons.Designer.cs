@@ -45,6 +45,7 @@
             this.butSaveChanges.TabIndex = 0;
             this.butSaveChanges.Text = "Guardar cambios";
             this.butSaveChanges.UseVisualStyleBackColor = false;
+            this.butSaveChanges.Click += new System.EventHandler(this.ButSaveChanges_Click);
             // 
             // butIniciar
             // 

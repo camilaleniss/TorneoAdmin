@@ -26,10 +26,7 @@ namespace TorneoApp.Model
         public const string COMPSANDA = "Sanda";
         public const string COMPFORMAS = "Formas";
 
-
         private Torneo Torneo;
-
-        
 
         public MainWindow()
         {          
@@ -37,9 +34,6 @@ namespace TorneoApp.Model
 
             menuLateral.Controlador = this;
 
-            Torneo = new Torneo();
-            Torneo.InicializarTorneo();
-            ShowView("Init");
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -64,6 +58,7 @@ namespace TorneoApp.Model
             switch (view){
                 case INIT:
                     this.mainView = new ControlUsers.MainView();
+                    this.mainView.controlButtons.Main = this;
                     this.panelView.Controls.Add(mainView);
                     InitializeMainView();
                     break;
@@ -357,6 +352,36 @@ namespace TorneoApp.Model
             return Calificacion;
         }
 
+        public void SaveTorneo()
+        {
+            Torneo.Serializar(Torneo);
+            MessageBox.Show("El torneo ha sido guardado exitosamente");
+        }
+
+        public void RecuperarTorneo()
+        {
+            try
+            {
+                this.Torneo = Torneo.LeerTorneo();
+                MessageBox.Show("Torneo recuperado exitosamente");
+            }catch(Exception e)
+            {
+                MessageBox.Show("No se pudo recuperar el torneo anterior");
+            }
+            finally
+            {
+                ShowView("Init");
+            }
+        }
+
+        public void NuevoTorneo()
+        {
+
+            Torneo = new Torneo();
+            Torneo.InicializarTorneo();
+            ShowView("Init");
+
+        }
 
 
     }
