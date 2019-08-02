@@ -401,5 +401,10 @@ namespace TorneoApp.Model
             InitializeTorneoState();
         }
 
+        public void InicializarRankingCompetidores(String escuela, bool IsFormas)
+        {
+
+        }
+
     }
 }

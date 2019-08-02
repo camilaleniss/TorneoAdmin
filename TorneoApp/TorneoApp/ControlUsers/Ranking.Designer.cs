@@ -66,6 +66,7 @@
             this.listFormas.Size = new System.Drawing.Size(148, 408);
             this.listFormas.TabIndex = 1;
             this.listFormas.UseCompatibleStateImageBehavior = false;
+            this.listFormas.SelectedIndexChanged += new System.EventHandler(this.ListFormas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -95,6 +96,7 @@
             this.listSanda.Size = new System.Drawing.Size(148, 408);
             this.listSanda.TabIndex = 1;
             this.listSanda.UseCompatibleStateImageBehavior = false;
+            this.listSanda.SelectedIndexChanged += new System.EventHandler(this.ListSanda_SelectedIndexChanged);
             // 
             // label2
             // 
