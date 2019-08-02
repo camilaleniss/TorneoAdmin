@@ -10,13 +10,13 @@ namespace TorneoApp.Model
     public class Combate
     {
         //Participantes del combate (2 participantes)
-        private Competidor[] Participantes { get; set; }
+        public Competidor[] Participantes { get; set; }
 
         //Ganador del combate
-        private Competidor Ganador { get; set; }
+        public Competidor Ganador { get; set; }
 
         //Rounds del combate
-        private List<Round> Rounds { get; set; }
+        public List<Round> Rounds { get; set; }
 
         public Combate(Competidor c1, Competidor c2) {
             Participantes = new Competidor[2];
@@ -24,6 +24,11 @@ namespace TorneoApp.Model
             Participantes[1] = c2;
             Rounds = new List<Round>();
 
+        }
+
+        public override String ToString()
+        {
+            return Participantes[0].Name + " vs " + Participantes[1].Name;
         }
     
     }

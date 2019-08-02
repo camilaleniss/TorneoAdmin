@@ -14,30 +14,40 @@ namespace TorneoApp.Model
         //Aqui deberia ir el arbol de combates
         public bool Genere { get; set; }
 
+        public List<Competidor> ParticipantesVencidos { get; set; }
 
-        public List<Combate> RondaDeCombates(List<Competidor> participantes)
+        public List<Combate> CombatesActivos { get; set; }
+
+
+
+        public void RondaDeCombates()
         {
+
             List<Combate> combates = new List<Combate>();
             Random rand = new Random();
-            List<int> possible = Enumerable.Range(0, participantes.Count).ToList();
-            for (int i = 0; i < participantes.Count() / 2; i++)
+            List<int> possible = Enumerable.Range(0, Participantes.Count).ToList();
+            for (int i = 0; i < Participantes.Count() / 2; i++)
             {
                 int index = rand.Next(0, possible.Count);
+                Competidor p1 = Participantes[possible[index]];
                 possible.RemoveAt(index);
                 int index2 = rand.Next(0, possible.Count);
+                Competidor p2 = Participantes[possible[index2]];
                 possible.RemoveAt(index2);
-                Combate c = new Combate(participantes[index], participantes[index2]);
+                
+                Combate c = new Combate(p1, p2);
                 combates.Add(c);
             }
             if (possible.Count > 0)
             {
                 //Solucion temporal a competidores impares 
                 //Se debe crear una variable dummy para estas situaciones
-                Combate c = new Combate(participantes[possible[0]], participantes[possible[0]]);
+                Combate c = new Combate(Participantes[possible[0]], Participantes[possible[0]]);
+                c.Ganador = Participantes[possible[0]];
                 combates.Add(c);
             }
 
-            return combates;
+            this.CombatesActivos = combates;
         }
         public bool IsMan { get; set; }
 
