@@ -364,13 +364,6 @@ namespace TorneoApp.Model
             competidor.IsHere = true;
         }
 
-
-        public void FinishCategory(int indexcat, bool IsFormas)
-        {
-            Categoria categoria = SelectCategoria(indexcat, IsFormas);
-            categoria.DarPuntos();
-        }
-
         public string[] GuardarPresentacion(CatFormas categoria, Competidor competidor, double [] jueces)
         {
             Presentacion presentacion = categoria.BuscarPresentacion(competidor);
@@ -396,6 +389,31 @@ namespace TorneoApp.Model
             Torneo torneo = formatter.Deserialize(file) as Torneo;
             file.Close();
             return torneo;
+        }
+
+        public List<Escuela> RankingEscuelas(bool isFormas)
+        {
+            if (isFormas)
+                return Escuelas.OrderByDescending(e => e.PFormas).ToList();
+            return Escuelas.OrderByDescending(e => e.PSanda).ToList();           
+        }
+
+        public void SetPuntosEscuelas()
+        {
+            //Elimina los competidores guardados anteriormente en los dictionarios
+            foreach (Escuela e in Escuelas)
+                e.ClearDictionaries();
+
+            //Agrega los nuevo competidores a los diccionarios
+            foreach (CatSanda cat in CategoriasSanda)
+                cat.UpdatePuntos(false);
+
+            foreach (CatFormas cat in CategoriasFormas)
+                cat.UpdatePuntos(true);
+
+            //Dar los puntos a cada escuela dependiendo de los competidores de los diccionarios
+            foreach (Escuela e in Escuelas)
+                e.SetPuntos();
         }
 
     }

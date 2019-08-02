@@ -108,12 +108,17 @@ namespace TorneoApp.Model
             Opened = false;
         }
 
-        public void DarPuntos()
+        public void UpdatePuntos(bool IsFormas)
         {
-            Podium.FirstPlace.Escuela.AumentarFormas(Torneo.ORO);
-            Podium.SecondPlace.Escuela.AumentarFormas(Torneo.PLATA);
-            Podium.ThirdPlace.Escuela.AumentarFormas(Torneo.BRONCE);
+            if(Podium.FirstPlace!=null)
+            Podium.FirstPlace.Escuela.AddWinner(Podium.FirstPlace, Torneo.ORO, IsFormas);
+            if(Podium.SecondPlace!=null)
+            Podium.SecondPlace.Escuela.AddWinner(Podium.SecondPlace, Torneo.PLATA, IsFormas);
+            if (Podium.ThirdPlace != null)
+            Podium.ThirdPlace.Escuela.AddWinner(Podium.ThirdPlace, Torneo.BRONCE, IsFormas);
+
             FinishedCategory();
         }
+
     }
 }

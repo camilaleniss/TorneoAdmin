@@ -44,6 +44,8 @@
             this.butOro = new System.Windows.Forms.Button();
             this.listCompetidores = new System.Windows.Forms.ListView();
             this.labNomEscuela = new System.Windows.Forms.Label();
+            this.labTotal = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,11 +63,15 @@
             // 
             // listFormas
             // 
+            this.listFormas.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listFormas.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listFormas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.listFormas.Location = new System.Drawing.Point(26, 72);
             this.listFormas.Name = "listFormas";
             this.listFormas.Size = new System.Drawing.Size(148, 408);
             this.listFormas.TabIndex = 1;
             this.listFormas.UseCompatibleStateImageBehavior = false;
+            this.listFormas.View = System.Windows.Forms.View.List;
             this.listFormas.SelectedIndexChanged += new System.EventHandler(this.ListFormas_SelectedIndexChanged);
             // 
             // label1
@@ -91,11 +97,15 @@
             // 
             // listSanda
             // 
+            this.listSanda.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listSanda.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listSanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.listSanda.Location = new System.Drawing.Point(26, 72);
             this.listSanda.Name = "listSanda";
             this.listSanda.Size = new System.Drawing.Size(148, 408);
             this.listSanda.TabIndex = 1;
             this.listSanda.UseCompatibleStateImageBehavior = false;
+            this.listSanda.View = System.Windows.Forms.View.List;
             this.listSanda.SelectedIndexChanged += new System.EventHandler(this.ListSanda_SelectedIndexChanged);
             // 
             // label2
@@ -112,6 +122,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.labTotal);
             this.panel3.Controls.Add(this.labNumBronce);
             this.panel3.Controls.Add(this.labNumPlata);
             this.panel3.Controls.Add(this.labNumOro);
@@ -157,6 +169,7 @@
             this.labNumOro.Size = new System.Drawing.Size(23, 24);
             this.labNumOro.TabIndex = 5;
             this.labNumOro.Text = "0";
+            this.labNumOro.Click += new System.EventHandler(this.LabNumOro_Click);
             // 
             // butBronce
             // 
@@ -173,6 +186,7 @@
             this.butBronce.Text = "Bronce";
             this.butBronce.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.butBronce.UseVisualStyleBackColor = true;
+            this.butBronce.Click += new System.EventHandler(this.ButBronce_Click);
             // 
             // butPlata
             // 
@@ -189,6 +203,7 @@
             this.butPlata.Text = "Plata";
             this.butPlata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.butPlata.UseVisualStyleBackColor = true;
+            this.butPlata.Click += new System.EventHandler(this.ButPlata_Click);
             // 
             // butOro
             // 
@@ -205,12 +220,15 @@
             this.butOro.Text = "Oro";
             this.butOro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.butOro.UseVisualStyleBackColor = true;
+            this.butOro.Click += new System.EventHandler(this.ButOro_Click);
             // 
             // listCompetidores
             // 
-            this.listCompetidores.Location = new System.Drawing.Point(25, 315);
+            this.listCompetidores.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCompetidores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.listCompetidores.Location = new System.Drawing.Point(25, 343);
             this.listCompetidores.Name = "listCompetidores";
-            this.listCompetidores.Size = new System.Drawing.Size(148, 165);
+            this.listCompetidores.Size = new System.Drawing.Size(148, 137);
             this.listCompetidores.TabIndex = 1;
             this.listCompetidores.UseCompatibleStateImageBehavior = false;
             this.listCompetidores.View = System.Windows.Forms.View.Tile;
@@ -225,6 +243,28 @@
             this.labNomEscuela.Size = new System.Drawing.Size(176, 24);
             this.labNomEscuela.TabIndex = 0;
             this.labNomEscuela.Text = "Nombre Escuela";
+            // 
+            // labTotal
+            // 
+            this.labTotal.AutoSize = true;
+            this.labTotal.Font = new System.Drawing.Font("Lucida Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.labTotal.Location = new System.Drawing.Point(129, 298);
+            this.labTotal.Name = "labTotal";
+            this.labTotal.Size = new System.Drawing.Size(23, 24);
+            this.labTotal.TabIndex = 8;
+            this.labTotal.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label4.Location = new System.Drawing.Point(38, 302);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Total";
             // 
             // Ranking
             // 
@@ -264,5 +304,7 @@
         private System.Windows.Forms.Button butOro;
         private System.Windows.Forms.ListView listCompetidores;
         private System.Windows.Forms.Label labNomEscuela;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labTotal;
     }
 }

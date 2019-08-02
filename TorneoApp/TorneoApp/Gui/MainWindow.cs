@@ -101,6 +101,8 @@ namespace TorneoApp.Model
                     break;
                 case RANKING:
                     this.rankingview = new ControlUsers.Ranking();
+                    rankingview.Main = this;
+                    InitializeRankingView();
                     this.panelView.Controls.Add(rankingview);
                     break;
                 case COMPETENCIA:
@@ -329,7 +331,9 @@ namespace TorneoApp.Model
 
             compformas.InitializeRestantes(done);
 
-            if (done.Count == 0) categoria.DarPuntos();
+            // (done.Count == 0) categoria.UpdatePuntos(true);
+
+            Torneo.SetPuntosEscuelas();
         }
 
         public void ShowPresentacion(String nombreCompetidor)
@@ -401,10 +405,48 @@ namespace TorneoApp.Model
             InitializeTorneoState();
         }
 
-        public void InicializarRankingCompetidores(String escuela, bool IsFormas)
+        public void InicializarEscuela(String nombreescuela, bool IsFormas)
         {
+            Escuela escuela = Torneo.BuscarEscuela(nombreescuela);
+            int oro=0, plata=0, bronce=0;
+            if (IsFormas)
+            {
+                oro = escuela.DictionaryFormas[Torneo.ORO].Count*Torneo.ORO;
+                plata = escuela.DictionaryFormas[Torneo.PLATA].Count * Torneo.PLATA;
+                bronce = escuela.DictionaryFormas[Torneo.BRONCE].Count * Torneo.BRONCE;
+            }
+            else
+            {
+                oro = escuela.DictionarySanda[Torneo.ORO].Count * Torneo.ORO;
+                plata = escuela.DictionarySanda[Torneo.PLATA].Count * Torneo.PLATA;
+                bronce = escuela.DictionarySanda[Torneo.BRONCE].Count * Torneo.BRONCE;
+            }
 
+            int puntostotales = IsFormas ? escuela.PFormas : escuela.PSanda;
+
+            rankingview.SetMedallas(oro, plata, bronce, puntostotales);
         }
 
+        public void GetCompetidoresRanking(string nombreesucela, bool IsFormas, int medalla)
+        {
+            Escuela escuela = Torneo.BuscarEscuela(nombreesucela);
+            List<Competidor> competidores = IsFormas ? escuela.DictionaryFormas[medalla] :
+                escuela.DictionarySanda[medalla];
+
+            List<String> infocompetidores = new List<String>();
+
+            foreach (Competidor c in competidores)
+                infocompetidores.Add(c.ToString());
+
+            rankingview.InitializeCompetidores(infocompetidores);
+        }
+
+        public void InitializeRankingView()
+        {
+            List<Escuela> Formas = Torneo.RankingEscuelas(true);
+            List<Escuela> Sanda = Torneo.RankingEscuelas(false);
+            rankingview.InitializeRanking(Formas, true);
+            rankingview.InitializeRanking(Sanda, false);
+        }
     }
 }

@@ -18,31 +18,63 @@ namespace TorneoApp.Model
         //Puntuación acumulada en sanda
         public int PSanda { get; set; }
 
+        public Dictionary<int, List<Competidor>> DictionarySanda { get; set; }
+
+        public Dictionary<int, List<Competidor>> DictionaryFormas { get; set; }
+
         public Escuela (string Name)
         {
             this.Name = Name;
             PFormas = 0;
             PSanda = 0;
+
+            DictionarySanda = new Dictionary<int, List<Competidor>>();
+            DictionaryFormas = new Dictionary<int, List<Competidor>>();
+            DictionarySanda.Add(Torneo.ORO, new List<Competidor>());
+            DictionaryFormas.Add(Torneo.ORO, new List<Competidor>());
+            DictionarySanda.Add(Torneo.PLATA, new List<Competidor>());
+            DictionaryFormas.Add(Torneo.PLATA, new List<Competidor>());
+            DictionarySanda.Add(Torneo.BRONCE, new List<Competidor>());
+            DictionaryFormas.Add(Torneo.BRONCE, new List<Competidor>());
         }
 
-        public void AumentarFormas(int Incremento)
+        public void AddWinner (Competidor c, int medalla, bool IsFormas)
         {
-            PFormas += Incremento;
+            if (IsFormas)
+            {
+                DictionaryFormas[medalla].Add(c);
+            }
+            else
+            {
+                DictionarySanda[medalla].Add(c);
+            }
         }
 
-        public void DisminuirFormas(int Decremento)
+        public void SetPuntos()
         {
-            PFormas -= Decremento;
+            PFormas = 0;
+            PSanda = 0;
+            var Medallas = DictionaryFormas.Keys.ToArray();
+            for(int i =0; i<Medallas.Length; i++)
+                PFormas += Medallas[i] * DictionaryFormas[Medallas[i]].Count;
+            
+            Medallas = DictionarySanda.Keys.ToArray();
+
+            for (int i = 0; i < Medallas.Length; i++)
+                PSanda += Medallas[i] * DictionarySanda[Medallas[i]].Count;            
         }
 
-        public void AumentarSanda(int Incremento)
+        public void ClearDictionaries()
         {
-            PFormas += Incremento;
+            var Medallas = DictionaryFormas.Keys.ToArray();
+            for (int i = 0; i < Medallas.Length; i++)
+                DictionaryFormas[Medallas[i]].Clear();
+
+            Medallas = DictionarySanda.Keys.ToArray();
+
+            for (int i = 0; i < Medallas.Length; i++)
+                DictionarySanda[Medallas[i]].Clear();
         }
 
-        public void DisminuirSanda(int Decremento)
-        {
-            PSanda -= Decremento;
-        }
     }
 }

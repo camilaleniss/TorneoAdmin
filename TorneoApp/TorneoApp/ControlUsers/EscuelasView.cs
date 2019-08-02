@@ -33,6 +33,7 @@ namespace TorneoApp.ControlUsers
 
         public void InitializeCompetidores(List<Competidor> competidores, string nombre, int puntossanda, int puntosformas)
         {
+            listCompetidores.Clear();
             foreach (Competidor c in competidores)
                 listCompetidores.Items.Add(c.ToString());
 
