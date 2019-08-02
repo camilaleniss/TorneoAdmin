@@ -112,6 +112,8 @@ namespace TorneoApp.Model
                     break;
                 case COMPSANDA:
                     this.compsanda = new ControlUsers.CompSanda();
+                    this.compsanda.Main = this;
+                    InitializeCompetenciaSanda();
                     this.panelView.Controls.Add(compsanda);
                     break;
                 case COMPFORMAS:
@@ -307,6 +309,44 @@ namespace TorneoApp.Model
 
             compformas.InitCategories(catstring);
 
+        }
+
+        public void InitializeCompetenciaSanda()
+        {
+            var Categorias = Torneo.CategoriasSanda;
+            List<String> catString = new List<string>();
+            foreach(var category in Categorias)
+            {
+                catString.Add(category.Nombre);
+                compsanda.InitCategories(catString);
+            }
+            InitCombates(Categorias);
+        }
+
+        public void InitCombates(List<CatSanda> categoriasSanda)
+        {
+            foreach(var category in categoriasSanda)
+            {
+                category.RondaDeCombates();
+            }
+        }
+
+        public void MostrarRondas(int index)
+        {
+            
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[index];
+            List<Combate> tempCombates = categoria.CombatesActivos;
+            List<String> combates = new List<string>();
+            foreach(Combate c in tempCombates)
+            {
+                if(c.Ganador == null)
+                {
+                    combates.Add(c.ToString());
+                }
+                
+            }
+            compsanda.MostrarCombates(combates);
+            
         }
 
         public void InitializePresentaciones(int index)
