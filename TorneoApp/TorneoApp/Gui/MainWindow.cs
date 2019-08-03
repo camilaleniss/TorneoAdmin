@@ -162,6 +162,7 @@ namespace TorneoApp.Model
                 InitializeListCategorias();
                 this.panelView.Controls.Add(categoriaslist);
 
+                this.categoria = CATEGORIAS;
                 this.subcategoria = view.Equals(CATSANDA) ? CATSANDA : CATFORMAS;
             }
 

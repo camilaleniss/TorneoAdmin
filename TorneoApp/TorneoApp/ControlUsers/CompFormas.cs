@@ -107,17 +107,26 @@ namespace TorneoApp.ControlUsers
 
         private void ButSave_Click(object sender, EventArgs e)
         {
-            double[] jueces = new double[Torneo.NUM_JUECES];
+            try
+            {
+                double[] jueces = new double[Torneo.NUM_JUECES];
 
-            jueces[0] = Double.Parse(txtJuez1.Text);
-            jueces[1] = Double.Parse(txtJuez2.Text);
-            jueces[2] = Double.Parse(txtJuez3.Text);
+                jueces[0] = Double.Parse(txtJuez1.Text);
+                jueces[1] = Double.Parse(txtJuez2.Text);
+                jueces[2] = Double.Parse(txtJuez3.Text);
 
-            double Calificacion = Main.SendCalificacionFormas(jueces);
+                double Calificacion = Main.SendCalificacionFormas(jueces);
 
-            txtResult.Text = Math.Round(Calificacion, 1) + "";
+                txtResult.Text = Math.Round(Calificacion, 1) + "";
 
-            Main.InitializePresentaciones(IndexCategoria);
+                Main.InitializePresentaciones(IndexCategoria);
+            }catch(Exception exp)
+            {
+                txtJuez1.Text = "";
+                txtJuez2.Text = "";
+                txtJuez3.Text = "";
+                MessageBox.Show("Datos no validos");
+            }
         }
     }
 }
