@@ -9,25 +9,34 @@ namespace TorneoApp.Model
     [Serializable]
     public class Round
     {
-        public int[] Puntajes { get; set; }
+        public int[,] Puntajes { get; set; }
 
         public int Ganador { get; set;}
 
         public Round()
         {
-            Puntajes = new int[2];
+            Puntajes = new int[2,3];
             Ganador = -1;
         }
 
         public void CalcularGanador()
         {
-            if (Puntajes[0] > Puntajes[1])
+            if (SumarFila(0) > SumarFila(1))
                 Ganador = 1;
-            else if (Puntajes[0] < Puntajes[1])
+            else if (SumarFila(0) < SumarFila(1))
                 Ganador = 2;
             else
                 Ganador = 0;
         }
 
+        public int SumarFila(int index)
+        {
+            int suma = 0;
+            for(int i = 0; i < 3; i++)
+            {
+                suma += Puntajes[index,i];
+            }
+            return suma;
+        }
     }
 }

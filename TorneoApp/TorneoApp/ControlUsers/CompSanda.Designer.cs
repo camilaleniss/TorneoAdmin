@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompSanda));
             this.comboCategory = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.botonPasarRonda = new System.Windows.Forms.Button();
             this.listCombates = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,32 +43,32 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxGanador = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.juez3Rojo = new System.Windows.Forms.TextBox();
+            this.juez2Rojo = new System.Windows.Forms.TextBox();
+            this.juez3Azul = new System.Windows.Forms.TextBox();
+            this.juez2Azul = new System.Windows.Forms.TextBox();
+            this.juez1Rojo = new System.Windows.Forms.TextBox();
+            this.juez1Azul = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxRound = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.botonGuardar = new System.Windows.Forms.Button();
+            this.resumenCombate = new System.Windows.Forms.TextBox();
+            this.resumenRound3 = new System.Windows.Forms.TextBox();
+            this.resumenRound2 = new System.Windows.Forms.TextBox();
+            this.resumenRound1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.nombreDelCombate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,7 +92,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(232)))), ((int)(((byte)(175)))));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.botonPasarRonda);
             this.panel1.Controls.Add(this.listCombates);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(20, 71);
@@ -100,16 +100,16 @@
             this.panel1.Size = new System.Drawing.Size(324, 218);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // botonPasarRonda
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(254, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 38);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = true;
+            this.botonPasarRonda.FlatAppearance.BorderSize = 0;
+            this.botonPasarRonda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonPasarRonda.Image = ((System.Drawing.Image)(resources.GetObject("botonPasarRonda.Image")));
+            this.botonPasarRonda.Location = new System.Drawing.Point(254, 13);
+            this.botonPasarRonda.Name = "botonPasarRonda";
+            this.botonPasarRonda.Size = new System.Drawing.Size(46, 38);
+            this.botonPasarRonda.TabIndex = 7;
+            this.botonPasarRonda.UseVisualStyleBackColor = true;
             // 
             // listCombates
             // 
@@ -118,6 +118,7 @@
             this.listCombates.Size = new System.Drawing.Size(281, 126);
             this.listCombates.TabIndex = 6;
             this.listCombates.UseCompatibleStateImageBehavior = false;
+            this.listCombates.SelectedIndexChanged += new System.EventHandler(this.ListCombates_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -222,34 +223,34 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(243)))), ((int)(((byte)(195)))));
-            this.panel3.Controls.Add(this.textBox7);
+            this.panel3.Controls.Add(this.textBoxGanador);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.juez3Rojo);
+            this.panel3.Controls.Add(this.juez2Rojo);
+            this.panel3.Controls.Add(this.juez3Azul);
+            this.panel3.Controls.Add(this.juez2Azul);
+            this.panel3.Controls.Add(this.juez1Rojo);
+            this.panel3.Controls.Add(this.juez1Azul);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.comboBoxRound);
             this.panel3.Location = new System.Drawing.Point(364, 71);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(324, 253);
             this.panel3.TabIndex = 2;
             // 
-            // textBox7
+            // textBoxGanador
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox7.Location = new System.Drawing.Point(108, 212);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(110, 29);
-            this.textBox7.TabIndex = 17;
+            this.textBoxGanador.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGanador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.textBoxGanador.Location = new System.Drawing.Point(108, 212);
+            this.textBoxGanador.Name = "textBoxGanador";
+            this.textBoxGanador.Size = new System.Drawing.Size(110, 29);
+            this.textBoxGanador.TabIndex = 17;
             // 
             // label8
             // 
@@ -272,60 +273,61 @@
             this.button2.Size = new System.Drawing.Size(46, 38);
             this.button2.TabIndex = 8;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // textBox6
+            // juez3Rojo
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox6.Location = new System.Drawing.Point(241, 155);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(50, 29);
-            this.textBox6.TabIndex = 15;
+            this.juez3Rojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez3Rojo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez3Rojo.Location = new System.Drawing.Point(241, 155);
+            this.juez3Rojo.Name = "juez3Rojo";
+            this.juez3Rojo.Size = new System.Drawing.Size(50, 29);
+            this.juez3Rojo.TabIndex = 15;
             // 
-            // textBox5
+            // juez2Rojo
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox5.Location = new System.Drawing.Point(168, 155);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(50, 29);
-            this.textBox5.TabIndex = 14;
+            this.juez2Rojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez2Rojo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez2Rojo.Location = new System.Drawing.Point(168, 155);
+            this.juez2Rojo.Name = "juez2Rojo";
+            this.juez2Rojo.Size = new System.Drawing.Size(50, 29);
+            this.juez2Rojo.TabIndex = 14;
             // 
-            // textBox4
+            // juez3Azul
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox4.Location = new System.Drawing.Point(241, 112);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 29);
-            this.textBox4.TabIndex = 13;
+            this.juez3Azul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez3Azul.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez3Azul.Location = new System.Drawing.Point(241, 112);
+            this.juez3Azul.Name = "juez3Azul";
+            this.juez3Azul.Size = new System.Drawing.Size(50, 29);
+            this.juez3Azul.TabIndex = 13;
             // 
-            // textBox3
+            // juez2Azul
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox3.Location = new System.Drawing.Point(168, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(50, 29);
-            this.textBox3.TabIndex = 12;
+            this.juez2Azul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez2Azul.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez2Azul.Location = new System.Drawing.Point(168, 112);
+            this.juez2Azul.Name = "juez2Azul";
+            this.juez2Azul.Size = new System.Drawing.Size(50, 29);
+            this.juez2Azul.TabIndex = 12;
             // 
-            // textBox2
+            // juez1Rojo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox2.Location = new System.Drawing.Point(95, 155);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 29);
-            this.textBox2.TabIndex = 11;
+            this.juez1Rojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez1Rojo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez1Rojo.Location = new System.Drawing.Point(95, 155);
+            this.juez1Rojo.Name = "juez1Rojo";
+            this.juez1Rojo.Size = new System.Drawing.Size(50, 29);
+            this.juez1Rojo.TabIndex = 11;
             // 
-            // textBox1
+            // juez1Azul
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox1.Location = new System.Drawing.Point(95, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(50, 29);
-            this.textBox1.TabIndex = 10;
+            this.juez1Azul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juez1Azul.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.juez1Azul.Location = new System.Drawing.Point(95, 112);
+            this.juez1Azul.Name = "juez1Azul";
+            this.juez1Azul.Size = new System.Drawing.Size(50, 29);
+            this.juez1Azul.TabIndex = 10;
             // 
             // label7
             // 
@@ -382,27 +384,31 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Juez 1";
             // 
-            // comboBox2
+            // comboBoxRound
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.White;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(15, 15);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(289, 33);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.Text = "Round 1";
+            this.comboBoxRound.BackColor = System.Drawing.Color.White;
+            this.comboBoxRound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.comboBoxRound.FormattingEnabled = true;
+            this.comboBoxRound.Items.AddRange(new object[] {
+            "Round 1",
+            "Round 2"});
+            this.comboBoxRound.Location = new System.Drawing.Point(15, 15);
+            this.comboBoxRound.Name = "comboBoxRound";
+            this.comboBoxRound.Size = new System.Drawing.Size(289, 33);
+            this.comboBoxRound.TabIndex = 5;
+            this.comboBoxRound.Text = "Seleccione una ronda";
+            this.comboBoxRound.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRound_SelectedIndexChanged);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(248)))), ((int)(((byte)(217)))));
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Controls.Add(this.textBox11);
-            this.panel4.Controls.Add(this.textBox10);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.textBox8);
+            this.panel4.Controls.Add(this.botonGuardar);
+            this.panel4.Controls.Add(this.resumenCombate);
+            this.panel4.Controls.Add(this.resumenRound3);
+            this.panel4.Controls.Add(this.resumenRound2);
+            this.panel4.Controls.Add(this.resumenRound1);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label10);
@@ -412,52 +418,53 @@
             this.panel4.Size = new System.Drawing.Size(324, 161);
             this.panel4.TabIndex = 3;
             // 
-            // button3
+            // botonGuardar
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(258, 111);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 38);
-            this.button3.TabIndex = 18;
-            this.button3.UseVisualStyleBackColor = true;
+            this.botonGuardar.FlatAppearance.BorderSize = 0;
+            this.botonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonGuardar.Image = ((System.Drawing.Image)(resources.GetObject("botonGuardar.Image")));
+            this.botonGuardar.Location = new System.Drawing.Point(258, 111);
+            this.botonGuardar.Name = "botonGuardar";
+            this.botonGuardar.Size = new System.Drawing.Size(46, 38);
+            this.botonGuardar.TabIndex = 18;
+            this.botonGuardar.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // resumenCombate
             // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox11.Location = new System.Drawing.Point(241, 11);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(63, 29);
-            this.textBox11.TabIndex = 21;
+            this.resumenCombate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumenCombate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.resumenCombate.Location = new System.Drawing.Point(241, 11);
+            this.resumenCombate.Name = "resumenCombate";
+            this.resumenCombate.Size = new System.Drawing.Size(63, 29);
+            this.resumenCombate.TabIndex = 21;
             // 
-            // textBox10
+            // resumenRound3
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox10.Location = new System.Drawing.Point(121, 119);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(110, 29);
-            this.textBox10.TabIndex = 20;
+            this.resumenRound3.Enabled = false;
+            this.resumenRound3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumenRound3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.resumenRound3.Location = new System.Drawing.Point(121, 119);
+            this.resumenRound3.Name = "resumenRound3";
+            this.resumenRound3.Size = new System.Drawing.Size(110, 29);
+            this.resumenRound3.TabIndex = 20;
             // 
-            // textBox9
+            // resumenRound2
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox9.Location = new System.Drawing.Point(121, 83);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(110, 29);
-            this.textBox9.TabIndex = 19;
+            this.resumenRound2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumenRound2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.resumenRound2.Location = new System.Drawing.Point(121, 83);
+            this.resumenRound2.Name = "resumenRound2";
+            this.resumenRound2.Size = new System.Drawing.Size(110, 29);
+            this.resumenRound2.TabIndex = 19;
             // 
-            // textBox8
+            // resumenRound1
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox8.Location = new System.Drawing.Point(121, 47);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(110, 29);
-            this.textBox8.TabIndex = 18;
+            this.resumenRound1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumenRound1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.resumenRound1.Location = new System.Drawing.Point(121, 47);
+            this.resumenRound1.Name = "resumenRound1";
+            this.resumenRound1.Size = new System.Drawing.Size(110, 29);
+            this.resumenRound1.TabIndex = 18;
             // 
             // label12
             // 
@@ -503,23 +510,23 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Resumen combate";
             // 
-            // label1
+            // nombreDelCombate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(360, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre del combate";
+            this.nombreDelCombate.AutoSize = true;
+            this.nombreDelCombate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreDelCombate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.nombreDelCombate.Location = new System.Drawing.Point(360, 24);
+            this.nombreDelCombate.Name = "nombreDelCombate";
+            this.nombreDelCombate.Size = new System.Drawing.Size(210, 25);
+            this.nombreDelCombate.TabIndex = 4;
+            this.nombreDelCombate.Text = "Nombre del combate";
             // 
             // CompSanda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nombreDelCombate);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -545,7 +552,7 @@
 
         private System.Windows.Forms.ComboBox comboCategory;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button botonPasarRonda;
         private System.Windows.Forms.ListView listCombates;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -557,31 +564,31 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxGanador;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox juez3Rojo;
+        private System.Windows.Forms.TextBox juez2Rojo;
+        private System.Windows.Forms.TextBox juez3Azul;
+        private System.Windows.Forms.TextBox juez2Azul;
+        private System.Windows.Forms.TextBox juez1Rojo;
+        private System.Windows.Forms.TextBox juez1Azul;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxRound;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button botonGuardar;
+        private System.Windows.Forms.TextBox resumenCombate;
+        private System.Windows.Forms.TextBox resumenRound3;
+        private System.Windows.Forms.TextBox resumenRound2;
+        private System.Windows.Forms.TextBox resumenRound1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label nombreDelCombate;
     }
 }

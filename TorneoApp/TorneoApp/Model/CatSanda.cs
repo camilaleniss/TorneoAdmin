@@ -49,6 +49,30 @@ namespace TorneoApp.Model
 
             this.CombatesActivos = combates;
         }
+
+        public void ReemparejarGanadores()
+        {
+            List<Competidor> participantes = new List<Competidor>();
+            foreach(Combate c in CombatesActivos)
+            {
+                participantes.Add(c.Ganador);
+            }
+            ClasificarParticipantesVencidos(participantes);
+
+
+        }
+
+        public void ClasificarParticipantesVencidos(List<Competidor> ganadores)
+        {
+            foreach(Competidor c in Participantes)
+            {
+                if (!ganadores.Contains(c))
+                {
+                    ParticipantesVencidos.Add(c);
+                    Participantes.Remove(c);
+                }
+            }
+        }
         public bool IsMan { get; set; }
 
         public Competidor Atipico { get; set; }

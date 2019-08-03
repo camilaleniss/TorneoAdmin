@@ -169,6 +169,8 @@ namespace TorneoApp.Model
             UpdateLocation();
         }
 
+
+
         public void UpdateLocation()
         {
             menuLateral.UpdateLocation(categoria, subcategoria);
@@ -338,6 +340,89 @@ namespace TorneoApp.Model
             InitializeVerificarView();
         }
 
+        //COMPETENCIA SANDA
+        public void InitializeCompetenciaSanda()
+        {
+            var Categorias = Torneo.CategoriasSanda;
+            List<String> catString = new List<string>();
+            foreach (var category in Categorias)
+            {
+                catString.Add(category.Nombre);
+                compsanda.InitCategories(catString);
+            }
+            InitCombates(Categorias);
+        }
+
+        public void InitCombates(List<CatSanda> categoriasSanda)
+        {
+            foreach (var category in categoriasSanda)
+            {
+                category.RondaDeCombates();
+            }
+        }
+
+        public void MostrarCombates(int index)
+        {
+
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[index];
+            List<Combate> tempCombates = categoria.CombatesActivos;
+            List<String> combates = new List<string>();
+            foreach (Combate c in tempCombates)
+            {
+                if (c.Ganador == null)
+                {
+                    combates.Add(c.ToString());
+                }
+
+            }
+            compsanda.MostrarCombates(combates);
+            compsanda.VaciarRondas();
+
+        }
+
+        public void MostrarRondas(int indexCategoria, int indexCombate)
+        {
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
+            Combate combate = categoria.CombatesActivos[indexCombate];
+            
+
+        }
+
+        public void MostrarPuntajeRonda(int indexCategoria, int indexCombate, int selectedIndex)
+        {
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
+            Combate combate = categoria.CombatesActivos[indexCombate];
+            if(combate.Rounds[selectedIndex].Puntajes != null)
+            {
+                compsanda.MostrarRondas(combate.Rounds[selectedIndex]);
+            }
+            else
+            {
+                compsanda.VaciarRondas();
+            }
+
+        }
+
+        public void ModificarPuntajeRonda(int indexCategoria, int indexCombate, int indexRonda, int[,] puntajes)
+        {
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
+            Combate combate = categoria.CombatesActivos[indexCombate];
+            combate.Rounds[indexRonda].Puntajes = puntajes;
+            combate.Rounds[indexRonda].CalcularGanador();
+            int i = combate.Rounds[indexRonda].Ganador;
+            string ganador = "Empate";
+            if(i == 1)
+            {
+                ganador = "Azul";
+            }
+            else if(i == 2)
+            {
+                ganador = "Rojo";
+            }
+            compsanda.GanadorRonda(ganador);
+
+        }
+
         //COMPETENCIA FORMAS
 
         public void InitializeCompetenciaFormas()
@@ -351,43 +436,6 @@ namespace TorneoApp.Model
 
         }
 
-        public void InitializeCompetenciaSanda()
-        {
-            var Categorias = Torneo.CategoriasSanda;
-            List<String> catString = new List<string>();
-            foreach(var category in Categorias)
-            {
-                catString.Add(category.Nombre);
-                compsanda.InitCategories(catString);
-            }
-            InitCombates(Categorias);
-        }
-
-        public void InitCombates(List<CatSanda> categoriasSanda)
-        {
-            foreach(var category in categoriasSanda)
-            {
-                category.RondaDeCombates();
-            }
-        }
-
-        public void MostrarRondas(int index)
-        {
-            
-            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[index];
-            List<Combate> tempCombates = categoria.CombatesActivos;
-            List<String> combates = new List<string>();
-            foreach(Combate c in tempCombates)
-            {
-                if(c.Ganador == null)
-                {
-                    combates.Add(c.ToString());
-                }
-                
-            }
-            compsanda.MostrarCombates(combates);
-            
-        }
 
         public void InitializePresentaciones(int index)
         {

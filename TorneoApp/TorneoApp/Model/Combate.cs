@@ -23,6 +23,8 @@ namespace TorneoApp.Model
             Participantes[0] = c1;
             Participantes[1] = c2;
             Rounds = new List<Round>();
+            Rounds.Add(new Round());
+            Rounds.Add(new Round());
 
         }
 
