@@ -14,17 +14,21 @@ namespace TorneoApp.Model
     {
         public const string INIT = "Init";
         public const string CATEGORIAS = "Categorias";
-        public const string CATSANDA = "CatSanda";
-        public const string CATFORMAS = "CatFormas";
+        public const string CATSANDA = "Categoria Sanda";
+        public const string CATFORMAS = "Categoria Formas";
         public const string COMPETIDORES = "Competidores";
-        public const string LISTCOMPETIDORES = "ListadoCompetidores";
-        public const string VERIFICAR = "Verificar";
+        public const string LISTCOMPETIDORES = "Listado Competidores";
+        public const string VERIFICAR = "Verificar Asistencia";
         public const string ESCUELAS = "Escuelas";
-        public const string LISTESCUELAS = "ListadoEscuelas";
-        public const string RANKING = "Ranking";
+        public const string LISTESCUELAS = "Listado Escuelas";
+        public const string RANKING = "Ranking Escuelas";
         public const string COMPETENCIA = "Competencia";
         public const string COMPSANDA = "Sanda";
         public const string COMPFORMAS = "Formas";
+
+        private string categoria { get; set; }
+
+        private string subcategoria { get; set; }
 
         private Torneo Torneo;
 
@@ -32,6 +36,8 @@ namespace TorneoApp.Model
         {          
             InitializeComponent();
             menuLateral.Controlador = this;
+            categoria = "";
+            subcategoria = "";
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -58,6 +64,7 @@ namespace TorneoApp.Model
                     this.mainView = new ControlUsers.MainView();
                     this.mainView.controlButtons.Main = this;
                     this.panelView.Controls.Add(mainView);
+                    this.categoria = "";
                     InitializeMainView();
                     break;
                 case CATEGORIAS:
@@ -65,18 +72,24 @@ namespace TorneoApp.Model
                     this.categoriasview.Main = this;
                     this.categoriasview.controlButtons1.Main = this;
                     InitializeCategorias();
+                    this.categoria = CATEGORIAS;
+                    this.subcategoria = "";
                     this.panelView.Controls.Add(categoriasview);
                     break;              
                 case COMPETIDORES:
                     this.competidorescontroller = new ControlUsers.CompetidoresController();
                     this.competidorescontroller.Main = this;
                     this.competidorescontroller.controlButtons1.Main = this;
+                    this.categoria = COMPETIDORES;
+                    this.subcategoria = "";
                     this.panelView.Controls.Add(competidorescontroller);
                     break;
                 case LISTCOMPETIDORES:
                     this.competidoresview = new ControlUsers.CompetidoresList();
                     this.competidoresview.Main = this;
                     InitializeCompetidoresList();
+                    this.categoria = COMPETIDORES;
+                    this.subcategoria = LISTCOMPETIDORES;
                     this.panelView.Controls.Add(competidoresview);
                     break;
                 case VERIFICAR:
@@ -84,12 +97,16 @@ namespace TorneoApp.Model
                     this.importarview.Main = this;
                     this.importarview.controlButtons1.Main = this;
                     InitializeVerificarView();
+                    this.categoria = COMPETIDORES;
+                    this.subcategoria = VERIFICAR;
                     this.panelView.Controls.Add(importarview);
                     break;
                 case ESCUELAS:
                     this.escuelascontroller = new ControlUsers.EscuelasController();
                     this.escuelascontroller.Main = this;
                     this.escuelascontroller.controlButtons1.Main = this;
+                    this.categoria = ESCUELAS;
+                    this.subcategoria = "";
                     this.panelView.Controls.Add(escuelascontroller);
                     break;
                 case LISTESCUELAS:
@@ -97,30 +114,40 @@ namespace TorneoApp.Model
                     this.escuelasview.Main = this;
                     this.escuelasview.controlButtons1.Main = this;
                     InitializeEscuelasView();
+                    this.categoria = ESCUELAS;
+                    this.subcategoria = LISTESCUELAS;
                     this.panelView.Controls.Add(escuelasview);
                     break;
                 case RANKING:
                     this.rankingview = new ControlUsers.Ranking();
                     rankingview.Main = this;
                     InitializeRankingView();
+                    this.categoria = ESCUELAS;
+                    this.subcategoria = RANKING;
                     this.panelView.Controls.Add(rankingview);
                     break;
                 case COMPETENCIA:
                     this.competenciaview = new ControlUsers.CompetenciaController();
                     this.competenciaview.Main = this;
                     this.competenciaview.controlButtons1.Main = this;
+                    this.categoria = COMPETENCIA;
+                    this.subcategoria = "";
                     this.panelView.Controls.Add(competenciaview);
                     break;
                 case COMPSANDA:
                     this.compsanda = new ControlUsers.CompSanda();
                     this.compsanda.Main = this;
                     InitializeCompetenciaSanda();
+                    this.categoria = COMPETENCIA;
+                    this.subcategoria = COMPSANDA;
                     this.panelView.Controls.Add(compsanda);
                     break;
                 case COMPFORMAS:
                     this.compformas = new ControlUsers.CompFormas();
                     this.compformas.Main = this;
                     InitializeCompetenciaFormas();
+                    this.categoria = COMPETENCIA;
+                    this.subcategoria = COMPFORMAS;
                     this.panelView.Controls.Add(compformas);
                     break;
             }
@@ -134,7 +161,17 @@ namespace TorneoApp.Model
                 categoriaslist.controlButtons1.Main = this;
                 InitializeListCategorias();
                 this.panelView.Controls.Add(categoriaslist);
+
+                this.subcategoria = view.Equals(CATSANDA) ? CATSANDA : CATFORMAS;
             }
+
+            UpdateLocation();
+        }
+
+        public void UpdateLocation()
+        {
+            menuLateral.UpdateLocation(categoria, subcategoria);
+            Banner.UpdateLocation(categoria, subcategoria);
         }
 
         public void InitializeListCategorias()

@@ -18,6 +18,34 @@ namespace TorneoApp.ControlUsers
             
         }
 
+        public void UpdateLocation(string categoria, string subcategoria)
+        {
+            if (!categoria.Equals(""))
+            {
+                labArrow1.Visible = true;
+                labCategoria.Text = categoria;
+                labCategoria.Visible = true;
+                if (!subcategoria.Equals(""))
+                {
+                    labArrow2.Visible = true;
+                    labSubCat.Text = subcategoria;
+                    labSubCat.Visible = true;
+                }
+                else
+                {
+                    labArrow2.Visible = false;
+                    labSubCat.Visible = false;
+                }
+            }
+            else
+            {
+                labArrow1.Visible = false;
+                labCategoria.Visible = false;
+                labArrow2.Visible = false;
+                labSubCat.Visible = false;
+            }
+        }
+
         public void ModifyLocation(string[] location)
         {          
             labInicio.Text = location[0];

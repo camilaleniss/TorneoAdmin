@@ -79,7 +79,7 @@
             this.labArrow2.AutoSize = true;
             this.labArrow2.Font = new System.Drawing.Font("Lucida Sans", 14F);
             this.labArrow2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(164)))), ((int)(((byte)(159)))));
-            this.labArrow2.Location = new System.Drawing.Point(260, 19);
+            this.labArrow2.Location = new System.Drawing.Point(309, 19);
             this.labArrow2.Name = "labArrow2";
             this.labArrow2.Size = new System.Drawing.Size(22, 22);
             this.labArrow2.TabIndex = 3;
@@ -90,7 +90,7 @@
             this.labSubCat.AutoSize = true;
             this.labSubCat.Font = new System.Drawing.Font("Lucida Sans", 14F);
             this.labSubCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.labSubCat.Location = new System.Drawing.Point(288, 19);
+            this.labSubCat.Location = new System.Drawing.Point(337, 19);
             this.labSubCat.Name = "labSubCat";
             this.labSubCat.Size = new System.Drawing.Size(133, 22);
             this.labSubCat.TabIndex = 4;
