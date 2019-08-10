@@ -65,7 +65,6 @@
             this.mainView.Name = "mainView";
             this.mainView.Size = new System.Drawing.Size(706, 519);
             this.mainView.TabIndex = 0;
-            
             // 
             // Banner
             // 
@@ -96,7 +95,6 @@
             this.ClientSize = new System.Drawing.Size(883, 575);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.menuLateral);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
