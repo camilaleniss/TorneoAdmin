@@ -45,7 +45,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxGanador = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.GanadorButton = new System.Windows.Forms.Button();
             this.juez3Rojo = new System.Windows.Forms.TextBox();
             this.juez2Rojo = new System.Windows.Forms.TextBox();
             this.juez3Azul = new System.Windows.Forms.TextBox();
@@ -110,6 +110,7 @@
             this.botonPasarRonda.Size = new System.Drawing.Size(46, 38);
             this.botonPasarRonda.TabIndex = 7;
             this.botonPasarRonda.UseVisualStyleBackColor = true;
+            this.botonPasarRonda.Click += new System.EventHandler(this.BotonPasarRonda_Click);
             // 
             // listCombates
             // 
@@ -225,7 +226,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(243)))), ((int)(((byte)(195)))));
             this.panel3.Controls.Add(this.textBoxGanador);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.GanadorButton);
             this.panel3.Controls.Add(this.juez3Rojo);
             this.panel3.Controls.Add(this.juez2Rojo);
             this.panel3.Controls.Add(this.juez3Azul);
@@ -249,6 +250,7 @@
             this.textBoxGanador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.textBoxGanador.Location = new System.Drawing.Point(108, 212);
             this.textBoxGanador.Name = "textBoxGanador";
+            this.textBoxGanador.ReadOnly = true;
             this.textBoxGanador.Size = new System.Drawing.Size(110, 29);
             this.textBoxGanador.TabIndex = 17;
             // 
@@ -263,17 +265,17 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Ganador";
             // 
-            // button2
+            // GanadorButton
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(241, 209);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 38);
-            this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.GanadorButton.FlatAppearance.BorderSize = 0;
+            this.GanadorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GanadorButton.Image = ((System.Drawing.Image)(resources.GetObject("GanadorButton.Image")));
+            this.GanadorButton.Location = new System.Drawing.Point(241, 209);
+            this.GanadorButton.Name = "GanadorButton";
+            this.GanadorButton.Size = new System.Drawing.Size(46, 38);
+            this.GanadorButton.TabIndex = 8;
+            this.GanadorButton.UseVisualStyleBackColor = true;
+            this.GanadorButton.Click += new System.EventHandler(this.GanadorButton_Click);
             // 
             // juez3Rojo
             // 
@@ -445,6 +447,7 @@
             this.resumenRound3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.resumenRound3.Location = new System.Drawing.Point(121, 119);
             this.resumenRound3.Name = "resumenRound3";
+            this.resumenRound3.ReadOnly = true;
             this.resumenRound3.Size = new System.Drawing.Size(110, 29);
             this.resumenRound3.TabIndex = 20;
             // 
@@ -454,6 +457,7 @@
             this.resumenRound2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.resumenRound2.Location = new System.Drawing.Point(121, 83);
             this.resumenRound2.Name = "resumenRound2";
+            this.resumenRound2.ReadOnly = true;
             this.resumenRound2.Size = new System.Drawing.Size(110, 29);
             this.resumenRound2.TabIndex = 19;
             // 
@@ -463,6 +467,7 @@
             this.resumenRound1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.resumenRound1.Location = new System.Drawing.Point(121, 47);
             this.resumenRound1.Name = "resumenRound1";
+            this.resumenRound1.ReadOnly = true;
             this.resumenRound1.Size = new System.Drawing.Size(110, 29);
             this.resumenRound1.TabIndex = 18;
             // 
@@ -566,7 +571,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBoxGanador;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button GanadorButton;
         private System.Windows.Forms.TextBox juez3Rojo;
         private System.Windows.Forms.TextBox juez2Rojo;
         private System.Windows.Forms.TextBox juez3Azul;

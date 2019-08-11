@@ -74,8 +74,17 @@ namespace TorneoApp.ControlUsers
                 string text = listCombates.Items[intselectedindex].Text;
                 IndexCombate = intselectedindex;
                 nombreDelCombate.Text = text;
+
                 VaciarRondas();
+                CargarInformacion();
             }
+        }
+
+        public void CargarInformacion()
+        {
+            IndexRonda = 0;
+            Main.MostrarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda);
+            Main.MostrarRondas(IndexCategoria, IndexCombate); 
         }
 
         private void ComboBoxRound_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,24 +93,81 @@ namespace TorneoApp.ControlUsers
             Main.MostrarPuntajeRonda(IndexCategoria, IndexCombate, comboBoxRound.SelectedIndex);
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void GanadorButton_Click(object sender, EventArgs e) 
         {
-            int[,] puntajes = new int[2, 3];
-            puntajes[0, 0] = int.Parse(juez1Azul.Text);
-            puntajes[0, 1] = int.Parse(juez2Azul.Text);
-            puntajes[0, 2] = int.Parse(juez3Azul.Text);
-            puntajes[1, 0] = int.Parse(juez1Rojo.Text);
-            puntajes[1, 1] = int.Parse(juez2Rojo.Text);
-            puntajes[1, 2] = int.Parse(juez3Rojo.Text);
-            Main.ModificarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda, puntajes);
+            try
+            {
+                if(comboBoxRound.Text.Equals("Seleccione una ronda"))
+                {
+                    throw new FormatException();
+                }
+                int[,] puntajes = new int[2, 3];
+                puntajes[0, 0] = int.Parse(juez1Azul.Text);
+                puntajes[0, 1] = int.Parse(juez2Azul.Text);
+                puntajes[0, 2] = int.Parse(juez3Azul.Text);
+                puntajes[1, 0] = int.Parse(juez1Rojo.Text);
+                puntajes[1, 1] = int.Parse(juez2Rojo.Text);
+                puntajes[1, 2] = int.Parse(juez3Rojo.Text);
+                Main.ModificarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda, puntajes);
+            }catch (FormatException _)
+            {
+                MessageBox.Show("Llene todos los espacios correctamente antes de hallar al ganador", "Formato erroneo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
+        }
+
+        public void AbrirTercerRound()
+        {
+            comboBoxRound.Items.Add("Round 3");
+        }
+
+        public void ResumenCombate(string ganador)
+        {
+                resumenCombate.Text = ganador;
         }
 
         public void GanadorRonda(string ganador)
         {
             textBoxGanador.Text = ganador;
         }
+        public void GanadorCombate(Combate c)
+        {
+            
+            
 
-        public void VaciarRondas()
+            for (int i = 0; i < c.Rounds.Count; i++){
+                if(c.Rounds[i].Ganador != 0)
+                {
+                    string ganador = Main.TraducirGanador(c.Rounds[i].Ganador);
+                    switch (i)
+                    {
+                        case 0:
+                            resumenRound1.Text = ganador;
+                            resumenRound2.Text = "";
+                            resumenRound3.Text = "";
+                            break;
+                        case 1:
+                            resumenRound2.Text = ganador;
+                            resumenRound3.Text = "";
+                            break;
+                        case 2:
+                            resumenRound3.Text = ganador;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    resumenRound1.Text = "";
+                    resumenRound2.Text = "";
+                    resumenRound3.Text = "";
+                }
+                
+            }
+        }
+
+            public void VaciarRondas()
         {
             juez1Azul.Text = "";
             juez2Azul.Text = "";
@@ -110,7 +176,12 @@ namespace TorneoApp.ControlUsers
             juez2Rojo.Text = "";
             juez3Rojo.Text = "";
             textBoxGanador.Text = "";
+            
+        }
+
+        private void BotonPasarRonda_Click(object sender, EventArgs e)
+        {
+            Main.PasarRonda(IndexCategoria);
         }
     }
-
 }

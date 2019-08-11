@@ -384,7 +384,12 @@ namespace TorneoApp.Model
         {
             CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
             Combate combate = categoria.CombatesActivos[indexCombate];
-            
+            compsanda.GanadorCombate(combate);
+
+        }
+
+        public void PasarRonda(int indexCategoria)
+        {
 
         }
 
@@ -403,6 +408,28 @@ namespace TorneoApp.Model
 
         }
 
+        public void MostrarResumenCombates(int indexCategoria, int indexCombate)
+        {
+            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
+            Combate combate = categoria.CombatesActivos[indexCombate];
+            compsanda.GanadorCombate(combate);
+
+        }
+
+        public string TraducirGanador(int i)
+        {
+            string ganador = "";
+            if (i == 1)
+            {
+                ganador = "Azul";
+            }
+            else if (i == 2)
+            {
+                ganador = "Rojo";
+            }
+            return ganador;
+        }
+
         public void ModificarPuntajeRonda(int indexCategoria, int indexCombate, int indexRonda, int[,] puntajes)
         {
             CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
@@ -410,16 +437,22 @@ namespace TorneoApp.Model
             combate.Rounds[indexRonda].Puntajes = puntajes;
             combate.Rounds[indexRonda].CalcularGanador();
             int i = combate.Rounds[indexRonda].Ganador;
-            string ganador = "Empate";
-            if(i == 1)
-            {
-                ganador = "Azul";
-            }
-            else if(i == 2)
-            {
-                ganador = "Rojo";
-            }
+            string ganador = TraducirGanador(i);
+
             compsanda.GanadorRonda(ganador);
+            compsanda.GanadorCombate(combate);
+            if(indexRonda == 1)
+            {
+                if(combate.Rounds[0].Ganador != combate.Rounds[1].Ganador)
+                {
+                    compsanda.AbrirTercerRound();
+
+                }
+                else
+                {   
+                    compsanda.ResumenCombate(ganador);
+                }
+            }
 
         }
 

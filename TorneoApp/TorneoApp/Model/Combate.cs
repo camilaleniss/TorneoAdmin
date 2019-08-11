@@ -28,6 +28,31 @@ namespace TorneoApp.Model
 
         }
 
+        public void CalcularGanador()
+        {
+            int azul = 0;
+            int rojo = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (Rounds[i].Ganador == 0)
+                {
+                    azul++;
+                }
+                else
+                {
+                    rojo++;
+                }
+            }
+            if(azul > rojo)
+            {
+                Ganador = Participantes[0];
+            }
+            else
+            {
+                Ganador = Participantes[1];
+            }
+        }
+
         public override String ToString()
         {
             return Participantes[0].Name + " vs " + Participantes[1].Name;
