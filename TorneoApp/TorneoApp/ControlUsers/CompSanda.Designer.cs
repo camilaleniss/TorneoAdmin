@@ -154,6 +154,7 @@
             this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.textBox14.Location = new System.Drawing.Point(123, 149);
             this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(177, 29);
             this.textBox14.TabIndex = 22;
             // 
@@ -164,6 +165,7 @@
             this.textBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.textBox13.Location = new System.Drawing.Point(123, 109);
             this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(177, 29);
             this.textBox13.TabIndex = 22;
             // 
@@ -174,6 +176,7 @@
             this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.textBox12.Location = new System.Drawing.Point(123, 66);
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(177, 29);
             this.textBox12.TabIndex = 22;
             // 
@@ -442,7 +445,6 @@
             // 
             // resumenRound3
             // 
-            this.resumenRound3.Enabled = false;
             this.resumenRound3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resumenRound3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.resumenRound3.Location = new System.Drawing.Point(121, 119);

@@ -32,7 +32,7 @@ namespace TorneoApp.Model
         {
             int azul = 0;
             int rojo = 0;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Rounds.Count; i++)
             {
                 if (Rounds[i].Ganador == 0)
                 {
@@ -47,9 +47,13 @@ namespace TorneoApp.Model
             {
                 Ganador = Participantes[0];
             }
-            else
+            else if(rojo > azul)
             {
                 Ganador = Participantes[1];
+            }
+            else
+            {
+                Rounds.Add(new Round());
             }
         }
 

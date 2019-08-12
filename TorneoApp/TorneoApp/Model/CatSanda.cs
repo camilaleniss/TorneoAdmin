@@ -18,7 +18,7 @@ namespace TorneoApp.Model
 
         public List<Combate> CombatesActivos { get; set; }
 
-
+        public Podium Podio { get; set; }
 
         public void RondaDeCombates()
         {

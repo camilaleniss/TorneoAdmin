@@ -390,7 +390,19 @@ namespace TorneoApp.Model
 
         public void PasarRonda(int indexCategoria)
         {
-
+            CatSanda categoria = Torneo.CategoriasSanda[indexCategoria];
+            foreach(Combate c in categoria.CombatesActivos)
+            {
+                if(c.Ganador == null)
+                {
+                    MessageBox.Show("Aún no se han definido todos los combates, no puede pasar de ronda aún", "Formato erroneo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            categoria.ReemparejarGanadores();
+            categoria.RondaDeCombates();
+            MostrarCombates(indexCategoria);
+            
         }
 
         public void MostrarPuntajeRonda(int indexCategoria, int indexCombate, int selectedIndex)
