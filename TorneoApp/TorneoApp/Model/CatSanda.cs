@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TorneoApp.Model
 {
@@ -50,6 +48,72 @@ namespace TorneoApp.Model
             this.CombatesActivos = combates;
         }
 
+        public void CrearPodio()
+        {
+            if(CombatesActivos.Count == 2)
+            {
+                Combate combateIgual = VerificarParticipantesIguales();
+                if (combateIgual != null)
+                {
+                    Podio.FirstPlace = combateIgual.Ganador;
+                    foreach (Combate c in CombatesActivos)
+                    {
+                        if (c.Participantes[0] != c.Participantes[1])
+                        {
+                            Podio.SecondPlace = c.Ganador;
+                            Podio.ThirdPlace = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
+                        }
+                    }
+                }else if (VerificarCombatePodio())
+                {
+                    Combate c1 = CombatesActivos[0].FirstPlace ? CombatesActivos[0] : CombatesActivos[1];
+                    Combate c2 = CombatesActivos[0].ThirdPlace ? CombatesActivos[0] : CombatesActivos[1];
+
+                    Podio.FirstPlace = c1.Ganador;
+                    Podio.SecondPlace = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
+                    Podio.ThirdPlace = c2.Ganador;
+
+                }
+                else
+                {
+                    Combate c1 = CombatesActivos[0];
+                    Combate c2 = CombatesActivos[1];
+                    Combate firstPlace = new Combate(c1.Ganador, c2.Ganador);
+                    Competidor p1 = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
+                    Competidor p2 = c2.Participantes[0] == c2.Ganador ? c2.Participantes[1] : c2.Participantes[0];
+                    Combate thirdPlace = new Combate(p1, p2);
+                    firstPlace.FirstPlace = true;
+                    thirdPlace.ThirdPlace = true;
+                    List<Combate> combates = new List<Combate>();
+                    combates.Add(firstPlace);
+                    combates.Add(thirdPlace);
+
+                }
+            }
+        }
+
+        public bool VerificarCombatePodio()
+        {
+            if((CombatesActivos[0].FirstPlace || CombatesActivos[0].ThirdPlace) && (CombatesActivos[1].FirstPlace || CombatesActivos[1].ThirdPlace))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Combate VerificarParticipantesIguales()
+        {
+            foreach(Combate c in CombatesActivos)
+            {
+                if(c.Participantes[0] == c.Participantes[1])
+                {
+                    return c;
+                }
+                
+            }
+            return null;
+        }
+
         public void ReemparejarGanadores()
         {
             List<Competidor> participantes = new List<Competidor>();
@@ -64,6 +128,7 @@ namespace TorneoApp.Model
 
         public void ClasificarParticipantesVencidos(List<Competidor> ganadores)
         {
+            //Realizar una lista temporal para que el metodo funcione
             foreach(Competidor c in Participantes)
             {
                 if (!ganadores.Contains(c))
@@ -80,6 +145,7 @@ namespace TorneoApp.Model
         public CatSanda()
         {
             Opened = true;
+            ParticipantesVencidos = new List<Competidor>();
         }
 
         public override void CalcularMean(){

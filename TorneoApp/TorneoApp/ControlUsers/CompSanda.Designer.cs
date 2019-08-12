@@ -35,9 +35,9 @@
             this.listCombates = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.BoxBronce = new System.Windows.Forms.TextBox();
+            this.BoxPlata = new System.Windows.Forms.TextBox();
+            this.BoxOro = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -135,9 +135,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
-            this.panel2.Controls.Add(this.textBox14);
-            this.panel2.Controls.Add(this.textBox13);
-            this.panel2.Controls.Add(this.textBox12);
+            this.panel2.Controls.Add(this.BoxBronce);
+            this.panel2.Controls.Add(this.BoxPlata);
+            this.panel2.Controls.Add(this.BoxOro);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
@@ -147,38 +147,38 @@
             this.panel2.Size = new System.Drawing.Size(324, 199);
             this.panel2.TabIndex = 2;
             // 
-            // textBox14
+            // BoxBronce
             // 
-            this.textBox14.Enabled = false;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox14.Location = new System.Drawing.Point(123, 149);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(177, 29);
-            this.textBox14.TabIndex = 22;
+            this.BoxBronce.Enabled = false;
+            this.BoxBronce.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BoxBronce.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.BoxBronce.Location = new System.Drawing.Point(123, 149);
+            this.BoxBronce.Name = "BoxBronce";
+            this.BoxBronce.ReadOnly = true;
+            this.BoxBronce.Size = new System.Drawing.Size(177, 29);
+            this.BoxBronce.TabIndex = 22;
             // 
-            // textBox13
+            // BoxPlata
             // 
-            this.textBox13.Enabled = false;
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox13.Location = new System.Drawing.Point(123, 109);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(177, 29);
-            this.textBox13.TabIndex = 22;
+            this.BoxPlata.Enabled = false;
+            this.BoxPlata.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BoxPlata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.BoxPlata.Location = new System.Drawing.Point(123, 109);
+            this.BoxPlata.Name = "BoxPlata";
+            this.BoxPlata.ReadOnly = true;
+            this.BoxPlata.Size = new System.Drawing.Size(177, 29);
+            this.BoxPlata.TabIndex = 22;
             // 
-            // textBox12
+            // BoxOro
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.textBox12.Location = new System.Drawing.Point(123, 66);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(177, 29);
-            this.textBox12.TabIndex = 22;
+            this.BoxOro.Enabled = false;
+            this.BoxOro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BoxOro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.BoxOro.Location = new System.Drawing.Point(123, 66);
+            this.BoxOro.Name = "BoxOro";
+            this.BoxOro.ReadOnly = true;
+            this.BoxOro.Size = new System.Drawing.Size(177, 29);
+            this.BoxOro.TabIndex = 22;
             // 
             // label16
             // 
@@ -563,9 +563,9 @@
         private System.Windows.Forms.ListView listCombates;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox BoxBronce;
+        private System.Windows.Forms.TextBox BoxPlata;
+        private System.Windows.Forms.TextBox BoxOro;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

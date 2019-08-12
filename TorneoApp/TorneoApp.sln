@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneoApp", "TorneoApp\Torn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTorneoApp", "TestTorneoApp\TestTorneoApp.csproj", "{E16C6ECB-0B12-422E-92FC-3920E5C24B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TallerGmap", "..\..\..\ICESI\Proyecto Integrador I\Talleres\TallerGMap\TallerGmap\TallerGmap\TallerGmap.csproj", "{FEC8A441-1A67-43DA-8E77-3B22EBFAA86E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{E16C6ECB-0B12-422E-92FC-3920E5C24B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E16C6ECB-0B12-422E-92FC-3920E5C24B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E16C6ECB-0B12-422E-92FC-3920E5C24B65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FEC8A441-1A67-43DA-8E77-3B22EBFAA86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEC8A441-1A67-43DA-8E77-3B22EBFAA86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEC8A441-1A67-43DA-8E77-3B22EBFAA86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEC8A441-1A67-43DA-8E77-3B22EBFAA86E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

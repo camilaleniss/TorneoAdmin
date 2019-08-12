@@ -18,6 +18,11 @@ namespace TorneoApp.Model
         //Rounds del combate
         public List<Round> Rounds { get; set; }
 
+        public bool FirstPlace { get; set; }
+
+        public bool ThirdPlace { get; set; }
+
+
         public Combate(Competidor c1, Competidor c2) {
             Participantes = new Competidor[2];
             Participantes[0] = c1;
@@ -28,13 +33,13 @@ namespace TorneoApp.Model
 
         }
 
-        public void CalcularGanador()
+        public bool CalcularGanador()
         {
             int azul = 0;
             int rojo = 0;
             for (int i = 0; i < Rounds.Count; i++)
             {
-                if (Rounds[i].Ganador == 0)
+                if (Rounds[i].Ganador == 1)
                 {
                     azul++;
                 }
@@ -54,7 +59,9 @@ namespace TorneoApp.Model
             else
             {
                 Rounds.Add(new Round());
+                return false;
             }
+            return true;
         }
 
         public override String ToString()

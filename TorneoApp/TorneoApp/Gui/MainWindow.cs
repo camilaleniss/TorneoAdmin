@@ -376,6 +376,7 @@ namespace TorneoApp.Model
 
             }
             compsanda.MostrarCombates(combates);
+            compsanda.MostrarPodio(categoria);
             compsanda.VaciarRondas();
 
         }
@@ -399,9 +400,19 @@ namespace TorneoApp.Model
                     return;
                 }
             }
-            categoria.ReemparejarGanadores();
-            categoria.RondaDeCombates();
-            MostrarCombates(indexCategoria);
+            if(categoria.CombatesActivos.Count == 2)
+            {
+                categoria.CrearPodio();
+                compsanda.MostrarPodio(categoria);
+                MostrarCombates(indexCategoria);
+            }
+            else
+            {
+                categoria.ReemparejarGanadores();
+                categoria.RondaDeCombates();
+                MostrarCombates(indexCategoria);
+            }
+            
             
         }
 
@@ -409,7 +420,7 @@ namespace TorneoApp.Model
         {
             CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
             Combate combate = categoria.CombatesActivos[indexCombate];
-            if(combate.Rounds[selectedIndex].Puntajes != null)
+            if(combate.Rounds.Count > selectedIndex && combate.Rounds[selectedIndex].Puntajes != null)
             {
                 compsanda.MostrarRondas(combate.Rounds[selectedIndex]);
             }
@@ -453,18 +464,14 @@ namespace TorneoApp.Model
 
             compsanda.GanadorRonda(ganador);
             compsanda.GanadorCombate(combate);
+
+            bool cond = combate.CalcularGanador();
             if(indexRonda == 1)
             {
-                if(combate.Rounds[0].Ganador != combate.Rounds[1].Ganador)
-                {
-                    compsanda.AbrirTercerRound();
-
-                }
-                else
-                {   
-                    compsanda.ResumenCombate(ganador);
-                }
+                compsanda.AbrirTercerRound(cond);
             }
+            
+            compsanda.ResumenCombate(combate);
 
         }
 

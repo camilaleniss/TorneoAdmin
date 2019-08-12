@@ -59,6 +59,7 @@ namespace TorneoApp.ControlUsers
         private void ComboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             IndexCategoria = comboCategory.SelectedIndex;
+            VaciarPodio();
             Main.MostrarCombates(IndexCategoria);
         }
 
@@ -116,14 +117,27 @@ namespace TorneoApp.ControlUsers
             
         }
 
-        public void AbrirTercerRound()
+        public void AbrirTercerRound(bool cond)
         {
-            comboBoxRound.Items.Add("Round 3");
+            if (!cond)
+            {
+                comboBoxRound.Items.Add("Round 3");
+            }
+            
         }
 
-        public void ResumenCombate(string ganador)
+        public void ResumenCombate(Combate c)
         {
-                resumenCombate.Text = ganador;
+            string resumen = c.Ganador == c.Participantes[0] ? "Azul" : "Rojo";
+            if(c.Ganador != null)
+            {
+                resumenCombate.Text = resumen;
+            }
+            else
+            {
+                resumenCombate.Text = "";
+            }
+              
         }
 
         public void GanadorRonda(string ganador)
@@ -176,12 +190,36 @@ namespace TorneoApp.ControlUsers
             juez2Rojo.Text = "";
             juez3Rojo.Text = "";
             textBoxGanador.Text = "";
+            resumenCombate.Text = "";
             
         }
 
         private void BotonPasarRonda_Click(object sender, EventArgs e)
         {
             Main.PasarRonda(IndexCategoria);
+        }
+
+        public void MostrarPodio(Categoria c)
+        {
+            if(c.Podium.FirstPlace != null)
+            {
+                BoxOro.Text = c.Podium.FirstPlace.ToString();
+            }
+            if(c.Podium.SecondPlace != null)
+            {
+                BoxPlata.Text = c.Podium.SecondPlace.ToString();
+            }
+            if(c.Podium.ThirdPlace != null)
+            {
+                BoxBronce.Text = c.Podium.ThirdPlace.ToString();
+            }
+        }
+
+        public void VaciarPodio()
+        {
+            BoxOro.Text = "";
+            BoxPlata.Text = "";
+            BoxBronce.Text = "";
         }
     }
 }
