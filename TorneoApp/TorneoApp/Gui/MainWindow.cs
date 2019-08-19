@@ -343,19 +343,20 @@ namespace TorneoApp.Model
         //COMPETENCIA SANDA
         public void InitializeCompetenciaSanda()
         {
-            var Categorias = Torneo.CategoriasSanda;
+            List<CatSanda> Categorias = Torneo.CategoriasSanda;
             List<String> catString = new List<string>();
-            foreach (var category in Categorias)
+            foreach (CatSanda category in Categorias)
             {
                 catString.Add(category.Nombre);
-                compsanda.InitCategories(catString);
+                
             }
+            compsanda.InitCategories(catString);
             InitCombates(Categorias);
         }
-
+        
         public void InitCombates(List<CatSanda> categoriasSanda)
         {
-            foreach (var category in categoriasSanda)
+            foreach (CatSanda category in categoriasSanda)
             {
                 category.RondaDeCombates();
             }
@@ -363,8 +364,8 @@ namespace TorneoApp.Model
 
         public void MostrarCombates(int index)
         {
-
-            CatSanda categoria = Torneo.CategoriasSanda.ToArray()[index];
+            int x = Torneo.CategoriasSanda.Count;
+            CatSanda categoria = Torneo.CategoriasSanda[index];
             List<Combate> tempCombates = categoria.CombatesActivos;
             List<String> combates = new List<string>();
             foreach (Combate c in tempCombates)
@@ -466,11 +467,7 @@ namespace TorneoApp.Model
             compsanda.GanadorCombate(combate);
 
             bool cond = combate.CalcularGanador();
-            if(indexRonda == 1)
-            {
-                compsanda.AbrirTercerRound(cond);
-            }
-            
+            compsanda.AbrirTercerRound(cond);
             compsanda.ResumenCombate(combate);
 
         }

@@ -126,6 +126,14 @@ namespace TorneoApp.ControlUsers
             
         }
 
+        public void CerrarTercerRound()
+        {
+            if(comboBoxRound.Items.Contains("Round 3"))
+            {
+                comboBoxRound.Items.Remove("Round 3");
+            }
+        }
+
         public void ResumenCombate(Combate c)
         {
             string resumen = c.Ganador == c.Participantes[0] ? "Azul" : "Rojo";
@@ -176,6 +184,10 @@ namespace TorneoApp.ControlUsers
                     resumenRound1.Text = "";
                     resumenRound2.Text = "";
                     resumenRound3.Text = "";
+                }
+                if(c.Rounds.Count == 2)
+                {
+                    CerrarTercerRound();
                 }
                 
             }
