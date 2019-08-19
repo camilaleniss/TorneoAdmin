@@ -43,7 +43,7 @@ namespace TorneoApp.Model
                 {
                     azul++;
                 }
-                else
+                else if(Rounds[i].Ganador == 2)
                 {
                     rojo++;
                 }

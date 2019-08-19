@@ -110,7 +110,7 @@ namespace TorneoApp.ControlUsers
                 puntajes[1, 1] = int.Parse(juez2Rojo.Text);
                 puntajes[1, 2] = int.Parse(juez3Rojo.Text);
                 Main.ModificarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda, puntajes);
-            }catch (FormatException _)
+            }catch (FormatException)
             {
                 MessageBox.Show("Llene todos los espacios correctamente antes de hallar al ganador", "Formato erroneo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

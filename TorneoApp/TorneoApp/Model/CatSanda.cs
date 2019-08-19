@@ -50,9 +50,23 @@ namespace TorneoApp.Model
 
         public void CrearPodio()
         {
-            if(CombatesActivos.Count == 2)
+            Combate combateIgual = VerificarParticipantesIguales();
+            if (CombatesActivos.Count == 1)
             {
-                Combate combateIgual = VerificarParticipantesIguales();
+                if (combateIgual != null)
+                {
+                    Podio.FirstPlace = combateIgual.Ganador;
+                }
+                else
+                {
+                    Combate c = CombatesActivos[0];
+                    Podio.FirstPlace = c.Ganador;
+                    Podio.SecondPlace = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
+                }
+            }else if(CombatesActivos.Count == 2 && combateIgual != null)
+            {
+                //El que no pelea gana el oro directamente y el otro combate decide plata y bronce
+                /*
                 if (combateIgual != null)
                 {
                     Podio.FirstPlace = combateIgual.Ganador;
@@ -64,31 +78,57 @@ namespace TorneoApp.Model
                             Podio.ThirdPlace = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
                         }
                     }
-                }else if (VerificarCombatePodio())
-                {
-                    Combate c1 = CombatesActivos[0].FirstPlace ? CombatesActivos[0] : CombatesActivos[1];
-                    Combate c2 = CombatesActivos[0].ThirdPlace ? CombatesActivos[0] : CombatesActivos[1];
-
-                    Podio.FirstPlace = c1.Ganador;
-                    Podio.SecondPlace = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
-                    Podio.ThirdPlace = c2.Ganador;
-
                 }
-                else
+                */
+                //El que no peleo pasa de ronda a pelear con el ganador del otro combate para disputar el oro
+                if(combateIgual != null)
                 {
-                    Combate c1 = CombatesActivos[0];
-                    Combate c2 = CombatesActivos[1];
-                    Combate firstPlace = new Combate(c1.Ganador, c2.Ganador);
-                    Competidor p1 = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
-                    Competidor p2 = c2.Participantes[0] == c2.Ganador ? c2.Participantes[1] : c2.Participantes[0];
-                    Combate thirdPlace = new Combate(p1, p2);
-                    firstPlace.FirstPlace = true;
-                    thirdPlace.ThirdPlace = true;
+                    Competidor p1 = combateIgual.Ganador;
+                    Competidor p2;
+                    Competidor p3;
+                    if (combateIgual != CombatesActivos[0])
+                    {
+                        Combate c = CombatesActivos[0];
+                        p2 = CombatesActivos[0].Ganador;
+                        p3 = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
+                    }
+                    else
+                    {
+                        Combate c = CombatesActivos[1];
+                        p2 = CombatesActivos[1].Ganador;
+                        p3 = c.Participantes[1] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
+                    }
+                    Combate firstPlace = new Combate(p1, p2);
+                    Podio.ThirdPlace = p3;
                     List<Combate> combates = new List<Combate>();
                     combates.Add(firstPlace);
-                    combates.Add(thirdPlace);
-
+                    CombatesActivos = combates;
                 }
+            }
+            else if (VerificarCombatePodio())
+            {
+                Combate c1 = CombatesActivos[0].FirstPlace ? CombatesActivos[0] : CombatesActivos[1];
+                Combate c2 = CombatesActivos[0].ThirdPlace ? CombatesActivos[0] : CombatesActivos[1];
+
+                Podio.FirstPlace = c1.Ganador;
+                Podio.SecondPlace = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
+                Podio.ThirdPlace = c2.Ganador;
+
+            }
+            else
+            {
+                Combate c1 = CombatesActivos[0];
+                Combate c2 = CombatesActivos[1];
+                Combate firstPlace = new Combate(c1.Ganador, c2.Ganador);
+                Competidor p1 = c1.Participantes[0] == c1.Ganador ? c1.Participantes[1] : c1.Participantes[0];
+                Competidor p2 = c2.Participantes[0] == c2.Ganador ? c2.Participantes[1] : c2.Participantes[0];
+                Combate thirdPlace = new Combate(p1, p2);
+                firstPlace.FirstPlace = true;
+                thirdPlace.ThirdPlace = true;
+                List<Combate> combates = new List<Combate>();
+                combates.Add(firstPlace);
+                combates.Add(thirdPlace);
+                CombatesActivos = combates;
             }
         }
 

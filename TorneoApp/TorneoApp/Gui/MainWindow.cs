@@ -364,15 +364,18 @@ namespace TorneoApp.Model
 
         public void MostrarCombates(int index)
         {
-            int x = Torneo.CategoriasSanda.Count;
             CatSanda categoria = Torneo.CategoriasSanda[index];
             List<Combate> tempCombates = categoria.CombatesActivos;
             List<String> combates = new List<string>();
             foreach (Combate c in tempCombates)
             {
-                if (c.Ganador == null)
+                if (c.Participantes[0] != c.Participantes[1])
                 {
                     combates.Add(c.ToString());
+                }
+                else
+                {
+                    combates.Add(c.Participantes[0].Name + "(Pase ronda)");
                 }
 
             }
@@ -384,9 +387,11 @@ namespace TorneoApp.Model
 
         public void MostrarRondas(int indexCategoria, int indexCombate)
         {
+            compsanda.VaciarRondas();
             CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
             Combate combate = categoria.CombatesActivos[indexCombate];
             compsanda.GanadorCombate(combate);
+            compsanda.ResumenCombate(combate);
 
         }
 
@@ -406,6 +411,7 @@ namespace TorneoApp.Model
                 categoria.CrearPodio();
                 compsanda.MostrarPodio(categoria);
                 MostrarCombates(indexCategoria);
+                
             }
             else
             {
@@ -548,7 +554,7 @@ namespace TorneoApp.Model
             {
                 this.Torneo = Torneo.LeerTorneo();
                 MessageBox.Show("Torneo recuperado exitosamente");
-            }catch(Exception e)
+            }catch(Exception)
             {
                 MessageBox.Show("No se pudo recuperar el torneo anterior");
             }
