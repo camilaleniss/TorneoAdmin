@@ -114,11 +114,13 @@
             // 
             // listCombates
             // 
+            this.listCombates.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listCombates.Location = new System.Drawing.Point(19, 76);
             this.listCombates.Name = "listCombates";
             this.listCombates.Size = new System.Drawing.Size(281, 126);
             this.listCombates.TabIndex = 6;
             this.listCombates.UseCompatibleStateImageBehavior = false;
+            this.listCombates.View = System.Windows.Forms.View.List;
             this.listCombates.SelectedIndexChanged += new System.EventHandler(this.ListCombates_SelectedIndexChanged);
             // 
             // label2

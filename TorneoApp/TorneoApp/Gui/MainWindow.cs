@@ -626,5 +626,10 @@ namespace TorneoApp.Model
             rankingview.InitializeRanking(Formas, true);
             rankingview.InitializeRanking(Sanda, false);
         }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

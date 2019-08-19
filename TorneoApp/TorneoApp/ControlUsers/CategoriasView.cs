@@ -60,12 +60,12 @@ namespace TorneoApp.ControlUsers
 
         private void ButVerSanda_Click(object sender, EventArgs e)
         {
-            Main.ShowView("CatSanda");        
+            Main.ShowView(MainWindow.CATSANDA);        
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Main.ShowView("CatFormas");
+            Main.ShowView(MainWindow.CATFORMAS);
         }
 
         private void ListCategorias_SelectedIndexChanged(object sender, EventArgs e)

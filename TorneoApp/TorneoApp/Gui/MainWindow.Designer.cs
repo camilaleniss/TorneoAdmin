@@ -65,6 +65,7 @@
             this.mainView.Name = "mainView";
             this.mainView.Size = new System.Drawing.Size(706, 519);
             this.mainView.TabIndex = 0;
+            this.mainView.Load += new System.EventHandler(this.MainView_Load);
             // 
             // Banner
             // 
