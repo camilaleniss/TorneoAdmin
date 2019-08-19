@@ -199,19 +199,19 @@ namespace TorneoApp.ControlUsers
             Main.PasarRonda(IndexCategoria);
         }
 
-        public void MostrarPodio(Categoria c)
+        public void MostrarPodio(CatSanda c)
         {
-            if(c.Podium.FirstPlace != null)
+            if(c.Podio.FirstPlace != null)
             {
-                BoxOro.Text = c.Podium.FirstPlace.ToString();
+                BoxOro.Text = c.Podio.FirstPlace.Name;
             }
-            if(c.Podium.SecondPlace != null)
+            if(c.Podio.SecondPlace != null)
             {
-                BoxPlata.Text = c.Podium.SecondPlace.ToString();
+                BoxPlata.Text = c.Podio.SecondPlace.Name;
             }
-            if(c.Podium.ThirdPlace != null)
+            if(c.Podio.ThirdPlace != null)
             {
-                BoxBronce.Text = c.Podium.ThirdPlace.ToString();
+                BoxBronce.Text = c.Podio.ThirdPlace.Name;
             }
         }
 

@@ -128,15 +128,26 @@ namespace TorneoApp.Model
 
         public void ClasificarParticipantesVencidos(List<Competidor> ganadores)
         {
-            //Realizar una lista temporal para que el metodo funcione
-            foreach(Competidor c in Participantes)
+            List<Competidor> participantesRestantes = ClonarLista(Participantes);
+            foreach (Competidor c in Participantes)
             {
                 if (!ganadores.Contains(c))
                 {
                     ParticipantesVencidos.Add(c);
-                    Participantes.Remove(c);
+                    participantesRestantes.Remove(c);
                 }
             }
+            Participantes = participantesRestantes;
+        }
+
+        public List<Competidor> ClonarLista(List<Competidor> list)
+        {
+            List<Competidor> nLista = new List<Competidor>();
+            foreach(Competidor c in list)
+            {
+                nLista.Add(c);
+            }
+            return nLista;
         }
         public bool IsMan { get; set; }
 
@@ -146,6 +157,7 @@ namespace TorneoApp.Model
         {
             Opened = true;
             ParticipantesVencidos = new List<Competidor>();
+            Podio = new Podium();
         }
 
         public override void CalcularMean(){

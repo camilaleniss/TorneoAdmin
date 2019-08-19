@@ -400,7 +400,7 @@ namespace TorneoApp.Model
                     return;
                 }
             }
-            if(categoria.CombatesActivos.Count == 2)
+            if(categoria.CombatesActivos.Count <= 2)
             {
                 categoria.CrearPodio();
                 compsanda.MostrarPodio(categoria);
