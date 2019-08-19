@@ -62,6 +62,8 @@ namespace TorneoApp.Model
         //Si está presente el competidor
         public bool IsHere { get; set; }
 
+        public bool Ganador { get; set; }
+
         public Competidor(string Name, bool IsMan, int Edad, int Peso, bool IsBlackBelt, 
             int TiempoEntrenando, string Eps, string TelefonoPersonal,
             string ContactName, string TelefonoAcudiente, string Email, Escuela Escuela)

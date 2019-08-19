@@ -75,6 +75,7 @@ namespace TorneoApp.ControlUsers
                 string text = listCombates.Items[intselectedindex].Text;
                 IndexCombate = intselectedindex;
                 nombreDelCombate.Text = text;
+                comboBoxRound.SelectedIndex = 0;
 
                 VaciarRondas();
                 CargarInformacion();
@@ -86,12 +87,13 @@ namespace TorneoApp.ControlUsers
             IndexRonda = 0;
             Main.MostrarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda);
             Main.MostrarRondas(IndexCategoria, IndexCombate); 
+            
         }
 
         private void ComboBoxRound_SelectedIndexChanged(object sender, EventArgs e)
         {
             IndexRonda = comboBoxRound.SelectedIndex;
-            Main.MostrarPuntajeRonda(IndexCategoria, IndexCombate, comboBoxRound.SelectedIndex);
+            Main.MostrarPuntajeRonda(IndexCategoria, IndexCombate, IndexRonda);
         }
 
         private void GanadorButton_Click(object sender, EventArgs e) 

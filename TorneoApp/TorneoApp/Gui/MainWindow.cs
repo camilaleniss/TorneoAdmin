@@ -387,7 +387,7 @@ namespace TorneoApp.Model
 
         public void MostrarRondas(int indexCategoria, int indexCombate)
         {
-            compsanda.VaciarRondas();
+            //compsanda.VaciarRondas();
             CatSanda categoria = Torneo.CategoriasSanda.ToArray()[indexCategoria];
             Combate combate = categoria.CombatesActivos[indexCombate];
             compsanda.GanadorCombate(combate);
@@ -406,7 +406,7 @@ namespace TorneoApp.Model
                     return;
                 }
             }
-            if(categoria.CombatesActivos.Count <= 2)
+            if(categoria.CombatesActivos.Count <= 3)
             {
                 categoria.CrearPodio();
                 compsanda.MostrarPodio(categoria);

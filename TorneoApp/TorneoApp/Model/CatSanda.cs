@@ -18,34 +18,58 @@ namespace TorneoApp.Model
 
         public Podium Podio { get; set; }
 
+        public Dictionary<Competidor, int> TresCombatientes { get; set;  }
+
+        public int CasoTresCombatientes;
+
         public void RondaDeCombates()
         {
 
             List<Combate> combates = new List<Combate>();
             Random rand = new Random();
             List<int> possible = Enumerable.Range(0, Participantes.Count).ToList();
-            for (int i = 0; i < Participantes.Count() / 2; i++)
+            if(Participantes.Count == 3)
             {
-                int index = rand.Next(0, possible.Count);
-                Competidor p1 = Participantes[possible[index]];
-                possible.RemoveAt(index);
-                int index2 = rand.Next(0, possible.Count);
-                Competidor p2 = Participantes[possible[index2]];
-                possible.RemoveAt(index2);
-                
-                Combate c = new Combate(p1, p2);
-                combates.Add(c);
+                for(int i = 0; i < Participantes.Count-1; i++)
+                {
+                    for(int j = i+1; j < Participantes.Count; j++)
+                    {
+                        combates.Add(new Combate(Participantes[i], Participantes[j]));
+                    }
+                }
             }
-            if (possible.Count > 0)
+            else
             {
-                //Solucion temporal a competidores impares 
-                //Se debe crear una variable dummy para estas situaciones
-                Combate c = new Combate(Participantes[possible[0]], Participantes[possible[0]]);
-                c.Ganador = Participantes[possible[0]];
-                combates.Add(c);
+                for (int i = 0; i < Participantes.Count() / 2; i++)
+                {
+                    int index = rand.Next(0, possible.Count);
+                    Competidor p1 = Participantes[possible[index]];
+                    possible.RemoveAt(index);
+                    int index2 = rand.Next(0, possible.Count);
+                    Competidor p2 = Participantes[possible[index2]];
+                    possible.RemoveAt(index2);
+
+                    Combate c = new Combate(p1, p2);
+                    combates.Add(c);
+                }
+                if (possible.Count > 0)
+                {
+                    //Solucion temporal a competidores impares 
+                    //Se debe crear una variable dummy para estas situaciones
+                    Combate c = new Combate(Participantes[possible[0]], Participantes[possible[0]]);
+                    c.Ganador = Participantes[possible[0]];
+                    combates.Add(c);
+                }
             }
+            
 
             this.CombatesActivos = combates;
+            
+        }
+
+        private void RondaDeCombates(List<Competidor> p)
+        {
+
         }
 
         public void CrearPodio()
@@ -63,7 +87,7 @@ namespace TorneoApp.Model
                     Podio.FirstPlace = c.Ganador;
                     Podio.SecondPlace = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
                 }
-            }else if(CombatesActivos.Count == 2 && combateIgual != null)
+            }else if(CombatesActivos.Count == 3)
             {
                 //El que no pelea gana el oro directamente y el otro combate decide plata y bronce
                 /*
@@ -81,28 +105,32 @@ namespace TorneoApp.Model
                 }
                 */
                 //El que no peleo pasa de ronda a pelear con el ganador del otro combate para disputar el oro
-                if(combateIgual != null)
+                TresCombatientes = new Dictionary<Competidor, int>();
+                foreach(Competidor c in Participantes)
                 {
-                    Competidor p1 = combateIgual.Ganador;
-                    Competidor p2;
-                    Competidor p3;
-                    if (combateIgual != CombatesActivos[0])
-                    {
-                        Combate c = CombatesActivos[0];
-                        p2 = CombatesActivos[0].Ganador;
-                        p3 = c.Participantes[0] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
-                    }
-                    else
-                    {
-                        Combate c = CombatesActivos[1];
-                        p2 = CombatesActivos[1].Ganador;
-                        p3 = c.Participantes[1] == c.Ganador ? c.Participantes[1] : c.Participantes[0];
-                    }
-                    Combate firstPlace = new Combate(p1, p2);
-                    Podio.ThirdPlace = p3;
-                    List<Combate> combates = new List<Combate>();
-                    combates.Add(firstPlace);
-                    CombatesActivos = combates;
+                    TresCombatientes.Add(c, 0);
+                }
+
+                foreach(Combate combate in CombatesActivos)
+                {
+                    TresCombatientes[combate.Ganador] = TresCombatientes[combate.Ganador] + 1;
+                }
+                //En caso de que los 3 empaten entre si se vuelve a generar de nuevo la ronda
+                if (TresCombatientes[Participantes[0]] == 1 && TresCombatientes[Participantes[1]] == 1 && TresCombatientes[Participantes[2]] == 1)
+                {
+                    RondaDeCombates();
+                }
+                else
+                {
+                    Competidor c1 = MaxValue(TresCombatientes);
+                    TresCombatientes.Remove(c1);
+                    Competidor c2 = MaxValue(TresCombatientes);
+                    TresCombatientes.Remove(c2);
+                    Competidor c3 = TresCombatientes.Keys.ToArray()[0];
+                    TresCombatientes.Remove(c3);
+                    Podio.FirstPlace = c1;
+                    Podio.SecondPlace = c2;
+                    Podio.ThirdPlace = c3;
                 }
             }
             else if (VerificarCombatePodio())
@@ -132,6 +160,18 @@ namespace TorneoApp.Model
             }
         }
 
+        private Competidor MaxValue(Dictionary<Competidor, int> map)
+        {
+            int max = map.Values.Max();
+            for(int i = 0; i < map.Keys.Count; i++)
+            {
+                if(map[map.Keys.ToArray()[i]] == max)
+                {
+                    return map.Keys.ToArray()[i];
+                }
+            }
+            return null;
+        }
         public bool VerificarCombatePodio()
         {
             if((CombatesActivos[0].FirstPlace || CombatesActivos[0].ThirdPlace) && (CombatesActivos[1].FirstPlace || CombatesActivos[1].ThirdPlace))
